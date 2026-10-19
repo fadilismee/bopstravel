@@ -1,0 +1,1 @@
+.guest-conversion-strip-enter-active,.guest-conversion-strip-leave-active{transition:transform .25s ease,opacity .25s ease}.guest-conversion-strip-enter-from,.guest-conversion-strip-leave-to{opacity:0;transform:translateY(var(--guest-conversion-strip-slide))}@media(max-width:767px){.guest-conversion-strip-enter-from,.guest-conversion-strip-leave-to{transform:none}}
