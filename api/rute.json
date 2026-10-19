@@ -1,0 +1,31 @@
+{
+  "popular": [
+    {"origin": "Jakarta", "destination": "Solo", "slug": "jakarta-solo", "service_type": "Travel antarkota", "url": "https://wa.me/6281228746964?text=Halo%20Bob%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Solo"},
+    {"origin": "Jakarta", "destination": "Surabaya", "slug": "jakarta-surabaya", "service_type": "Travel antarkota", "url": "https://wa.me/6281228746964?text=Halo%20Bob%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Surabaya"},
+    {"origin": "Jakarta", "destination": "Malang", "slug": "jakarta-malang", "service_type": "Travel antarkota", "url": "https://wa.me/6281228746964?text=Halo%20Bob%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Malang"},
+    {"origin": "Jakarta", "destination": "Bandung", "slug": "jakarta-bandung", "service_type": "Travel antarkota", "url": "https://wa.me/6281228746964?text=Halo%20Bob%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Bandung"},
+    {"origin": "Bandung", "destination": "Yogyakarta", "slug": "bandung-yogyakarta", "service_type": "Travel antarkota", "url": "https://wa.me/6281228746964?text=Halo%20Bob%20Travel,%20saya%20ingin%20tanya%20rute%20Bandung%20-%20Yogyakarta"},
+    {"origin": "Semarang", "destination": "Surabaya", "slug": "semarang-surabaya", "service_type": "Travel antarkota", "url": "https://wa.me/6281228746964?text=Halo%20Bob%20Travel,%20saya%20ingin%20tanya%20rute%20Semarang%20-%20Surabaya"},
+    {"origin": "Surabaya", "destination": "Malang", "slug": "surabaya-malang", "service_type": "Travel antarkota", "url": "https://wa.me/6281228746964?text=Halo%20Bob%20Travel,%20saya%20ingin%20tanya%20rute%20Surabaya%20-%20Malang"}
+  ],
+  "all": [
+    {"origin": "Jakarta", "destination": "Solo", "slug": "jakarta-solo", "service_type": "Travel antarkota", "url": "https://wa.me/6281228746964?text=Halo%20Bob%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Solo"},
+    {"origin": "Jakarta", "destination": "Surabaya", "slug": "jakarta-surabaya", "service_type": "Travel antarkota", "url": "https://wa.me/6281228746964?text=Halo%20Bob%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Surabaya"},
+    {"origin": "Jakarta", "destination": "Malang", "slug": "jakarta-malang", "service_type": "Travel antarkota", "url": "https://wa.me/6281228746964?text=Halo%20Bob%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Malang"},
+    {"origin": "Jakarta", "destination": "Bandung", "slug": "jakarta-bandung", "service_type": "Travel antarkota", "url": "https://wa.me/6281228746964?text=Halo%20Bob%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Bandung"},
+    {"origin": "Jakarta", "destination": "Cirebon", "slug": "jakarta-cirebon", "service_type": "Travel antarkota", "url": "https://wa.me/6281228746964?text=Halo%20Bob%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Cirebon"},
+    {"origin": "Jakarta", "destination": "Pekalongan", "slug": "jakarta-pekalongan", "service_type": "Travel antarkota", "url": "https://wa.me/6281228746964?text=Halo%20Bob%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Pekalongan"},
+    {"origin": "Jakarta", "destination": "Purwokerto", "slug": "jakarta-purwokerto", "service_type": "Travel antarkota", "url": "https://wa.me/6281228746964?text=Halo%20Bob%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Purwokerto"},
+    {"origin": "Jakarta", "destination": "Tegal", "slug": "jakarta-tegal", "service_type": "Travel antarkota", "url": "https://wa.me/6281228746964?text=Halo%20Bob%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Tegal"},
+    {"origin": "Bandung", "destination": "Yogyakarta", "slug": "bandung-yogyakarta", "service_type": "Travel antarkota", "url": "https://wa.me/6281228746964?text=Halo%20Bob%20Travel,%20saya%20ingin%20tanya%20rute%20Bandung%20-%20Yogyakarta"},
+    {"origin": "Bandung", "destination": "Semarang", "slug": "bandung-semarang", "service_type": "Travel antarkota", "url": "https://wa.me/6281228746964?text=Halo%20Bob%20Travel,%20saya%20ingin%20tanya%20rute%20Bandung%20-%20Semarang"},
+    {"origin": "Bandung", "destination": "Malang", "slug": "bandung-malang", "service_type": "Travel antarkota", "url": "https://wa.me/6281228746964?text=Halo%20Bob%20Travel,%20saya%20ingin%20tanya%20rute%20Bandung%20-%20Malang"},
+    {"origin": "Semarang", "destination": "Yogyakarta", "slug": "semarang-yogyakarta", "service_type": "Travel antarkota", "url": "https://wa.me/6281228746964?text=Halo%20Bob%20Travel,%20saya%20ingin%20tanya%20rute%20Semarang%20-%20Yogyakarta"},
+    {"origin": "Semarang", "destination": "Surabaya", "slug": "semarang-surabaya", "service_type": "Travel antarkota", "url": "https://wa.me/6281228746964?text=Halo%20Bob%20Travel,%20saya%20ingin%20tanya%20rute%20Semarang%20-%20Surabaya"},
+    {"origin": "Semarang", "destination": "Malang", "slug": "semarang-malang", "service_type": "Travel antarkota", "url": "https://wa.me/6281228746964?text=Halo%20Bob%20Travel,%20saya%20ingin%20tanya%20rute%20Semarang%20-%20Malang"},
+    {"origin": "Yogyakarta", "destination": "Surabaya", "slug": "yogyakarta-surabaya", "service_type": "Travel antarkota", "url": "https://wa.me/6281228746964?text=Halo%20Bob%20Travel,%20saya%20ingin%20tanya%20rute%20Yogyakarta%20-%20Surabaya"},
+    {"origin": "Yogyakarta", "destination": "Malang", "slug": "yogyakarta-malang", "service_type": "Travel antarkota", "url": "https://wa.me/6281228746964?text=Halo%20Bob%20Travel,%20saya%20ingin%20tanya%20rute%20Yogyakarta%20-%20Malang"},
+    {"origin": "Solo", "destination": "Surabaya", "slug": "solo-surabaya", "service_type": "Travel antarkota", "url": "https://wa.me/6281228746964?text=Halo%20Bob%20Travel,%20saya%20ingin%20tanya%20rute%20Solo%20-%20Surabaya"},
+    {"origin": "Surabaya", "destination": "Malang", "slug": "surabaya-malang", "service_type": "Travel antarkota", "url": "https://wa.me/6281228746964?text=Halo%20Bob%20Travel,%20saya%20ingin%20tanya%20rute%20Surabaya%20-%20Malang"}
+  ]
+}

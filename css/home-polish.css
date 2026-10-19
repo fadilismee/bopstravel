@@ -1,0 +1,1146 @@
+/* Small UX refinements that preserve the transplanted reference design. */
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    min-height: 76px;
+    height: auto;
+    gap: clamp(14px, 2.2vw, 34px);
+    padding: 12px clamp(20px, 5vw, 76px);
+    box-shadow: 0 3px 16px rgb(20 45 70 / 5%);
+}
+.topbar > .brand { flex: 0 0 auto; }
+.site-nav { display: flex; align-items: center; justify-content: center; gap: clamp(16px, 2vw, 30px); }
+.site-nav a { padding: 10px 2px; transition: color .18s ease; }
+.site-nav a:hover, .site-nav a:focus-visible { color: #2777b9; }
+.nav-search { position: relative; min-width: 190px; max-width: 290px; flex: 1 1 220px; }
+.nav-search > span { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 15px; line-height: 1; color: #64748b; pointer-events: none; }
+.nav-search input { width: 100%; min-height: 42px; border: 1px solid #dce5ee; border-radius: 999px; padding: 0 16px 0 38px; background: #f8fafc; transition: border-color .18s ease, box-shadow .18s ease; }
+.nav-search input:focus-visible { outline: none; border-color: #4389bf; box-shadow: 0 0 0 3px rgb(67 137 191 / 15%); }
+.nav-cta { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 0 20px; border-radius: 999px; background: #1e5d99; color: white; border-color: #1e5d99; transition: transform .18s ease, background-color .18s ease, box-shadow .18s ease; }
+.nav-cta:hover { background: #174878; color: #fff; transform: translateY(-1px); box-shadow: 0 6px 16px rgb(30 93 153 / 18%); }
+.nav-cta:focus-visible, .site-nav a:focus-visible, .mobile-nav summary:focus-visible { outline: 3px solid rgb(67 137 191 / 45%); outline-offset: 3px; }
+.mobile-nav { display: none; }
+.reference-home { --ui-gap: clamp(24px, 4.5vw, 68px); }
+.reference-home > * + * { scroll-margin-top: 92px; }
+.reference-home img { background-color: #edf2f6; }
+.reference-home button, .reference-home [role="button"] { transition: transform .18s ease, box-shadow .18s ease, filter .18s ease; }
+.reference-home button:hover:not(:disabled), .reference-home [role="button"]:hover { filter: brightness(.98); transform: translateY(-1px); }
+.reference-home button:active:not(:disabled), .reference-home [role="button"]:active { transform: translateY(0) scale(.985); }
+.reference-home .carousel__slide { transition: transform .2s ease, box-shadow .2s ease; }
+.reference-home .carousel__slide:hover { transform: translateY(-2px); }
+@keyframes reference-content-arrive { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.reference-home > div { animation: reference-content-arrive .42s ease-out both; }
+.reference-home > div:nth-child(2) { animation-delay: .1s; }
+.reference-home button:focus-visible, .reference-home a:focus-visible { outline: 3px solid rgb(59 130 196 / 50%); outline-offset: 3px; }
+.reference-home input, .reference-home select { transition: border-color .18s ease, box-shadow .18s ease; }
+.reference-home input:focus-visible, .reference-home select:focus-visible { outline: none; box-shadow: 0 0 0 3px rgb(59 130 196 / 15%); }
+@media (max-width: 1050px) {
+    .topbar { flex-wrap: wrap; justify-content: space-between; gap: 10px 18px; }
+    .site-nav { gap: 18px; }
+    .nav-search { order: 4; flex-basis: 100%; max-width: none; }
+    .nav-search input { min-height: 40px; }
+}
+@media (max-width: 640px) {
+    .topbar { min-height: 68px; padding: 10px 5%; gap: 10px; }
+    .topbar > .brand { margin-right: auto; }
+    .site-nav { display: none; }
+    .mobile-nav { display: block; position: relative; order: 2; }
+    .mobile-nav summary { display: grid; align-content: center; justify-items: center; gap: 4px; width: 42px; height: 42px; list-style: none; cursor: pointer; border: 1px solid #dce5ee; border-radius: 50%; }
+    .mobile-nav summary::-webkit-details-marker { display: none; }
+    .mobile-nav summary span { display: block; width: 17px; height: 2px; border-radius: 2px; background: #17406d; transition: transform .18s ease, opacity .18s ease; }
+    .mobile-nav[open] summary span:first-child { transform: translateY(6px) rotate(45deg); }
+    .mobile-nav[open] summary span:nth-child(2) { opacity: 0; }
+    .mobile-nav[open] summary span:last-child { transform: translateY(-6px) rotate(-45deg); }
+    .mobile-nav nav { position: absolute; top: calc(100% + 12px); right: -8px; display: grid; min-width: 210px; gap: 4px; padding: 8px; border: 1px solid #e2eaf2; border-radius: 14px; background: #fff; box-shadow: 0 14px 34px rgb(16 42 70 / 14%); }
+    .mobile-nav nav a { padding: 12px; border-radius: 9px; color: #17406d; }
+    .mobile-nav nav a:hover { background: #f2f7fb; }
+    .nav-search { order: 4; min-width: 100%; margin: 0; }
+    .header-actions { order: 3; }
+    .nav-cta { min-height: 40px; padding: 0 15px; }
+}
+/* Route list (#slots): reference markup shipped .grid-wrapper with no CSS, so routes
+   collapsed into one long column. Lay them out as a tidy responsive card grid. */
+#slots {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(228px, 1fr));
+    gap: 10px 16px;
+    white-space: normal;
+    overflow: visible;
+    padding-bottom: 4px;
+    align-items: stretch;
+}
+#slots > div { min-width: 0; }
+#slots a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border: 1px solid #edf1f6;
+    border-radius: 12px;
+    background: #fbfcfe;
+    white-space: normal;
+    transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease, background-color .18s ease;
+}
+#slots a:hover {
+    border-color: #c9dff5;
+    background: #f4f9ff;
+    box-shadow: 0 6px 16px rgb(37 99 235 / 10%);
+    transform: translateY(-1px);
+}
+#slots a img { width: 18px; height: 18px; flex: 0 0 auto; background-color: transparent; }
+@media (max-width: 640px) {
+    #slots { grid-template-columns: 1fr 1fr; gap: 8px; }
+    #slots a { padding: 10px; font-size: 14px; }
+}
+/* Armada auto-slide carousel: 2 real banner photos from armadatransjava.com.
+   Scoped to .armada-carousel so other reference carousels are untouched. */
+.armada-carousel { margin-left: calc(50% - 50vw) !important; margin-right: calc(50% - 50vw) !important; max-width: 100vw !important; }
+.armada-carousel .carousel__viewport { overflow: hidden; border-radius: 0 !important; }
+.armada-carousel [class*="rounded"] { border-radius: 0 !important; }
+.armada-carousel .carousel__track { display: flex; margin: 0; padding: 0; transition: transform .6s ease; will-change: transform; }
+.armada-carousel .carousel__slide { flex: 0 0 100%; min-width: 100%; list-style: none; }
+.armada-carousel img { display: block; width: 100%; height: auto; aspect-ratio: 1024 / 145; min-height: 80px; border-radius: 0 !important; object-fit: cover; object-position: center; background-color: #eef4fb; }
+@media (max-width: 640px) { .armada-carousel .carousel__viewport, .armada-carousel img { border-radius: 0 !important; } }
+@media (prefers-reduced-motion: reduce) { .armada-carousel .carousel__track { transition: none; } }
+/* Armada vehicle photos: minimal — just the bus photo + a booking button, 2-up, auto-sliding. */
+.armada-cards { position: relative; width: 100%; overflow: hidden; }
+.armada-cards .cards-track { display: flex; gap: 10px; transition: transform .6s ease; will-change: transform; }
+.armada-cards .card { position: relative; flex: 0 0 calc(50% - 5px); min-width: 0; }
+.armada-cards .card img { display: block; width: 100%; height: 252px; object-fit: cover; object-position: center 58%; background-color: #f7fafd; border-radius: 14px; }
+.armada-cards .card-book {
+    position: absolute; right: 10px; bottom: 10px;
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 38px; padding: 9px 16px; border-radius: 12px; background: #2563eb; color: #fff;
+    border: 1px solid rgb(255 255 255 / 55%);
+    font-size: 13px; font-weight: 600; line-height: 1.15; text-decoration: none;
+    box-shadow: 0 6px 16px rgb(15 32 60 / 30%);
+    transition: background-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+.armada-cards .card-book:hover { background: #1d4ed8; transform: translateY(-1px); box-shadow: 0 9px 20px rgb(15 32 60 / 36%); }
+.armada-cards .card-book:focus-visible { outline: 3px solid rgb(37 99 235 / 45%); outline-offset: 2px; }
+.armada-cards .cards-dots { display: flex; justify-content: center; gap: 8px; margin-top: 12px; }
+.armada-cards .cards-dots button { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px; background: #d3dde8; cursor: pointer; }
+.armada-cards .cards-dots button.is-active { background: #2563eb; width: 22px; }
+@media (max-width: 640px) {
+    .armada-cards .card img { height: 168px; }
+    .armada-cards .cards-track { gap: 8px; }
+    .armada-cards .card { flex: 0 0 calc(50% - 4px); }
+    .armada-cards .card-book { min-height: 36px; padding: 7px 13px; font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) { .armada-cards .cards-track { transition: none; } }
+/* Promo & Info Perjalanan carousel — 3 slides, ordered, auto-advancing like the reff. */
+.promo-carousel .carousel__viewport { overflow: hidden; border-radius: 12px; }
+.promo-carousel .carousel__track { display: flex; transition: transform .6s ease; will-change: transform; }
+.promo-carousel .carousel__slide { flex: 0 0 100%; min-width: 100%; }
+.promo-carousel .carousel-container { display: block; }
+.promo-carousel .carousel__viewport { border-radius: 16px; }
+.promo-carousel .custom-nav { display: none !important; }
+.promo-carousel .carousel__slide img {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1801 / 701;
+    object-fit: cover !important;
+}
+/* Promo & Info: kembali berdampingan seperti awal (teks kiri, gambar kanan),
+   tapi di-upscale proporsional — kolom gambar dilebarkan, rasio gambar tetap 39:20. */
+div:has(> #right-slot) { flex-wrap: nowrap !important; align-items: center; gap: 0 28px; }
+#left-slot { flex: 1 1 40% !important; width: auto !important; max-width: 40% !important; min-width: 0; }
+#right-slot { flex: 1 1 60% !important; width: auto !important; max-width: 60% !important; min-width: 0; margin-top: 0; }
+@media (max-width: 1023px) {
+    div:has(> #right-slot) { flex-wrap: wrap !important; }
+    #left-slot, #right-slot { flex: 1 1 100% !important; max-width: 100% !important; }
+    #right-slot { margin-top: 12px; }
+}
+/* Hero banner rotator: crossfade between local photos every few seconds. */
+.hero-rotator { transition: opacity .8s ease; filter: saturate(.82) contrast(.94) brightness(1.05); }
+.hero-rotator.is-fading { opacity: 0; }
+/* Hero softening: white gradient veil over the photo so it doesn't shout
+   over the rest of the page. Top melts into the header, bottom melts into
+   the page, plus a soft left-to-right wash behind the headline. */
+div:has(> #hero-rotator) { isolation: isolate; background: #f4f7fb; }
+div:has(> #hero-rotator)::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+        linear-gradient(100deg, rgb(255 255 255 / 60%) 0%, rgb(255 255 255 / 32%) 34%, rgb(255 255 255 / 8%) 62%, rgb(255 255 255 / 0%) 100%),
+        linear-gradient(180deg, rgb(255 255 255 / 92%) 0%, rgb(255 255 255 / 30%) 26%, rgb(255 255 255 / 0%) 48%, rgb(255 255 255 / 12%) 72%, rgb(255 255 255 / 96%) 100%);
+}
+div:has(> #hero-rotator) > div { position: relative; z-index: 2; }
+.promo-carousel .custom-nav--disabled { opacity: .4; cursor: default; }
+.promo-carousel .custom-pagination { order: 4; flex: 1 1 100%; display: flex; justify-content: center; align-items: center; gap: 8px; margin: 8px 0 0; list-style: none; padding: 0; min-height: 20px; }
+.promo-carousel .custom-pagination__btn { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px; background: #d3dde8; cursor: pointer; transition: background-color .18s ease, width .18s ease; }
+.promo-carousel .custom-pagination__btn--active { background: #2563eb; width: 22px; }
+@media (prefers-reduced-motion: reduce) { .promo-carousel .carousel__track { transition: none; } }
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+/* ============================================================
+   UI/UX tidying pass — unify spacing rhythm + button geometry.
+   Scoped to .reference-home so nothing else in the site changes.
+   ============================================================ */
+
+/* 1. Kill the leftover empty Tailwind spacer so every section keeps
+      the same vertical rhythm instead of an odd 48px jump.
+      NB: the host carries content-visibility as a Tailwind arbitrary CLASS
+      ([content-visibility:auto]), not an HTML attribute. */
+.reference-home [class*="content-visibility"] > div[class*="margin-desktop"]:empty { display: none; }
+
+/* 2. Standalone CTA pills (Tanyakan Layanan, Tanya Pilihan Armada,
+      Lihat Semua Pertanyaan di FAQ!, Rute Populer, Semua Rute,
+      Lihat Semua Promo & Informasi): one identical geometry so they
+      read as the same tier across the page. */
+.reference-home [class*="bg-[#2563EB]"],
+.reference-home [class*="bg-[#FAFAFA]"][class*="border-2"][class*="rounded-full"],
+.reference-home a[class*="bg-blue-50"],
+.reference-home button[class*="bg-blue-50"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 11px 22px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.15;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* 3. Small in-card actions (Pilih, Salin Kode): one shared radius and
+      compact sizing instead of the mixed 8px pills. */
+.reference-home .btn-primary,
+.reference-home .btn-primary-v2 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 40px;
+    padding: 9px 16px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+/* 4. Search widget button keeps the same 12px corner as the small
+      actions so the header search stops looking out of place. */
+.reference-home button[class*="rounded-[13px]"],
+.reference-home button[class*="rounded-[12px]"] { border-radius: 12px; }
+
+/* 5. Remaining standalone CTAs (Beli, Lihat Promo Lainnya, Pulang Pergi)
+      share the same 44px baseline as the rest of the pill tier. */
+.reference-home [class*="bg-[#EA580C]"],
+.reference-home [class*="bg-[#FFFFFF]"][class*="rounded-full"] {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 6. Armada photo Booking button: same 12px corner AND the same 40px
+      height as the other small in-card actions (Pilih). */
+.armada-cards .card-book { border-radius: 12px; min-height: 40px; padding: 9px 16px; }
+
+/* 7. Service cards (Layanan): the reference card carried a FIXED height tuned
+      for a one-line payment logo cell, so our added title + description got
+      clipped by line-clamp-2 + overflow:hidden ("Dijemput dan", "Konfirmasi
+      rute," ...). Let each card grow with its content and show the full text. */
+.reference-home [class*="payment-card-shadow"][class*="h-20"] { height: auto !important; min-height: 112px; }
+.reference-home [class*="payment-card-shadow"] p[class*="line-clamp-2"] {
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    display: block;
+    overflow: visible;
+    white-space: normal;
+}
+
+/* 8. Carousel dots share one set of metrics everywhere. */
+.armada-carousel .custom-pagination,
+.promo-carousel .custom-pagination,
+.armada-cards .cards-dots { margin-top: 14px; }
+
+/* 9. Layout rhythm — kasih napas ke seluruh home biar tidak berdekatan. */
+.reference-home {
+    --section-gap: clamp(56px, 7vw, 104px);
+    --block-gap: clamp(20px, 2.6vw, 32px);
+    --card-gap: clamp(16px, 2.4vw, 28px);
+    --content-width: min(1200px, 100% - clamp(40px, 8vw, 80px));
+}
+.reference-home [class*="content-visibility"] { padding-bottom: var(--section-gap); }
+.reference-home [class*="content-visibility"] > div + div { margin-top: var(--section-gap); }
+.reference-home .margin-desktop {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(20px, 4vw, 40px);
+    padding-right: clamp(20px, 4vw, 40px);
+}
+/* Judul section: longgarkan leading + beri jarak ke konten di bawahnya. */
+.reference-home h1 { line-height: 1.15 !important; letter-spacing: -0.01em; }
+.reference-home h1 + h3 { margin-top: 10px; line-height: 1.6 !important; }
+.reference-home h2 { line-height: 1.28 !important; letter-spacing: -0.005em; text-wrap: balance; }
+.reference-home h2 + p, .reference-home h2 + div p { line-height: 1.65; }
+.reference-home p { line-height: 1.65; }
+.reference-home div[class*="flex-col"][class*="space-y-1"] { gap: 12px 0; }
+.reference-home div[class*="flex-col"][class*="space-y-1"] > * + * { margin-top: 6px; }
+/* Blok teks kiri pada promo / layanan / armada: beri ritme vertikal sendiri. */
+#left-slot > *, #text-slot-content > * { margin-bottom: 0; }
+#left-slot > * + *, #text-slot-content > * + * { margin-top: 16px; }
+div:has(> #right-slot) { gap: 0 clamp(32px, 4vw, 64px); padding-top: clamp(16px, 2.5vw, 32px); padding-bottom: clamp(16px, 2.5vw, 32px); }
+/* Grid kartu: renggangkan antar kartu. */
+#slots { gap: 14px 18px; }
+.armada-cards .cards-track { gap: var(--card-gap); }
+.armada-cards .card { flex-basis: calc(50% - (var(--card-gap) / 2)); }
+.reference-home [class*="payment-card-shadow"] { padding: 20px 22px !important; }
+.reference-home ul[class*="grid"], .reference-home div[class*="grid"] { row-gap: var(--card-gap); }
+/* FAQ: tiap item diberi jarak + padding lega. */
+.reference-home details, .reference-home [class*="rounded-2xl"][class*="border"] { margin-bottom: 4px; }
+.reference-home details summary { padding: 18px 20px !important; line-height: 1.5; }
+.reference-home details div[class*="px-"], .reference-home details div[class*="pb-"] { padding-bottom: 20px !important; line-height: 1.7; }
+/* Baris CTA / tab: jangan nempel saat wrap. */
+.reference-home div[class*="flex-wrap"], .reference-home div[class*="gap-2"], .reference-home div[class*="gap-x-2"] { row-gap: 12px; }
+@media (max-width: 1023px) {
+    .reference-home { --section-gap: 48px; }
+    div:has(> #right-slot) { padding-top: 8px; padding-bottom: 8px; }
+}
+@media (max-width: 640px) {
+    .reference-home { --section-gap: 44px; --card-gap: 14px; }
+    .reference-home h1 { font-size: 30px !important; }
+    .reference-home h2 { font-size: 21px !important; }
+    #slots { gap: 10px; }
+    .reference-home details summary { padding: 16px !important; }
+}
+
+/* 10. Floating pill navbar (over hero, no gap) + full-bleed blue footer.
+      Hidden while the hero is on screen; slides in smoothly on scroll. */
+.topbar {
+    position: fixed;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 1;
+    visibility: visible;
+    transition: transform .45s cubic-bezier(.22, .9, .28, 1), opacity .35s ease;
+    width: min(1200px, calc(100% - 32px));
+    margin: 0;
+    z-index: 60;
+    border-radius: 999px;
+    background: rgb(255 255 255 / 94%);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 1px solid #e2eaf2;
+    box-shadow: 0 12px 32px rgb(16 42 70 / 12%);
+    padding: 10px 10px 10px 24px;
+    min-height: 64px;
+}
+.topbar.is-hidden {
+    transform: translateX(-50%) translateY(-140%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform .45s cubic-bezier(.22, .9, .28, 1), opacity .35s ease, visibility 0s linear .45s;
+}
+/* Fixed pill floats over content: inner pages need headroom. */
+.page-hero { padding-top: 158px; }
+.footer {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    background: linear-gradient(135deg, #38a0e8 0%, #2563eb 52%, #1e5d99 100%);
+    color: #fff;
+    padding: 72px clamp(28px, 7vw, 96px) 28px;
+    box-shadow: none;
+}
+.footer-inner, .footer .copyright { width: min(1200px, 100%); margin-left: auto; margin-right: auto; }
+.footer-inner { gap: 48px; padding-bottom: 52px; }
+.footer-inner p { color: #e8f2fd; font-size: 18px; }
+.footer-inner > div:not(:first-child) { color: #dbeafe; font-size: 13px; gap: 12px; }
+.footer-inner > div > b { color: #fff; font-size: 13px; letter-spacing: .4px; }
+.footer-inner small { color: #c9e2f8; font-size: 11px; }
+.footer-inner a:hover { color: #fff; text-decoration: underline; }
+.brand-light { color: #fff; }
+.brand-light .brand-mark { color: #fff; border-color: rgb(255 255 255 / 70%); }
+.copyright { border-color: rgb(255 255 255 / 25%); color: #d3e6f8; font-size: 11px; }
+@media (max-width: 1050px) {
+    .topbar { border-radius: 26px; }
+}
+@media (max-width: 640px) {
+    .topbar { width: calc(100% - 24px); border-radius: 22px; top: 8px; margin-top: 8px; }
+    .footer { padding: 52px 24px 22px; }
+    .footer-inner { gap: 28px; padding-bottom: 32px; }
+}
+
+/* 11. Gelombang polish: radio proporsional, dots/slide tenang, CTA wrap, ritme. */
+#oneway-button input[type="radio"], #roundtrip-button input[type="radio"] { accent-color: #2563EB; width: 16px; height: 16px; margin: 0; flex: 0 0 auto; }
+.promo-carousel .custom-pagination__btn:hover, .armada-cards .cards-dots button:hover { transform: none; }
+.promo-carousel .carousel__slide:hover { transform: none; }
+.reference-home > div + div { margin-top: var(--section-gap); }
+@media (max-width: 640px) {
+    .reference-home [class*="bg-[#2563EB]"] { white-space: normal; }
+}
+
+/* 13. Pilihan Armada: 6 kartu tampil, 6 ngeslide. Bintang ikon SVG, tombol biru. */
+.fleet-showcase { scroll-margin-top: 120px; }
+.fleet-track-wrap { overflow: hidden; }
+.fleet-track { display: flex; column-gap: 16px; transition: transform .5s ease; will-change: transform; }
+.fleet-track:focus-visible { outline: 2px solid #2563EB; outline-offset: 4px; border-radius: 8px; }
+.fleet-card { flex: 0 0 calc((100% - 5 * 16px) / 6); min-width: 0; background: #fff; border: 1px solid #e8edf3; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 28px rgb(16 42 70 / 8%); }
+.fleet-card img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; background: #eef2f7; }
+.fleet-body { padding: 12px 14px 16px; }
+.fleet-body h3 { margin: 0 0 4px; font-size: 16px; line-height: 1.3; color: #1F2937; }
+.fleet-meta { margin: 0 0 8px; font-size: 12px; color: #6B7280; }
+.fleet-stars { display: flex; gap: 2px; color: #F59E0B; margin-bottom: 12px; }
+.fleet-stars svg { width: 16px; height: 16px; display: block; }
+.fleet-book { display: block; text-align: center; background: #2563EB; color: #fff; font-size: 13px; font-weight: 700; padding: 10px 12px; border-radius: 10px; transition: background .2s ease, transform .2s ease; }
+.fleet-book:hover { background: #1D4ED8; transform: translateY(-1px); color: #fff; }
+.fleet-dots { display: flex; gap: 8px; justify-content: center; margin-top: 18px; }
+.fleet-dots button { width: 8px; height: 8px; border-radius: 999px; border: 0; padding: 0; background: #D1D5DB; cursor: pointer; }
+.fleet-dots button.is-active { width: 26px; background: #2563EB; }
+@media (max-width: 1023px) {
+    .fleet-card { flex-basis: calc((100% - 2 * 16px) / 3); }
+}
+@media (max-width: 639px) {
+    .fleet-track { column-gap: 12px; }
+    .fleet-card { flex-basis: calc((100% - 12px) / 2); }
+    .fleet-body h3 { font-size: 14px; }
+}
+
+/* 14. FAQ accordion: jawaban collapse, plus jadi ikon SVG yang muter saat buka. */
+.faq-toggle .faq-plus { display: inline-flex; color: #2563EB; transition: transform .3s ease; }
+.faq-item.open .faq-toggle .faq-plus { transform: rotate(45deg); }
+.faq-answer { overflow: hidden; }
+.faq-answer p { margin: 0; padding: 4px 18px 18px; font-size: 14px; line-height: 1.7; color: #4B5563; }
+@media (min-width: 768px) { .faq-answer p { font-size: 15px; } }
+
+/* 15. Artikel/berita: gambar mengisi penuh kartu (cover, tanpa bar putih).
+   Foto banner 1515x701 proporsional dengan box 180px, jadi cover hanya
+   mengcrop tipis — jauh lebih rapi daripada contain yang menyisakan
+   letterbox putih + gambar kecil. Layout kartu tidak diubah. */
+.promo-carousel .carousel__slide img.promo-img {
+    aspect-ratio: 1801 / 701;
+    object-fit: cover !important;
+    background: #fff;
+}
+.reference-home img.blog-img {
+    object-fit: cover !important;
+    object-position: center !important;
+    background: #eef4fb;
+}
+/* Slide artikel yang kosong (pulse abu-abu tanpa img) diisi lewat JS
+   article-carousel.js — HTML Blade tidak disentuh. */
+.article-carousel .carousel__viewport { overflow: hidden; }
+.article-carousel .carousel__track { display: flex; transition: transform .6s ease; will-change: transform; }
+.article-carousel .carousel__slide { flex: 0 0 calc(33.3333% - 16px); min-width: 0; }
+@media (max-width: 640px) {
+    .article-carousel .carousel__slide { flex: 0 0 100% !important; width: 100% !important; max-width: 100% !important; }
+}
+@media (prefers-reduced-motion: reduce) { .article-carousel .carousel__track { transition: none; } }
+
+/* 16. CTA closing "Pesan Bob Travel": teks rata tengah. */
+.cta-copy { text-align: center; align-items: center; }
+.cta-copy h2, .cta-copy p { text-align: center; }
+
+/* 17. Reveal-on-scroll yang mulus untuk kartu (rute, armada, layanan). */
+.reference-home .reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s cubic-bezier(.22, .9, .28, 1); }
+.reference-home .reveal.in { opacity: 1; transform: none; }
+
+/* Booking selects + badge hasil + grid halaman armada. */
+.reference-home select#departure-from, .reference-home select#destination-form { background-color: #fff; }
+.trip-badge { display: inline-flex; align-items: center; margin-top: 8px; padding: 6px 14px; border-radius: 999px; background: #eff6ff; color: #1d4ed8; font-size: 13px; font-weight: 700; }
+.fleet-page-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.fleet-page-grid .fleet-card { flex: none; }
+@media (max-width: 1023px) { .fleet-page-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 639px) { .fleet-page-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
+
+/* 18. CTA "Pesan Bob Travel": markup + style sendiri (tidak tergantung
+   kelas arbitrary Tailwind yang tidak ada di CSS compiled). Box selalu
+   di tengah halaman, isi rapi tengah. */
+.cta-section { display: block !important; width: 100% !important; max-width: none !important; margin: 64px 0 56px !important; padding: 0 !important; float: none !important; clear: both !important; box-sizing: border-box !important; }
+.cta-banner {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    min-height: 580px !important;
+    padding: 56px 220px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 78%) !important;
+    overflow: hidden !important;
+    row-gap: 18px !important;
+    box-sizing: border-box !important;
+}
+.cta-banner > * { position: relative !important; z-index: 1 !important; }
+.cta-banner img.cta-side { z-index: 0 !important; }
+.cta-badge {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    column-gap: 8px !important;
+    background: #fff !important;
+    border: 1px solid #F3F3F3 !important;
+    border-radius: 40px !important;
+    padding: 3px 12px 3px 3px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    line-height: 18px !important;
+    color: #1F2937 !important;
+}
+.cta-badge > span:first-child {
+    background: radial-gradient(88% 75%, rgb(255,136,39) 37.45%, rgb(245,158,11) 83.41%) !important;
+    color: #fff !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    border-radius: 999px !important;
+    padding: 3px 8px !important;
+}
+.cta-banner h2 { margin: 0 !important; font-size: clamp(28px, 3.6vw, 42px) !important; font-weight: 800 !important; line-height: 1.2 !important; letter-spacing: -0.01em !important; color: #1F2937 !important; text-align: center !important; }
+.cta-banner p.cta-sub { margin: 0 !important; font-size: clamp(16px, 2vw, 22px) !important; font-weight: 500 !important; color: #1F2937 !important; text-align: center !important; }
+.cta-banner a.cta-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #2563EB !important;
+    color: #fff !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    border-radius: 999px !important;
+    padding: 12px 24px !important;
+    text-decoration: none !important;
+}
+.cta-banner img.cta-side { position: absolute !important; top: 50% !important; transform: translateY(-50%) scale(1.65) !important; width: 200px !important; max-width: 22% !important; height: auto !important; pointer-events: none !important; }
+.cta-banner img.cta-right { right: 70px !important; }
+.cta-banner img.cta-left { left: 70px !important; }
+@media (max-width: 1023px) {
+    .cta-banner { padding: 40px 24px !important; }
+    .cta-banner img.cta-side { display: none !important; }
+}
+
+/* 19. Phone-mode optimization (<=640px): readability fixes only.
+   Desktop/tablet untouched. No re-ordering — stacks, wraps, and
+   overflow containment so nothing looks cut off at 390px. */
+@media (max-width: 640px) {
+    /* Root cause of "cut off on the right": full-bleed -mx-* rows inside
+       padded containers grow wider than the viewport, shifting the whole
+       page. Contain + neutralize on phones. */
+    .reference-home { overflow-x: clip; }
+    .reference-home div[class*="-mx-5"],
+    .reference-home div[class*="-mx-4"] { margin-left: 0 !important; margin-right: 0 !important; }
+
+    /* Hero: banner grows with stacked content; headline wraps. */
+    #hero-banner { height: auto !important; min-height: 560px !important; }
+    #hero-banner h1 {
+        font-size: 27px !important;
+        line-height: 1.25 !important;
+        letter-spacing: 0 !important;
+        white-space: normal !important;
+        text-wrap: balance;
+    }
+    #hero-banner h3 { font-size: 15px !important; line-height: 1.6 !important; }
+    /* Trip tabs: two equal pills filling the row. */
+    #hero-banner div[class*="rounded-t-[32px]"] { width: 100% !important; }
+    #hero-banner .btnRoundTrip { flex: 1 1 0; justify-content: center; padding-left: 10px; padding-right: 10px; }
+    /* Search card: stack fields vertically, full-width button.
+       NOTE: :not(.btnRoundTrip) is critical — the active trip tab also
+       carries .custom-shadow, and column direction would drop its label
+       under the radio dot. */
+    #hero-banner div.custom-shadow:not(.btnRoundTrip) {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+        padding: 16px !important;
+        border-radius: 22px !important;
+    }
+    #hero-banner img[alt="Swap Icon"] { display: none !important; }
+    #search-schedule { width: 100% !important; height: 50px !important; font-size: 15px; }
+
+    /* Section titles that shipped whitespace-nowrap must wrap. */
+    .reference-home h2[class*="whitespace-nowrap"] { white-space: normal !important; font-size: 20px !important; line-height: 1.3 !important; }
+
+    /* Layanan grid: 3 cramped columns -> single stacked column. */
+    .reference-home div[data-v-aede7fbc][class*="grid-cols-3"] { grid-template-columns: 1fr !important; gap: 12px !important; }
+
+    .promo-carousel .carousel__viewport { border-radius: 12px; }
+
+    /* Trip tabs: lock single-row pills — the label must never drop
+       under the radio dot when a tab becomes active. */
+    #hero-banner div[class*="rounded-t-[32px]"] { flex-wrap: nowrap !important; padding-left: 12px !important; padding-right: 12px !important; }
+    #hero-banner .btnRoundTrip { white-space: nowrap !important; flex-wrap: nowrap !important; font-size: 13px; }
+    #hero-banner .btnRoundTrip > div { flex-shrink: 0 !important; }
+    /* Active trip tab always dark text (text-font-black is undefined in the
+       compiled CSS, so lock it here; idle tabs keep text-font-gray). */
+    #hero-banner .btnRoundTrip.activeBtn { color: #1F2937 !important; }
+
+    /* "Sedang Diskon" on phones: 1 voucher per view (desktop stays 3-up). */
+    section.carousel-container.no-slide .carousel__slide { flex: 0 0 100% !important; width: 100% !important; max-width: 100% !important; }
+}
+
+/* 20. Manual drag/swipe affordances for all home carousels.
+   No visual change — just grab cursor + horizontal-drag gesture
+   (vertical page scroll still works via touch-action: pan-y). */
+.promo-carousel .carousel__viewport,
+.armada-carousel .carousel__viewport,
+section.carousel-container.no-slide .carousel__viewport,
+.fleet-track-wrap,
+.armada-cards { touch-action: pan-y; }
+.promo-carousel .carousel__track,
+.armada-carousel .carousel__track,
+section.carousel-container.no-slide .carousel__track,
+.fleet-track,
+.armada-cards .cards-track { cursor: grab; }
+.promo-carousel .carousel__track img,
+.armada-carousel .carousel__track img,
+section.carousel-container.no-slide .carousel__track img,
+.fleet-track img,
+.armada-cards .cards-track img { user-select: none; -webkit-user-drag: none; }
+
+/* 21. Search widget: fuse trip tabs + card into one connected unit.
+   Same white surface + one shared border; the tab strip loses its bottom
+   edge (margin-bottom:-1px overlap) so it reads as one "folder tab" box.
+   Corner 32px -> 20px so both pieces share the same radius. Layout sama. */
+#hero-banner div[class*="rounded-t-[32px]"] {
+    background: #fff !important;
+    border: 1px solid #e8edf3 !important;
+    border-bottom: 0 !important;
+    border-radius: 20px 20px 0 0 !important;
+    padding: 10px 12px 12px !important;
+    margin-bottom: -1px !important;
+    gap: 8px !important;
+}
+#hero-banner div.custom-shadow:not(.btnRoundTrip) {
+    border: 1px solid #e8edf3 !important;
+    border-radius: 0 20px 20px 20px !important;
+    box-shadow: 0 18px 40px rgb(16 42 70 / 10%) !important;
+}
+@media (max-width: 640px) {
+    #hero-banner div[class*="rounded-t-[32px]"] { border-radius: 16px 16px 0 0 !important; }
+    #hero-banner div.custom-shadow:not(.btnRoundTrip) { border-radius: 0 0 22px 22px !important; }
+}
+
+/* 22. "Lihat Semua Promo & Informasi": didekatkan ke grid artikel
+   (bawaan mb-[110px] bikin link melayang terlalu jauh dari sectionnya). */
+.reference-home a.mx-auto[class*="bg-blue-50"] {
+    margin-top: 20px !important;
+    margin-bottom: 36px !important;
+}
+@media (max-width: 640px) {
+    .reference-home a.mx-auto[class*="bg-blue-50"] {
+        margin-top: 16px !important;
+        margin-bottom: 28px !important;
+    }
+}
+
+/* 23. Navbar search: tombol ikon lingkaran saat tertutup, popup saat diklik.
+   Tertutup: lingkaran 44px, kaca pembesar di tengah. Terbuka/fokus:
+   pil popup dengan input yang bisa diketik. Tutup via Esc / klik luar. */
+.topbar form.nav-search {
+    flex: 0 0 auto !important;
+    min-width: 0 !important;
+    width: 44px !important;
+    max-width: none !important;
+    height: 44px !important;
+    margin: 0 !important;
+    padding: 0 14px !important;
+    gap: 0 !important;
+    border-radius: 999px !important;
+    border: 1px solid #dce5ee !important;
+    background: #f8fafc !important;
+    overflow: hidden !important;
+    cursor: pointer;
+}
+.topbar form.nav-search > span {
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+.topbar form.nav-search input {
+    opacity: 0 !important;
+    width: 0 !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    pointer-events: none !important;
+}
+.topbar form.nav-search.is-open,
+.topbar form.nav-search:focus-within {
+    width: min(280px, 50vw) !important;
+    gap: 9px !important;
+    cursor: text;
+    box-shadow: 0 10px 28px rgb(16 42 70 / 16%) !important;
+}
+.topbar form.nav-search.is-open > span,
+.topbar form.nav-search:focus-within > span {
+    left: 14px !important;
+    transform: translateY(-50%) !important;
+}
+.topbar form.nav-search.is-open input,
+.topbar form.nav-search:focus-within input {
+    opacity: 1 !important;
+    width: 100% !important;
+    flex: 1 1 auto !important;
+    padding: 0 8px 0 32px !important;
+    pointer-events: auto !important;
+}
+@media (max-width: 640px) {
+    .topbar form.nav-search { order: 3; margin-left: auto !important; }
+    .topbar form.nav-search.is-open,
+    .topbar form.nav-search:focus-within { width: min(300px, 78vw) !important; }
+}
+
+/* 24. Netralkan bg-section-promo bawaan referensi yang menunjuk ke
+   /_nuxt/bg-section-promo.CUjtC6vc.webp (tidak ada di proyek -> 404).
+   Ganti dengan gradasi terang lokal; layout/struktur section sama. */
+.reference-home div[class*="bg-section-promo"] {
+    background-image: linear-gradient(180deg, #eef6ff 0%, #e2eefc 100%) !important;
+}
+
+/* 25. Dark Mode Support & Theme Toggle
+   Java Blue Dark Theme: Mengusung palet Midnight Slate Navy (#0b1320 / #111e33)
+   yang elegan, kontras tinggi, nyaman di mata, dan mempertahankan tataan layout 100%. */
+
+.header-actions {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+.theme-toggle {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    padding: 0;
+    margin: 0;
+    border-radius: 999px;
+    border: 1px solid #dce5ee;
+    background: #f8fafc;
+    color: #17406d;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color .18s ease, border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+.theme-toggle:hover {
+    background: #eef4fb;
+    border-color: #38bdf8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+.theme-toggle:focus-visible {
+    outline: 3px solid rgb(59 130 196 / 50%);
+    outline-offset: 2px;
+}
+.theme-toggle .theme-icon-light { display: none; }
+.theme-toggle .theme-icon-dark { display: inline-flex; }
+
+@media (max-width: 640px) {
+    .theme-toggle {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+    }
+}
+
+/* === DARK THEME VARIABLES & OVERRIDES === */
+html[data-theme="dark"] {
+    color-scheme: dark;
+}
+html[data-theme="dark"],
+html[data-theme="dark"] body {
+    background-color: #0b1320 !important;
+    color: #e2e8f0 !important;
+}
+
+/* Theme Toggle Button in Dark Mode */
+html[data-theme="dark"] .theme-toggle {
+    background: #111e33 !important;
+    border-color: #1e3352 !important;
+    color: #fbbf24 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+html[data-theme="dark"] .theme-toggle:hover {
+    background: #182b48 !important;
+    border-color: #f59e0b !important;
+}
+html[data-theme="dark"] .theme-toggle .theme-icon-light {
+    display: inline-flex !important;
+}
+html[data-theme="dark"] .theme-toggle .theme-icon-dark {
+    display: none !important;
+}
+
+/* Topbar / Navbar in Dark Mode */
+html[data-theme="dark"] .topbar {
+    background: #0d1626 !important;
+    border-bottom: 1px solid #1a293f !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45) !important;
+}
+html[data-theme="dark"] .brand {
+    color: #f8fafc !important;
+}
+html[data-theme="dark"] .brand b {
+    color: #38bdf8 !important;
+}
+html[data-theme="dark"] .brand-mark {
+    border-color: #38bdf8 !important;
+    color: #38bdf8 !important;
+    background: #111e33 !important;
+}
+html[data-theme="dark"] .brand small {
+    color: #94a3b8 !important;
+}
+html[data-theme="dark"] .site-nav a {
+    color: #cbd5e1 !important;
+}
+html[data-theme="dark"] .site-nav a:hover,
+html[data-theme="dark"] .site-nav a:focus-visible {
+    color: #38bdf8 !important;
+}
+html[data-theme="dark"] .nav-cta {
+    background: #1d4ed8 !important;
+    border-color: #2563eb !important;
+    color: #ffffff !important;
+}
+html[data-theme="dark"] .nav-cta:hover {
+    background: #2563eb !important;
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35) !important;
+}
+html[data-theme="dark"] .topbar form.nav-search {
+    background: #111e33 !important;
+    border-color: #1e3352 !important;
+}
+html[data-theme="dark"] .topbar form.nav-search input {
+    color: #f8fafc !important;
+}
+html[data-theme="dark"] .topbar form.nav-search > span {
+    color: #94a3b8 !important;
+}
+html[data-theme="dark"] .mobile-nav summary {
+    border-color: #1e3352 !important;
+    background: #111e33 !important;
+}
+html[data-theme="dark"] .mobile-nav summary span {
+    background: #e2e8f0 !important;
+}
+html[data-theme="dark"] .mobile-nav nav {
+    background: #0d1626 !important;
+    border-color: #1e3352 !important;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.6) !important;
+}
+html[data-theme="dark"] .mobile-nav nav a {
+    color: #f8fafc !important;
+}
+html[data-theme="dark"] .mobile-nav nav a:hover {
+    background: #16263e !important;
+    color: #38bdf8 !important;
+}
+
+/* Reference Home Container */
+html[data-theme="dark"] .reference-home {
+    background: #0b1320 !important;
+    color: #e2e8f0 !important;
+}
+
+/* Typography Overrides */
+html[data-theme="dark"] .text-font-black,
+html[data-theme="dark"] .text-\[\#1F2937\],
+html[data-theme="dark"] .text-\[\#111827\] {
+    color: #f8fafc !important;
+}
+html[data-theme="dark"] .text-font-gray,
+html[data-theme="dark"] .text-\[\#71747D\],
+html[data-theme="dark"] .text-\[\#6B7280\],
+html[data-theme="dark"] .text-\[\#4B5563\] {
+    color: #94a3b8 !important;
+}
+html[data-theme="dark"] .text-\[\#9CA3AF\] {
+    color: #64748b !important;
+}
+
+/* Hero Section & Search Widget in Dark Mode */
+html[data-theme="dark"] #hero-banner h1 {
+    color: #ffffff !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+html[data-theme="dark"] #hero-banner h3 {
+    color: #cbd5e1 !important;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+html[data-theme="dark"] #hero-banner div[class*="rounded-t-[32px]"] {
+    background: #111e33 !important;
+    border-color: #1e3352 !important;
+}
+html[data-theme="dark"] #hero-banner .btnRoundTrip {
+    background: #0c1524 !important;
+    border-color: #1e3352 !important;
+    color: #94a3b8 !important;
+}
+html[data-theme="dark"] #hero-banner .btnRoundTrip.activeBtn {
+    background: #2563eb !important;
+    border-color: #3b82f6 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4) !important;
+}
+html[data-theme="dark"] #hero-banner div.custom-shadow:not(.btnRoundTrip) {
+    background: #111e33 !important;
+    border-color: #1e3352 !important;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6) !important;
+}
+html[data-theme="dark"] #hero-banner label {
+    color: #94a3b8 !important;
+}
+html[data-theme="dark"] #hero-banner select,
+html[data-theme="dark"] #hero-banner input {
+    background-color: #0c1524 !important;
+    color: #f8fafc !important;
+    border-color: #1e3352 !important;
+    color-scheme: dark;
+}
+html[data-theme="dark"] #hero-banner select:focus,
+html[data-theme="dark"] #hero-banner input:focus {
+    border-color: #38bdf8 !important;
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25) !important;
+}
+html[data-theme="dark"] #hero-banner select option {
+    background-color: #0c1524 !important;
+    color: #f8fafc !important;
+}
+html[data-theme="dark"] #hero-banner div[class*="bg-gradient-to-t from-white"] {
+    background: linear-gradient(to top, #0b1320 15%, transparent 100%) !important;
+}
+
+/* Promo Banner Section */
+html[data-theme="dark"] .reference-home div[class*="bg-section-promo"] {
+    background-image: linear-gradient(180deg, #101c2e 0%, #0b1320 100%) !important;
+}
+
+/* Sedang Diskon / Flashsale Carousel */
+html[data-theme="dark"] .reference-home [id^="v-0-12-3-0-0-"] {
+    background: #111e33 !important;
+    border: 1px solid #1e3352 !important;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35) !important;
+}
+html[data-theme="dark"] .reference-home [id^="v-0-12-3-0-0-"] div[class*="border"] {
+    border-color: #1e3352 !important;
+}
+html[data-theme="dark"] .reference-home [id^="v-0-12-3-0-0-"] p,
+html[data-theme="dark"] .reference-home [id^="v-0-12-3-0-0-"] span {
+    color: inherit;
+}
+html[data-theme="dark"] .reference-home [id^="v-0-12-3-0-0-"] [class*="bg-[#F8F9FA]"],
+html[data-theme="dark"] .reference-home [id^="v-0-12-3-0-0-"] [class*="bg-[#FAFAFA]"] {
+    background: #16263e !important;
+}
+
+/* Rekomendasi Rute & Popular Routes */
+html[data-theme="dark"] #recommendation button:not(.bg-\[\#2563EB\]) {
+    background: #111e33 !important;
+    color: #94a3b8 !important;
+    border: 1px solid #1e3352 !important;
+}
+html[data-theme="dark"] #slots a {
+    background: #111e33 !important;
+    border-color: #1e3352 !important;
+    color: #f8fafc !important;
+}
+html[data-theme="dark"] #slots a:hover {
+    background: #172740 !important;
+    border-color: #38bdf8 !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4) !important;
+    color: #38bdf8 !important;
+}
+
+/* Pilihan Armada Carousel */
+html[data-theme="dark"] #pilihan-armada [class*="bg-[#FAFAFA]"],
+html[data-theme="dark"] #pilihan-armada [class*="bg-white"] {
+    background: #111e33 !important;
+    border-color: #1e3352 !important;
+    color: #f8fafc !important;
+}
+html[data-theme="dark"] .armada-cards .card img {
+    background-color: #0c1524 !important;
+}
+html[data-theme="dark"] .armada-cards .cards-dots button {
+    background: #1e3352 !important;
+}
+html[data-theme="dark"] .armada-cards .cards-dots button.is-active {
+    background: #38bdf8 !important;
+}
+
+/* Thin middle banner */
+html[data-theme="dark"] .armada-carousel img {
+    background-color: #0c1524 !important;
+    filter: brightness(.9);
+}
+
+/* Penawaran Spesial & Berita (Articles) */
+html[data-theme="dark"] .article-carousel .carousel__slide,
+html[data-theme="dark"] [id^="v-0-12-11-0-0-"] {
+    background: #111e33 !important;
+    border: 1px solid #1e3352 !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+}
+html[data-theme="dark"] .article-carousel .relative {
+    background: #0c1524 !important;
+}
+html[data-theme="dark"] .reference-home a.mx-auto[class*="bg-blue-50"] {
+    background: #14243b !important;
+    color: #38bdf8 !important;
+    border: 1px solid #233e63 !important;
+}
+html[data-theme="dark"] .reference-home a.mx-auto[class*="bg-blue-50"]:hover {
+    background: #1a3252 !important;
+}
+
+/* FAQ Accordion */
+html[data-theme="dark"] #faq-section [class*="border"] {
+    border-color: #1e3352 !important;
+}
+html[data-theme="dark"] #faq-section [class*="bg-[#F8F9FA]"],
+html[data-theme="dark"] #faq-section [class*="bg-[#FAFAFA]"] {
+    background: #111e33 !important;
+}
+html[data-theme="dark"] #faq-expand-all {
+    background: #14243b !important;
+    color: #38bdf8 !important;
+    border: 1px solid #233e63 !important;
+}
+html[data-theme="dark"] #faq-expand-all:hover {
+    background: #1a3252 !important;
+}
+
+/* App Download CTA Card */
+html[data-theme="dark"] #download-apps-title {
+    color: #ffffff !important;
+}
+html[data-theme="dark"] .cta-section,
+html[data-theme="dark"] .cta-banner {
+    border-color: #1e3352 !important;
+}
+
+/* Footer & Copyright */
+html[data-theme="dark"] .footer {
+    background: #060a12 !important;
+    border-top: 1px solid #121c2b !important;
+}
+html[data-theme="dark"] .footer-inner p {
+    color: #94a3b8 !important;
+}
+html[data-theme="dark"] .footer-inner a {
+    color: #cbd5e1 !important;
+}
+html[data-theme="dark"] .footer-inner a:hover {
+    color: #38bdf8 !important;
+}
+html[data-theme="dark"] .copyright {
+    border-color: #121c2b !important;
+    color: #64748b !important;
+}
+
+/* Subpages: /rute, /rute/{slug}, /armada */
+html[data-theme="dark"] .page-hero h1 {
+    color: #ffffff !important;
+}
+html[data-theme="dark"] .page-hero p {
+    color: #94a3b8 !important;
+}
+html[data-theme="dark"] .results-filter {
+    background: #111e33 !important;
+    border-color: #1e3352 !important;
+}
+html[data-theme="dark"] .results-filter select,
+html[data-theme="dark"] .results-filter input {
+    background: #0c1524 !important;
+    color: #f8fafc !important;
+    border-color: #1e3352 !important;
+    color-scheme: dark;
+}
+html[data-theme="dark"] .results-filter label small {
+    color: #94a3b8 !important;
+}
+html[data-theme="dark"] .filter-swap {
+    background: #16263e !important;
+    color: #38bdf8 !important;
+    border-color: #233e63 !important;
+}
+html[data-theme="dark"] .route-card {
+    background: #111e33 !important;
+    border-color: #1e3352 !important;
+    color: #f8fafc !important;
+}
+html[data-theme="dark"] .route-card:hover {
+    background: #15253d !important;
+    border-color: #38bdf8 !important;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5) !important;
+}
+html[data-theme="dark"] .route-tag {
+    background: #16263e !important;
+    color: #38bdf8 !important;
+}
+html[data-theme="dark"] .arrow-circle {
+    background: #16263e !important;
+    border-color: #233e63 !important;
+    color: #38bdf8 !important;
+}
+html[data-theme="dark"] .route-cities small {
+    color: #64748b !important;
+}
+html[data-theme="dark"] .route-cities b {
+    color: #ffffff !important;
+}
+html[data-theme="dark"] .route-card > p {
+    border-color: #1a2a40 !important;
+    color: #94a3b8 !important;
+}
+html[data-theme="dark"] .fleet-card {
+    background: #111e33 !important;
+    border-color: #1e3352 !important;
+    color: #f8fafc !important;
+}
+html[data-theme="dark"] .fleet-body h3 {
+    color: #ffffff !important;
+}
+html[data-theme="dark"] .fleet-meta {
+    color: #94a3b8 !important;
+}
+html[data-theme="dark"] .fleet-book {
+    background: #2563eb !important;
+    color: #ffffff !important;
+}
+html[data-theme="dark"] .detail-note {
+    background: #111e33 !important;
+    border-color: #1e3352 !important;
+}
+html[data-theme="dark"] .detail-note h2 {
+    color: #ffffff !important;
+}
+html[data-theme="dark"] .detail-note p {
+    color: #94a3b8 !important;
+}
+html[data-theme="dark"] .no-results {
+    background: #111e33 !important;
+    border: 1px solid #1e3352 !important;
+    color: #cbd5e1 !important;
+}
+html[data-theme="dark"] .trip-badge {
+    background: #16263e !important;
+    color: #38bdf8 !important;
+    border: 1px solid #233e63 !important;
+}
+html[data-theme="dark"] .results-sort {
+    color: #64748b !important;
+}
+html[data-theme="dark"] .results-meta b {
+    color: #f8fafc !important;
+}
+html[data-theme="dark"] .results-meta span {
+    color: #94a3b8 !important;
+}
