@@ -19,7 +19,7 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200)
             ->assertSee('Cari Tiket Shuttle dan Bus Hari Ini')
-            ->assertSee('WAR VOUCHER RECEH BUAT NGABISIN CUTI!');
+            ->assertSee('Sedang Diskon di Sini');
 
         $this->assertStringContainsString('/tiketux-reference-assets/', $response->getContent());
         $this->assertStringContainsString('css/tiketux-reference.css', $response->getContent());

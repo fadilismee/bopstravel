@@ -1,0 +1,12 @@
+{
+  "buildCommand": "node build-static.js",
+  "outputDirectory": ".",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/api/rute", "destination": "/api/rute.json" },
+    { "source": "/rute", "destination": "/rute.html" },
+    { "source": "/armada", "destination": "/armada.html" },
+    { "source": "/", "destination": "/index.html" }
+  ]
+}

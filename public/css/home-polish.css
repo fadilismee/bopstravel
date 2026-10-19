@@ -701,3 +701,446 @@ section.carousel-container.no-slide .carousel__track img,
 .reference-home div[class*="bg-section-promo"] {
     background-image: linear-gradient(180deg, #eef6ff 0%, #e2eefc 100%) !important;
 }
+
+/* 25. Dark Mode Support & Theme Toggle
+   Java Blue Dark Theme: Mengusung palet Midnight Slate Navy (#0b1320 / #111e33)
+   yang elegan, kontras tinggi, nyaman di mata, dan mempertahankan tataan layout 100%. */
+
+.header-actions {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+.theme-toggle {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    padding: 0;
+    margin: 0;
+    border-radius: 999px;
+    border: 1px solid #dce5ee;
+    background: #f8fafc;
+    color: #17406d;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color .18s ease, border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+.theme-toggle:hover {
+    background: #eef4fb;
+    border-color: #38bdf8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+.theme-toggle:focus-visible {
+    outline: 3px solid rgb(59 130 196 / 50%);
+    outline-offset: 2px;
+}
+.theme-toggle .theme-icon-light { display: none; }
+.theme-toggle .theme-icon-dark { display: inline-flex; }
+
+@media (max-width: 640px) {
+    .theme-toggle {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+    }
+}
+
+/* === DARK THEME VARIABLES & OVERRIDES === */
+html[data-theme="dark"] {
+    color-scheme: dark;
+}
+html[data-theme="dark"],
+html[data-theme="dark"] body {
+    background-color: #0b1320 !important;
+    color: #e2e8f0 !important;
+}
+
+/* Theme Toggle Button in Dark Mode */
+html[data-theme="dark"] .theme-toggle {
+    background: #111e33 !important;
+    border-color: #1e3352 !important;
+    color: #fbbf24 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+html[data-theme="dark"] .theme-toggle:hover {
+    background: #182b48 !important;
+    border-color: #f59e0b !important;
+}
+html[data-theme="dark"] .theme-toggle .theme-icon-light {
+    display: inline-flex !important;
+}
+html[data-theme="dark"] .theme-toggle .theme-icon-dark {
+    display: none !important;
+}
+
+/* Topbar / Navbar in Dark Mode */
+html[data-theme="dark"] .topbar {
+    background: #0d1626 !important;
+    border-bottom: 1px solid #1a293f !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45) !important;
+}
+html[data-theme="dark"] .brand {
+    color: #f8fafc !important;
+}
+html[data-theme="dark"] .brand b {
+    color: #38bdf8 !important;
+}
+html[data-theme="dark"] .brand-mark {
+    border-color: #38bdf8 !important;
+    color: #38bdf8 !important;
+    background: #111e33 !important;
+}
+html[data-theme="dark"] .brand small {
+    color: #94a3b8 !important;
+}
+html[data-theme="dark"] .site-nav a {
+    color: #cbd5e1 !important;
+}
+html[data-theme="dark"] .site-nav a:hover,
+html[data-theme="dark"] .site-nav a:focus-visible {
+    color: #38bdf8 !important;
+}
+html[data-theme="dark"] .nav-cta {
+    background: #1d4ed8 !important;
+    border-color: #2563eb !important;
+    color: #ffffff !important;
+}
+html[data-theme="dark"] .nav-cta:hover {
+    background: #2563eb !important;
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35) !important;
+}
+html[data-theme="dark"] .topbar form.nav-search {
+    background: #111e33 !important;
+    border-color: #1e3352 !important;
+}
+html[data-theme="dark"] .topbar form.nav-search input {
+    color: #f8fafc !important;
+}
+html[data-theme="dark"] .topbar form.nav-search > span {
+    color: #94a3b8 !important;
+}
+html[data-theme="dark"] .mobile-nav summary {
+    border-color: #1e3352 !important;
+    background: #111e33 !important;
+}
+html[data-theme="dark"] .mobile-nav summary span {
+    background: #e2e8f0 !important;
+}
+html[data-theme="dark"] .mobile-nav nav {
+    background: #0d1626 !important;
+    border-color: #1e3352 !important;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.6) !important;
+}
+html[data-theme="dark"] .mobile-nav nav a {
+    color: #f8fafc !important;
+}
+html[data-theme="dark"] .mobile-nav nav a:hover {
+    background: #16263e !important;
+    color: #38bdf8 !important;
+}
+
+/* Reference Home Container */
+html[data-theme="dark"] .reference-home {
+    background: #0b1320 !important;
+    color: #e2e8f0 !important;
+}
+
+/* Typography Overrides */
+html[data-theme="dark"] .text-font-black,
+html[data-theme="dark"] .text-\[\#1F2937\],
+html[data-theme="dark"] .text-\[\#111827\] {
+    color: #f8fafc !important;
+}
+html[data-theme="dark"] .text-font-gray,
+html[data-theme="dark"] .text-\[\#71747D\],
+html[data-theme="dark"] .text-\[\#6B7280\],
+html[data-theme="dark"] .text-\[\#4B5563\] {
+    color: #94a3b8 !important;
+}
+html[data-theme="dark"] .text-\[\#9CA3AF\] {
+    color: #64748b !important;
+}
+
+/* Hero Section & Search Widget in Dark Mode */
+html[data-theme="dark"] #hero-banner h1 {
+    color: #ffffff !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+html[data-theme="dark"] #hero-banner h3 {
+    color: #cbd5e1 !important;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+html[data-theme="dark"] #hero-banner div[class*="rounded-t-[32px]"] {
+    background: #111e33 !important;
+    border-color: #1e3352 !important;
+}
+html[data-theme="dark"] #hero-banner .btnRoundTrip {
+    background: #0c1524 !important;
+    border-color: #1e3352 !important;
+    color: #94a3b8 !important;
+}
+html[data-theme="dark"] #hero-banner .btnRoundTrip.activeBtn {
+    background: #2563eb !important;
+    border-color: #3b82f6 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4) !important;
+}
+html[data-theme="dark"] #hero-banner div.custom-shadow:not(.btnRoundTrip) {
+    background: #111e33 !important;
+    border-color: #1e3352 !important;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6) !important;
+}
+html[data-theme="dark"] #hero-banner label {
+    color: #94a3b8 !important;
+}
+html[data-theme="dark"] #hero-banner select,
+html[data-theme="dark"] #hero-banner input {
+    background-color: #0c1524 !important;
+    color: #f8fafc !important;
+    border-color: #1e3352 !important;
+    color-scheme: dark;
+}
+html[data-theme="dark"] #hero-banner select:focus,
+html[data-theme="dark"] #hero-banner input:focus {
+    border-color: #38bdf8 !important;
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25) !important;
+}
+html[data-theme="dark"] #hero-banner select option {
+    background-color: #0c1524 !important;
+    color: #f8fafc !important;
+}
+html[data-theme="dark"] #hero-banner div[class*="bg-gradient-to-t from-white"] {
+    background: linear-gradient(to top, #0b1320 15%, transparent 100%) !important;
+}
+
+/* Promo Banner Section */
+html[data-theme="dark"] .reference-home div[class*="bg-section-promo"] {
+    background-image: linear-gradient(180deg, #101c2e 0%, #0b1320 100%) !important;
+}
+
+/* Sedang Diskon / Flashsale Carousel */
+html[data-theme="dark"] .reference-home [id^="v-0-12-3-0-0-"] {
+    background: #111e33 !important;
+    border: 1px solid #1e3352 !important;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35) !important;
+}
+html[data-theme="dark"] .reference-home [id^="v-0-12-3-0-0-"] div[class*="border"] {
+    border-color: #1e3352 !important;
+}
+html[data-theme="dark"] .reference-home [id^="v-0-12-3-0-0-"] p,
+html[data-theme="dark"] .reference-home [id^="v-0-12-3-0-0-"] span {
+    color: inherit;
+}
+html[data-theme="dark"] .reference-home [id^="v-0-12-3-0-0-"] [class*="bg-[#F8F9FA]"],
+html[data-theme="dark"] .reference-home [id^="v-0-12-3-0-0-"] [class*="bg-[#FAFAFA]"] {
+    background: #16263e !important;
+}
+
+/* Rekomendasi Rute & Popular Routes */
+html[data-theme="dark"] #recommendation button:not(.bg-\[\#2563EB\]) {
+    background: #111e33 !important;
+    color: #94a3b8 !important;
+    border: 1px solid #1e3352 !important;
+}
+html[data-theme="dark"] #slots a {
+    background: #111e33 !important;
+    border-color: #1e3352 !important;
+    color: #f8fafc !important;
+}
+html[data-theme="dark"] #slots a:hover {
+    background: #172740 !important;
+    border-color: #38bdf8 !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4) !important;
+    color: #38bdf8 !important;
+}
+
+/* Pilihan Armada Carousel */
+html[data-theme="dark"] #pilihan-armada [class*="bg-[#FAFAFA]"],
+html[data-theme="dark"] #pilihan-armada [class*="bg-white"] {
+    background: #111e33 !important;
+    border-color: #1e3352 !important;
+    color: #f8fafc !important;
+}
+html[data-theme="dark"] .armada-cards .card img {
+    background-color: #0c1524 !important;
+}
+html[data-theme="dark"] .armada-cards .cards-dots button {
+    background: #1e3352 !important;
+}
+html[data-theme="dark"] .armada-cards .cards-dots button.is-active {
+    background: #38bdf8 !important;
+}
+
+/* Thin middle banner */
+html[data-theme="dark"] .armada-carousel img {
+    background-color: #0c1524 !important;
+    filter: brightness(.9);
+}
+
+/* Penawaran Spesial & Berita (Articles) */
+html[data-theme="dark"] .article-carousel .carousel__slide,
+html[data-theme="dark"] [id^="v-0-12-11-0-0-"] {
+    background: #111e33 !important;
+    border: 1px solid #1e3352 !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+}
+html[data-theme="dark"] .article-carousel .relative {
+    background: #0c1524 !important;
+}
+html[data-theme="dark"] .reference-home a.mx-auto[class*="bg-blue-50"] {
+    background: #14243b !important;
+    color: #38bdf8 !important;
+    border: 1px solid #233e63 !important;
+}
+html[data-theme="dark"] .reference-home a.mx-auto[class*="bg-blue-50"]:hover {
+    background: #1a3252 !important;
+}
+
+/* FAQ Accordion */
+html[data-theme="dark"] #faq-section [class*="border"] {
+    border-color: #1e3352 !important;
+}
+html[data-theme="dark"] #faq-section [class*="bg-[#F8F9FA]"],
+html[data-theme="dark"] #faq-section [class*="bg-[#FAFAFA]"] {
+    background: #111e33 !important;
+}
+html[data-theme="dark"] #faq-expand-all {
+    background: #14243b !important;
+    color: #38bdf8 !important;
+    border: 1px solid #233e63 !important;
+}
+html[data-theme="dark"] #faq-expand-all:hover {
+    background: #1a3252 !important;
+}
+
+/* App Download CTA Card */
+html[data-theme="dark"] #download-apps-title {
+    color: #ffffff !important;
+}
+html[data-theme="dark"] .cta-section,
+html[data-theme="dark"] .cta-banner {
+    border-color: #1e3352 !important;
+}
+
+/* Footer & Copyright */
+html[data-theme="dark"] .footer {
+    background: #060a12 !important;
+    border-top: 1px solid #121c2b !important;
+}
+html[data-theme="dark"] .footer-inner p {
+    color: #94a3b8 !important;
+}
+html[data-theme="dark"] .footer-inner a {
+    color: #cbd5e1 !important;
+}
+html[data-theme="dark"] .footer-inner a:hover {
+    color: #38bdf8 !important;
+}
+html[data-theme="dark"] .copyright {
+    border-color: #121c2b !important;
+    color: #64748b !important;
+}
+
+/* Subpages: /rute, /rute/{slug}, /armada */
+html[data-theme="dark"] .page-hero h1 {
+    color: #ffffff !important;
+}
+html[data-theme="dark"] .page-hero p {
+    color: #94a3b8 !important;
+}
+html[data-theme="dark"] .results-filter {
+    background: #111e33 !important;
+    border-color: #1e3352 !important;
+}
+html[data-theme="dark"] .results-filter select,
+html[data-theme="dark"] .results-filter input {
+    background: #0c1524 !important;
+    color: #f8fafc !important;
+    border-color: #1e3352 !important;
+    color-scheme: dark;
+}
+html[data-theme="dark"] .results-filter label small {
+    color: #94a3b8 !important;
+}
+html[data-theme="dark"] .filter-swap {
+    background: #16263e !important;
+    color: #38bdf8 !important;
+    border-color: #233e63 !important;
+}
+html[data-theme="dark"] .route-card {
+    background: #111e33 !important;
+    border-color: #1e3352 !important;
+    color: #f8fafc !important;
+}
+html[data-theme="dark"] .route-card:hover {
+    background: #15253d !important;
+    border-color: #38bdf8 !important;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5) !important;
+}
+html[data-theme="dark"] .route-tag {
+    background: #16263e !important;
+    color: #38bdf8 !important;
+}
+html[data-theme="dark"] .arrow-circle {
+    background: #16263e !important;
+    border-color: #233e63 !important;
+    color: #38bdf8 !important;
+}
+html[data-theme="dark"] .route-cities small {
+    color: #64748b !important;
+}
+html[data-theme="dark"] .route-cities b {
+    color: #ffffff !important;
+}
+html[data-theme="dark"] .route-card > p {
+    border-color: #1a2a40 !important;
+    color: #94a3b8 !important;
+}
+html[data-theme="dark"] .fleet-card {
+    background: #111e33 !important;
+    border-color: #1e3352 !important;
+    color: #f8fafc !important;
+}
+html[data-theme="dark"] .fleet-body h3 {
+    color: #ffffff !important;
+}
+html[data-theme="dark"] .fleet-meta {
+    color: #94a3b8 !important;
+}
+html[data-theme="dark"] .fleet-book {
+    background: #2563eb !important;
+    color: #ffffff !important;
+}
+html[data-theme="dark"] .detail-note {
+    background: #111e33 !important;
+    border-color: #1e3352 !important;
+}
+html[data-theme="dark"] .detail-note h2 {
+    color: #ffffff !important;
+}
+html[data-theme="dark"] .detail-note p {
+    color: #94a3b8 !important;
+}
+html[data-theme="dark"] .no-results {
+    background: #111e33 !important;
+    border: 1px solid #1e3352 !important;
+    color: #cbd5e1 !important;
+}
+html[data-theme="dark"] .trip-badge {
+    background: #16263e !important;
+    color: #38bdf8 !important;
+    border: 1px solid #233e63 !important;
+}
+html[data-theme="dark"] .results-sort {
+    color: #64748b !important;
+}
+html[data-theme="dark"] .results-meta b {
+    color: #f8fafc !important;
+}
+html[data-theme="dark"] .results-meta span {
+    color: #94a3b8 !important;
+}
