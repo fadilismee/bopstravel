@@ -41,16 +41,65 @@
 }
 @media (max-width: 640px) {
     .site-nav { display: none !important; }
-    .mobile-nav { display: block !important; position: relative !important; order: 4 !important; }
-    .mobile-nav summary { display: grid; align-content: center; justify-items: center; gap: 4px; width: 36px; height: 36px; list-style: none; cursor: pointer; border: 1px solid #dce5ee; border-radius: 50%; }
-    .mobile-nav summary::-webkit-details-marker { display: none; }
-    .mobile-nav summary span { display: block; width: 16px; height: 2px; border-radius: 2px; background: #17406d; transition: transform .18s ease, opacity .18s ease; }
-    .mobile-nav[open] summary span:first-child { transform: translateY(6px) rotate(45deg); }
-    .mobile-nav[open] summary span:nth-child(2) { opacity: 0; }
-    .mobile-nav[open] summary span:last-child { transform: translateY(-6px) rotate(-45deg); }
-    .mobile-nav nav { position: absolute; top: calc(100% + 12px); right: -4px; display: grid; min-width: 200px; gap: 4px; padding: 8px; border: 1px solid #e2eaf2; border-radius: 14px; background: #fff; box-shadow: 0 14px 34px rgb(16 42 70 / 14%); z-index: 90; }
-    .mobile-nav nav a { padding: 10px 14px; border-radius: 9px; color: #17406d; font-size: 14px; }
-    .mobile-nav nav a:hover { background: #f2f7fb; }
+    .mobile-nav {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        position: relative !important;
+        order: 4 !important;
+        flex: 0 0 36px !important;
+        width: 36px !important;
+        height: 36px !important;
+        margin: 0 2px 0 0 !important;
+    }
+    .mobile-nav summary {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 4px !important;
+        width: 36px !important;
+        height: 36px !important;
+        box-sizing: border-box !important;
+        list-style: none !important;
+        cursor: pointer !important;
+        border: 1px solid #dce5ee !important;
+        border-radius: 50% !important;
+        background: #ffffff !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        transition: border-color .18s ease, background-color .18s ease;
+    }
+    .mobile-nav summary::-webkit-details-marker { display: none !important; }
+    .mobile-nav summary span {
+        display: block !important;
+        width: 16px !important;
+        height: 2px !important;
+        border-radius: 2px !important;
+        background: #17406d !important;
+        margin: 0 !important;
+        transform-origin: center !important;
+        transition: transform .18s ease, opacity .18s ease;
+    }
+    .mobile-nav[open] summary span:first-child { transform: translateY(6px) rotate(45deg) !important; }
+    .mobile-nav[open] summary span:nth-child(2) { opacity: 0 !important; }
+    .mobile-nav[open] summary span:last-child { transform: translateY(-6px) rotate(-45deg) !important; }
+    .mobile-nav nav {
+        position: absolute !important;
+        top: calc(100% + 12px) !important;
+        right: 0 !important;
+        display: grid !important;
+        min-width: 200px !important;
+        gap: 4px !important;
+        padding: 8px !important;
+        border: 1px solid #e2eaf2 !important;
+        border-radius: 14px !important;
+        background: #fff !important;
+        box-shadow: 0 14px 34px rgb(16 42 70 / 14%) !important;
+        z-index: 90 !important;
+    }
+    .mobile-nav nav a { padding: 10px 14px !important; border-radius: 9px !important; color: #17406d !important; font-size: 14px !important; }
+    .mobile-nav nav a:hover { background: #f2f7fb !important; }
 }
 /* Route list (#slots): reference markup shipped .grid-wrapper with no CSS, so routes
    collapsed into one long column. Lay them out as a tidy responsive card grid. */
@@ -388,23 +437,51 @@ div:has(> #right-slot) { gap: 0 clamp(32px, 4vw, 64px); padding-top: clamp(16px,
 }
 @media (max-width: 640px) {
     .topbar {
-        width: calc(100% - 20px);
-        height: 54px;
-        min-height: 54px;
-        padding: 0 8px 0 14px;
+        width: calc(100% - 16px);
+        height: 52px;
+        min-height: 52px;
+        padding: 0 8px 0 10px;
         gap: 6px;
         border-radius: 999px;
         top: 8px;
         margin-top: 0;
         flex-wrap: nowrap !important;
         align-items: center !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
     }
-    .topbar .brand { flex-shrink: 0; }
+    .topbar .brand {
+        flex: 0 1 auto !important;
+        min-width: 0 !important;
+        gap: 8px !important;
+    }
+    .topbar .brand small {
+        display: none !important;
+    }
+    .topbar .brand > span:last-child {
+        white-space: nowrap !important;
+        font-size: 13px !important;
+        letter-spacing: 0.5px !important;
+    }
+    .topbar .brand-mark {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 17px !important;
+        flex-shrink: 0 !important;
+    }
+    .topbar .header-actions {
+        order: 2;
+        margin-left: auto !important;
+        display: flex !important;
+        align-items: center !important;
+        flex-shrink: 0 !important;
+    }
     .topbar .nav-cta {
-        min-height: 36px;
-        height: 36px;
-        padding: 0 14px;
-        font-size: 13px;
+        min-height: 34px;
+        height: 34px;
+        padding: 0 12px;
+        font-size: 12px;
+        font-weight: 700;
         flex-shrink: 0;
     }
     .footer { padding: 52px 24px 22px; }
@@ -800,10 +877,12 @@ section.carousel-container.no-slide .carousel__track img,
 @media (max-width: 640px) {
     .topbar form.nav-search {
         order: 3;
-        margin-left: auto !important;
-        width: 38px !important;
-        height: 38px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 36px !important;
+        height: 36px !important;
         padding: 0 !important;
+        flex: 0 0 36px !important;
     }
     .topbar form.nav-search.is-open,
     .topbar form.nav-search:focus-within {
