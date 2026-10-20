@@ -205,7 +205,9 @@ div:has(> #hero-rotator) {
     isolation: isolate;
     background: #eef6ff;
     position: relative;
-    overflow: hidden;
+    overflow: visible !important;
+    overflow-x: clip !important;
+    overflow-y: visible !important;
     height: auto !important;
     min-height: 520px !important;
     display: flex !important;
@@ -590,7 +592,9 @@ div:has(> #right-slot) { gap: 0 clamp(32px, 4vw, 64px); padding-top: clamp(16px,
     border: 0 !important;
     border-radius: 0 !important;
     background: linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 78%) !important;
-    overflow: hidden !important;
+    overflow: clip !important;
+    overflow-x: clip !important;
+    overflow-y: visible !important;
     row-gap: 18px !important;
     box-sizing: border-box !important;
 }
@@ -3346,3 +3350,61 @@ img, svg, video, canvas {
     }
 }
 
+/* Critical Root Scroll & Touch Gesture Guarantee */
+html {
+    overflow-x: clip !important;
+    overflow-y: auto !important;
+    height: auto !important;
+    min-height: 100% !important;
+}
+
+body {
+    overflow-x: clip !important;
+    overflow-y: visible !important;
+    height: auto !important;
+    min-height: 100% !important;
+    position: static !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior-y: auto !important;
+    touch-action: pan-y pinch-zoom !important;
+}
+
+#hero-banner,
+div:has(> #hero-rotator) {
+    overflow: visible !important;
+    overflow-x: clip !important;
+    overflow-y: visible !important;
+}
+
+#hero-rotator {
+    pointer-events: none !important;
+}
+
+.cta-banner {
+    overflow: visible !important;
+    overflow-x: clip !important;
+    overflow-y: visible !important;
+}
+
+.carousel,
+.carousel__viewport,
+.carousel__track,
+.promo-carousel,
+.armada-carousel,
+.fleet-track-wrap {
+    overscroll-behavior: auto !important;
+    overscroll-behavior-y: auto !important;
+    touch-action: pan-y !important;
+}
+
+.bob-modal-overlay:not(.is-open) {
+    display: none !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+}
+
+.bob-modal-overlay.is-open {
+    display: flex !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
+}

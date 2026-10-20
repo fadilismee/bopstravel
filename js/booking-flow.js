@@ -114,6 +114,9 @@
         const overlay = document.createElement('div');
         overlay.id = 'bob-booking-modal';
         overlay.className = 'bob-modal-overlay';
+        overlay.style.display = 'none';
+        overlay.style.pointerEvents = 'none';
+        overlay.style.visibility = 'hidden';
         overlay.setAttribute('role', 'dialog');
         overlay.setAttribute('aria-modal', 'true');
         overlay.setAttribute('aria-label', 'Pemesanan Tiket Bob Travel');
@@ -978,6 +981,9 @@
         updateStepIndicator(1);
 
         const overlay = document.getElementById('bob-booking-modal');
+        overlay.style.display = 'flex';
+        overlay.style.pointerEvents = 'auto';
+        overlay.style.visibility = 'visible';
         overlay.classList.add('is-open');
         document.body.style.overflow = 'hidden';
     }
@@ -985,6 +991,9 @@
     function closeModal() {
         const overlay = document.getElementById('bob-booking-modal');
         if (overlay) {
+            overlay.style.display = 'none';
+            overlay.style.pointerEvents = 'none';
+            overlay.style.visibility = 'hidden';
             overlay.classList.remove('is-open');
             document.body.style.overflow = '';
         }

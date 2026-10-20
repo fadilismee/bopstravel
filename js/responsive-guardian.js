@@ -9,21 +9,29 @@
     const enforceResponsiveHarmony = () => {
         const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
 
-        // 1. Ensure natural vertical scrolling is never locked by inline overflow
-        if (document.documentElement.style.overflowX === 'hidden') {
-            document.documentElement.style.overflowX = '';
-        }
-        if (document.body.style.overflowX === 'hidden') {
-            document.body.style.overflowX = '';
-        }
+        // 1. Ensure natural vertical scrolling is never locked by inline overflow or height
+        document.documentElement.style.overflowY = 'auto';
+        document.documentElement.style.overflowX = 'clip';
+        document.body.style.overflowY = 'visible';
+        document.body.style.overflowX = 'clip';
+        document.body.style.height = 'auto';
+        document.body.style.position = 'static';
+        document.body.style.touchAction = 'pan-y pinch-zoom';
 
         // 2. Safeguard Hero Banner & Booking Card Stack
         const hero = document.getElementById('hero-banner');
         if (hero) {
-            // Hilangkan inline height statis yang bisa menyebabkan overflow/tumpukan
+            hero.style.overflow = 'visible';
+            hero.style.overflowY = 'visible';
+            hero.style.overflowX = 'clip';
             if (hero.style.height && hero.style.height !== 'auto') {
                 hero.style.height = 'auto';
             }
+        }
+
+        const heroRotator = document.getElementById('hero-rotator');
+        if (heroRotator) {
+            heroRotator.style.pointerEvents = 'none';
         }
 
         // 3. Prevent Table / Grid Overflow on ultra-narrow screens (< 360px)

@@ -2,10 +2,22 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/api/rute", "destination": "/api/rute.json" },
-    { "source": "/rute", "destination": "/rute.html" },
-    { "source": "/armada", "destination": "/armada.html" },
-    { "source": "/", "destination": "/index.html" }
+    {
+      "source": "/api/rute",
+      "destination": "/api/rute.json"
+    },
+    {
+      "source": "/rute",
+      "destination": "/rute.html"
+    },
+    {
+      "source": "/armada",
+      "destination": "/armada.html"
+    },
+    {
+      "source": "/",
+      "destination": "/index.html"
+    }
   ],
   "headers": [
     {
@@ -31,7 +43,16 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=86400, stale-while-revalidate=604800"
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
         }
       ]
     }

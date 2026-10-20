@@ -10,8 +10,61 @@
     <link rel="preload" href="/fonts/f01.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/f07.woff2" as="font" type="font/woff2" crossorigin>
     <!-- Consolidated Production Stylesheet -->
-    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/all.min.css?v=20261020_scrollfix">
     <link rel="icon" href="images/brand-mark.svg" type="image/svg+xml">
+    <!-- Critical Root Scroll & Touch Gesture Guarantee (Zero-latency, un-cached) -->
+    <style id="scroll-guarantee">
+      html {
+        overflow-x: clip !important;
+        overflow-y: auto !important;
+        height: auto !important;
+        min-height: 100% !important;
+      }
+      body {
+        overflow-x: clip !important;
+        overflow-y: visible !important;
+        height: auto !important;
+        min-height: 100% !important;
+        position: static !important;
+        -webkit-overflow-scrolling: touch !important;
+        overscroll-behavior-y: auto !important;
+        touch-action: pan-y pinch-zoom !important;
+      }
+      #hero-banner,
+      div:has(> #hero-rotator) {
+        overflow: visible !important;
+        overflow-x: clip !important;
+        overflow-y: visible !important;
+      }
+      #hero-rotator {
+        pointer-events: none !important;
+      }
+      .cta-banner {
+        overflow: visible !important;
+        overflow-x: clip !important;
+        overflow-y: visible !important;
+      }
+      .carousel,
+      .carousel__viewport,
+      .carousel__track,
+      .promo-carousel,
+      .armada-carousel,
+      .fleet-track-wrap {
+        overscroll-behavior: auto !important;
+        overscroll-behavior-y: auto !important;
+        touch-action: pan-y !important;
+      }
+      .bob-modal-overlay:not(.is-open) {
+        display: none !important;
+        pointer-events: none !important;
+        visibility: hidden !important;
+      }
+      .bob-modal-overlay.is-open {
+        display: flex !important;
+        pointer-events: auto !important;
+        visibility: visible !important;
+      }
+    </style>
 </head>
 <body>
 <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
@@ -535,24 +588,24 @@
     </button>
 </div>
 
-<script src="js/image-fallback.js" defer></script>
-<script src="js/responsive-guardian.js" defer></script>
-<script src="js/hero-rotator.js" defer></script>
-<script src="js/booking-widget.js" defer></script>
-<script src="js/booking-flow.js" defer></script>
-<script src="js/route-tabs.js" defer></script>
-<script src="js/navbar-reveal.js" defer></script>
-<script src="js/nav-search-popup.js" defer></script>
-<script src="js/faq-accordion.js" defer></script>
-<script src="js/pool-map-toggle.js" defer></script>
-<script src="js/promo-carousel.js" defer></script>
-<script src="js/diskon-carousel.js" defer></script>
-<script src="js/galeri-carousel.js" defer></script>
-<script src="js/article-carousel.js" defer></script>
-<script src="js/armada-carousel.js" defer></script>
-<script src="js/armada-cards.js" defer></script>
-<script src="js/fleet-showcase.js" defer></script>
-<script src="js/scroll-reveal.js" defer></script>
+<script src="js/image-fallback.js?v=20261020_scrollfix" defer></script>
+<script src="js/responsive-guardian.js?v=20261020_scrollfix" defer></script>
+<script src="js/hero-rotator.js?v=20261020_scrollfix" defer></script>
+<script src="js/booking-widget.js?v=20261020_scrollfix" defer></script>
+<script src="js/booking-flow.js?v=20261020_scrollfix" defer></script>
+<script src="js/route-tabs.js?v=20261020_scrollfix" defer></script>
+<script src="js/navbar-reveal.js?v=20261020_scrollfix" defer></script>
+<script src="js/nav-search-popup.js?v=20261020_scrollfix" defer></script>
+<script src="js/faq-accordion.js?v=20261020_scrollfix" defer></script>
+<script src="js/pool-map-toggle.js?v=20261020_scrollfix" defer></script>
+<script src="js/promo-carousel.js?v=20261020_scrollfix" defer></script>
+<script src="js/diskon-carousel.js?v=20261020_scrollfix" defer></script>
+<script src="js/galeri-carousel.js?v=20261020_scrollfix" defer></script>
+<script src="js/article-carousel.js?v=20261020_scrollfix" defer></script>
+<script src="js/armada-carousel.js?v=20261020_scrollfix" defer></script>
+<script src="js/armada-cards.js?v=20261020_scrollfix" defer></script>
+<script src="js/fleet-showcase.js?v=20261020_scrollfix" defer></script>
+<script src="js/scroll-reveal.js?v=20261020_scrollfix" defer></script>
 <script>
   // High-performance lazy load for GSAP on first user scroll or idle
   (() => {
