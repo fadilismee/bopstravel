@@ -9,10 +9,12 @@
     const enforceResponsiveHarmony = () => {
         const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
 
-        // 1. Safeguard Horizontal Overflow
-        if (document.documentElement.scrollWidth > vw) {
-            document.documentElement.style.overflowX = 'hidden';
-            document.body.style.overflowX = 'hidden';
+        // 1. Ensure natural vertical scrolling is never locked by inline overflow
+        if (document.documentElement.style.overflowX === 'hidden') {
+            document.documentElement.style.overflowX = '';
+        }
+        if (document.body.style.overflowX === 'hidden') {
+            document.body.style.overflowX = '';
         }
 
         // 2. Safeguard Hero Banner & Booking Card Stack

@@ -1677,6 +1677,7 @@ html {
     backdrop-filter: blur(8px);
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
     transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
     padding: 16px;
     box-sizing: border-box;
@@ -1685,6 +1686,7 @@ html {
 .bob-modal-overlay.is-open {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
 }
 
 .bob-modal-card {
@@ -3261,10 +3263,20 @@ html {
    Mencegah segala bentuk overlap/tumpukan elemen, overflow, atau layout patah
    pada resolusi layar berapa pun (mobile 320px, tablet 768px-1024px, desktop ultrawide)
    ========================================================================== */
-html, body {
-    max-width: 100% !important;
-    overflow-x: hidden !important;
-    position: relative !important;
+html {
+    max-width: 100%;
+    overflow-x: clip;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+body {
+    max-width: 100%;
+    overflow-x: clip;
+    overflow-y: visible;
+    min-height: 100vh;
+    min-height: 100dvh;
+    -webkit-overflow-scrolling: touch;
 }
 
 /* Radio button tap targets >= 24px (WCAG 2.5.8 Target Size Minimum) */
