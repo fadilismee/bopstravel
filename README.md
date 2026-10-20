@@ -1,6 +1,6 @@
 # bopstravel
 
-Frontend static website untuk Bob Travel (Armada Trans Java) - Travel, Charter, Journey.
+Frontend static website untuk Bop's Travel (Armada Trans Java) - Travel, Charter, Journey.
 Dibuat sebagai versi statis (HTML5, CSS3, Vanilla JS) untuk kebutuhan preview sementara di Vercel tanpa dependency backend PHP/Laravel.
 
 ## 🌟 Fitur Utama

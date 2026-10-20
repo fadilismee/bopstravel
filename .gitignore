@@ -4,3 +4,5 @@ node_modules/
 /vendor/
 .vercel/
 .claude/
+images/backup_old/
+tiketux-reference-assets-backup/

@@ -1,5 +1,5 @@
 /**
- * Bob Travel - High-Performance & Non-Destructive GSAP Animation Suite
+ * Bop's Travel - High-Performance & Non-Destructive GSAP Animation Suite
  * Designed to work harmoniously with existing styles, carousels, and layout controllers.
  */
 (() => {

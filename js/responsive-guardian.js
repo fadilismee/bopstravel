@@ -1,5 +1,5 @@
 /**
- * Bob Travel - Universal Responsive Guardian & Anti-Overlap Engine
+ * Bop's Travel - Universal Responsive Guardian & Anti-Overlap Engine
  * Memastikan tampilan web selalu rapi, proporsional, dan bebas tumpang tindih (overlap)
  * di semua ukuran layar (Mobile 320px, Tablet 768px-1024px, Desktop, hingga Ultrawide 4K).
  */

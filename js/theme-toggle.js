@@ -1,4 +1,4 @@
-// Bob Travel: Dark mode / Light mode toggle
+// Bop's Travel: Dark mode / Light mode toggle
 (function () {
     var stored = null;
     try { stored = localStorage.getItem('bob-theme'); } catch (e) {}
