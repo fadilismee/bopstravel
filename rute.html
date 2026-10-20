@@ -772,16 +772,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadGsap = () => {
       if (gsapLoaded) return;
       gsapLoaded = true;
-      const loadScript = (src) => new Promise((resolve) => {
+      const loadScript = (src, fb) => new Promise((resolve) => {
         const s = document.createElement('script');
         s.src = src;
         s.onload = resolve;
+        s.onerror = () => {
+          if (fb) {
+            const f = document.createElement('script');
+            f.src = fb;
+            f.onload = resolve;
+            f.onerror = resolve;
+            document.body.appendChild(f);
+          } else {
+            resolve();
+          }
+        };
         document.body.appendChild(s);
       });
-      loadScript('vendor/gsap/gsap.min.js')
+      loadScript('js/gsap/gsap.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js')
         .then(() => Promise.all([
-          loadScript('vendor/gsap/ScrollTrigger.min.js'),
-          loadScript('vendor/gsap/ScrollToPlugin.min.js')
+          loadScript('js/gsap/ScrollTrigger.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js'),
+          loadScript('js/gsap/ScrollToPlugin.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js')
         ]))
         .then(() => loadScript('js/gsap-animations.js'));
     };

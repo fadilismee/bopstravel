@@ -581,10 +581,10 @@
         document.body.appendChild(s);
       });
 
-      loadScript('vendor/gsap/gsap.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js')
+      loadScript('js/gsap/gsap.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js')
         .then(() => Promise.all([
-          loadScript('vendor/gsap/ScrollTrigger.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js'),
-          loadScript('vendor/gsap/ScrollToPlugin.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js')
+          loadScript('js/gsap/ScrollTrigger.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js'),
+          loadScript('js/gsap/ScrollToPlugin.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js')
         ]))
         .then(() => loadScript('js/gsap-animations.js'));
     };
