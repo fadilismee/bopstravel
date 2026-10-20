@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bob Travel — Jelajahi Perjalanan</title>
     <meta name="description" content="Temukan perjalanan antarkota bersama Bob Travel. Cek rute dan tanyakan ketersediaan melalui WhatsApp.">
-    <link rel="stylesheet" href="fonts/fonts.css">
-    <link rel="stylesheet" href="css/site.css">
-    <link rel="stylesheet" href="css/site-upgrade.css">
-    <link rel="stylesheet" href="css/booking.css">
-    <link rel="stylesheet" href="css/tiketux-reference.css">
-    <link rel="stylesheet" href="css/home-polish.css">
+    <!-- Preload Critical Above-The-Fold Assets -->
+    <link rel="preload" as="image" href="/images/hero-bus.webp" type="image/webp" fetchpriority="high">
+    <link rel="preload" href="/fonts/f01.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/f07.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- Consolidated Production Stylesheet -->
+    <link rel="stylesheet" href="css/all.min.css">
     <link rel="icon" href="images/brand-mark.svg" type="image/svg+xml">
 </head>
 <body>
@@ -536,13 +536,6 @@
 </div>
 
 <script src="js/image-fallback.js" defer></script>
-<script src="js/armada-carousel.js" defer></script>
-<script src="js/armada-cards.js" defer></script>
-<script src="js/fleet-showcase.js" defer></script>
-<script src="js/galeri-carousel.js" defer></script>
-<script src="js/promo-carousel.js" defer></script>
-<script src="js/diskon-carousel.js" defer></script>
-<script src="js/article-carousel.js" defer></script>
 <script src="js/hero-rotator.js" defer></script>
 <script src="js/booking-widget.js" defer></script>
 <script src="js/booking-flow.js" defer></script>
@@ -551,11 +544,50 @@
 <script src="js/nav-search-popup.js" defer></script>
 <script src="js/faq-accordion.js" defer></script>
 <script src="js/pool-map-toggle.js" defer></script>
+<script src="js/promo-carousel.js" defer></script>
+<script src="js/diskon-carousel.js" defer></script>
+<script src="js/galeri-carousel.js" defer></script>
+<script src="js/article-carousel.js" defer></script>
+<script src="js/armada-carousel.js" defer></script>
+<script src="js/armada-cards.js" defer></script>
+<script src="js/fleet-showcase.js" defer></script>
 <script src="js/scroll-reveal.js" defer></script>
-<script src="vendor/gsap/gsap.min.js" defer></script>
-<script src="vendor/gsap/ScrollTrigger.min.js" defer></script>
-<script src="vendor/gsap/ScrollToPlugin.min.js" defer></script>
-<script src="js/gsap-animations.js" defer></script>
+<script>
+  // High-performance lazy load for GSAP on first user scroll or idle
+  (() => {
+    let gsapLoaded = false;
+    const loadGsap = () => {
+      if (gsapLoaded) return;
+      gsapLoaded = true;
+      window.removeEventListener('scroll', loadGsap);
+      window.removeEventListener('mousemove', loadGsap);
+      window.removeEventListener('touchstart', loadGsap);
+      
+      const loadScript = (src) => new Promise((resolve) => {
+        const s = document.createElement('script');
+        s.src = src;
+        s.onload = resolve;
+        document.body.appendChild(s);
+      });
+
+      loadScript('vendor/gsap/gsap.min.js')
+        .then(() => Promise.all([
+          loadScript('vendor/gsap/ScrollTrigger.min.js'),
+          loadScript('vendor/gsap/ScrollToPlugin.min.js')
+        ]))
+        .then(() => loadScript('js/gsap-animations.js'));
+    };
+
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => setTimeout(loadGsap, 2000), { timeout: 3500 });
+    } else {
+      setTimeout(loadGsap, 2500);
+    }
+    window.addEventListener('scroll', loadGsap, { passive: true, once: true });
+    window.addEventListener('mousemove', loadGsap, { passive: true, once: true });
+    window.addEventListener('touchstart', loadGsap, { passive: true, once: true });
+  })();
+</script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const today = new Date().toISOString().split('T')[0];
