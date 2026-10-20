@@ -58,5 +58,21 @@
     window.addEventListener('pointercancel', endDrag);
     window.addEventListener('resize', paint);
 
+        // Filter Tabs Click Interaction
+    const filterTabs = document.querySelectorAll('.article-tab-btn');
+    if (filterTabs.length) {
+        filterTabs.forEach((tab) => {
+            tab.addEventListener('click', () => {
+                filterTabs.forEach((t) => {
+                    t.classList.remove('is-active');
+                    t.setAttribute('aria-selected', 'false');
+                });
+                tab.classList.add('is-active');
+                tab.setAttribute('aria-selected', 'true');
+                go(0);
+            });
+        });
+    }
+
     paint();
 })();
