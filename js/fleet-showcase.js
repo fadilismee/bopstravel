@@ -26,6 +26,7 @@
             const b = document.createElement('button');
             b.type = 'button';
             b.setAttribute('aria-label', `Tampilkan armada ${i + 1}`);
+            b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
             b.addEventListener('click', () => { go(i); restart(); });
             dotsWrap.appendChild(b);
             dots.push(b);
@@ -40,7 +41,11 @@
         const safe = Math.min(index, maxIndex());
         index = safe;
         track.style.transform = `translateX(-${safe * step}px)`;
-        dots.forEach((d, i) => d.classList.toggle('is-active', i === safe));
+        dots.forEach((d, i) => {
+            const active = i === safe;
+            d.classList.toggle('is-active', active);
+            d.setAttribute('aria-pressed', active ? 'true' : 'false');
+        });
     };
 
     const go = (i) => {

@@ -187,10 +187,10 @@ div:has(> #hero-rotator) > .margin-desktop {
     display: none !important;
 }
 .promo-carousel .custom-nav--disabled { opacity: .4; cursor: default; }
-.promo-carousel .custom-pagination { order: 4; flex: 1 1 100%; display: flex; justify-content: center; align-items: center; gap: 8px; margin: 8px 0 0; list-style: none; padding: 0; min-height: 28px; }
-.promo-carousel .custom-pagination__btn { position: relative; width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px; background: #9CA3AF; cursor: pointer; transition: background-color .18s ease, width .18s ease; }
-.promo-carousel .custom-pagination__btn::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); min-width: 28px; min-height: 28px; }
-.promo-carousel .custom-pagination__btn--active { background: #2563eb; width: 22px; }
+.promo-carousel .custom-pagination { order: 4; flex: 1 1 100%; display: flex; justify-content: center; align-items: center; gap: 4px; margin: 8px 0 0; list-style: none; padding: 0; min-height: 32px; }
+.promo-carousel .custom-pagination__btn { position: relative; width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.promo-carousel .custom-pagination__btn::after { content: ''; display: block; width: 8px; height: 8px; border-radius: 999px; background: #9CA3AF; transition: background-color .18s ease, width .18s ease; }
+.promo-carousel .custom-pagination__btn--active::after { background: #2563eb; width: 22px; }
 @media (prefers-reduced-motion: reduce) { .promo-carousel .carousel__track { transition: none; } }
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
@@ -436,10 +436,10 @@ div:has(> #right-slot) { gap: 0 clamp(32px, 4vw, 64px); padding-top: clamp(16px,
 .fleet-stars svg { width: 16px; height: 16px; display: block; }
 .fleet-book { display: block; text-align: center; background: #2563EB; color: #fff; font-size: 13px; font-weight: 700; padding: 10px 12px; border-radius: 10px; transition: background .2s ease, transform .2s ease; }
 .fleet-book:hover { background: #1D4ED8; transform: translateY(-1px); color: #fff; }
-.fleet-dots { display: flex; gap: 8px; justify-content: center; margin-top: 18px; }
-.fleet-dots button { position: relative; width: 8px; height: 8px; border-radius: 999px; border: 0; padding: 0; background: #9CA3AF; cursor: pointer; }
-.fleet-dots button::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); min-width: 28px; min-height: 28px; }
-.fleet-dots button.is-active { width: 26px; background: #2563EB; }
+.fleet-dots { display: flex; gap: 4px; justify-content: center; align-items: center; margin-top: 18px; min-height: 32px; }
+.fleet-dots button { position: relative; width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.fleet-dots button::after { content: ''; display: block; width: 8px; height: 8px; border-radius: 999px; background: #9CA3AF; transition: background-color .18s ease, width .18s ease; }
+.fleet-dots button.is-active::after { width: 26px; background: #2563EB; }
 @media (max-width: 1023px) {
     .fleet-card { flex-basis: calc((100% - 2 * 16px) / 3); }
 }
@@ -1057,17 +1057,29 @@ html {
 }
 
 .galeri-dot {
+    position: relative;
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.galeri-dot::after {
+    content: '';
+    display: block;
     width: 8px;
     height: 8px;
     border-radius: 9999px;
     background: #cbd5e1;
-    border: 0;
-    padding: 0;
-    cursor: pointer;
     transition: all 0.25s ease;
 }
 
-.galeri-dot.is-active {
+.galeri-dot.is-active::after {
     width: 24px;
     background: #2563eb;
 }
@@ -3164,3 +3176,78 @@ html {
 .text-font-gray { color: #475569 !important; }
 .pool-tab-btn { color: #f1f5f9 !important; }
 .pool-detail-address { color: #f8fafc !important; }
+
+/* ==========================================================================
+   UNIVERSAL RESPONSIVE GUARDIAN & ACCESSIBILITY TAP TARGETS (WCAG 2.5.8)
+   Mencegah segala bentuk overlap/tumpukan elemen, overflow, atau layout patah
+   pada resolusi layar berapa pun (mobile 320px, tablet 768px-1024px, desktop ultrawide)
+   ========================================================================== */
+html, body {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    position: relative !important;
+}
+
+/* Radio button tap targets >= 24px (WCAG 2.5.8 Target Size Minimum) */
+#trip-oneway,
+#trip-roundtrip,
+input[type="radio"],
+input[type="checkbox"] {
+    min-width: 24px !important;
+    min-height: 24px !important;
+    cursor: pointer;
+    accent-color: #2563EB;
+}
+
+.radio-pill,
+label:has(input[type="radio"]),
+label:has(input[type="checkbox"]) {
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Hero banner responsive safeguard: no fixed height overlap */
+#hero-banner {
+    height: auto !important;
+    min-height: 440px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    padding-bottom: 24px !important;
+    position: relative !important;
+}
+
+/* Responsive container containment */
+img, svg, video, canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Grid & Flex wrap fallbacks across all breakpoints */
+.flex, [class*="flex-"] {
+    min-width: 0;
+}
+
+.grid {
+    min-width: 0;
+}
+
+/* Safeguard for cards & widgets */
+.bob-modal-card,
+.bob-order-summary,
+.bob-route-card,
+.booking-widget-wrapper {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+@media (max-width: 1024px) {
+    #hero-banner {
+        min-height: unset !important;
+        padding-top: 16px !important;
+        padding-bottom: 32px !important;
+    }
+}
+

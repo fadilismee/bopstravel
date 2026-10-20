@@ -22,6 +22,7 @@
                 dot.type = 'button';
                 dot.className = `galeri-dot ${i === 0 ? 'is-active' : ''}`;
                 dot.setAttribute('aria-label', `Foto ${i + 1}`);
+                dot.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
                 dot.addEventListener('click', () => goTo(i));
                 dotsWrap.appendChild(dot);
             }
@@ -31,7 +32,9 @@
             if (!dotsWrap) return;
             const dots = dotsWrap.querySelectorAll('.galeri-dot');
             dots.forEach((d, i) => {
-                d.classList.toggle('is-active', i === currentIndex);
+                const active = i === currentIndex;
+                d.classList.toggle('is-active', active);
+                d.setAttribute('aria-pressed', active ? 'true' : 'false');
             });
         };
 
