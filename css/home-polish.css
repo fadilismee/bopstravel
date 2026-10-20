@@ -195,7 +195,7 @@ div:has(> #right-slot) { flex-wrap: nowrap !important; align-items: center; gap:
     #right-slot { margin-top: 12px; }
 }
 /* Hero banner rotator: crossfade between local photos every few seconds. */
-.hero-rotator { transition: opacity .8s ease; filter: saturate(.82) contrast(.94) brightness(1.05); }
+.hero-rotator { transition: opacity .8s ease; filter: saturate(.82) contrast(.94) brightness(1.05); pointer-events: none !important; user-select: none !important; -webkit-user-drag: none !important; }
 .hero-rotator.is-fading { opacity: 0; }
 /* Hero softening: white gradient veil over the photo so it doesn't shout
    over the rest of the page. Top melts into the header, bottom melts into
@@ -711,7 +711,7 @@ div:has(> #right-slot) { gap: 0 clamp(32px, 4vw, 64px); padding-top: clamp(16px,
 .armada-carousel .carousel__viewport,
 section.carousel-container.no-slide .carousel__viewport,
 .fleet-track-wrap,
-.armada-cards { touch-action: pan-y; }
+.armada-cards { touch-action: pan-y pinch-zoom; }
 .promo-carousel .carousel__track,
 .armada-carousel .carousel__track,
 section.carousel-container.no-slide .carousel__track,
@@ -3264,19 +3264,23 @@ html {
    pada resolusi layar berapa pun (mobile 320px, tablet 768px-1024px, desktop ultrawide)
    ========================================================================== */
 html {
-    max-width: 100%;
-    overflow-x: clip;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
 }
 
 body {
-    max-width: 100%;
-    overflow-x: clip;
-    overflow-y: visible;
     min-height: 100vh;
     min-height: 100dvh;
     -webkit-overflow-scrolling: touch;
+}
+
+/* Enforce zero horizontal bleed strictly on content wrappers, NEVER on html/body */
+.site-main,
+main,
+.reference-home {
+    max-width: 100%;
+    overflow-x: clip;
 }
 
 /* Radio button tap targets >= 24px (WCAG 2.5.8 Target Size Minimum) */

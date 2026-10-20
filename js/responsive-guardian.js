@@ -46,14 +46,6 @@
     let resizeTimer = null;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(enforceResponsiveHarmony, 60);
+        resizeTimer = setTimeout(enforceResponsiveHarmony, 100);
     }, { passive: true });
-
-    // Observasi mutasi konten dinamis (misal modal terbuka, card berubah ukuran)
-    if ('ResizeObserver' in window) {
-        const ro = new ResizeObserver(() => {
-            enforceResponsiveHarmony();
-        });
-        ro.observe(document.body);
-    }
 })();
