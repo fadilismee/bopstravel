@@ -9,7 +9,7 @@
   ],
   "headers": [
     {
-      "source": "/(.*)\.(woff2|woff|ttf|otf)",
+      "source": "/fonts/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -18,7 +18,7 @@
       ]
     },
     {
-      "source": "/(.*)\.(webp|png|jpg|jpeg|svg|gif|ico)",
+      "source": "/images/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -27,7 +27,7 @@
       ]
     },
     {
-      "source": "/(css|js|vendor)/(.*)",
+      "source": "/(css|js)/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
