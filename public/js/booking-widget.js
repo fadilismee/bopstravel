@@ -65,13 +65,27 @@
     const btn = document.getElementById('search-schedule');
     if (btn) {
         btn.type = 'button';
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
             const val = (id) => { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
+            const orig = val('departure-from') || 'Jakarta';
+            const dest = val('destination-form') || 'Solo';
+            const date = val('date-form') || new Date().toISOString().split('T')[0];
+            const jam = time ? time.value.trim() : '07:30';
+
+            // Launch interactive demo booking modal
+            if (window.BobBooking && typeof window.BobBooking.open === 'function') {
+                window.BobBooking.open({
+                    origin: orig,
+                    destination: dest,
+                    date: date,
+                    time: jam,
+                    tripType: mode
+                });
+                return;
+            }
+
             const params = new URLSearchParams();
-            const orig = val('departure-from');
-            const dest = val('destination-form');
-            const date = val('date-form');
-            const jam = time ? time.value.trim() : '';
             if (orig) params.set('origin', orig);
             if (dest) params.set('destination', dest);
             if (date) params.set('date', date);

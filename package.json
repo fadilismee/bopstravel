@@ -3,7 +3,8 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "vite build",
+        "build": "node build-static.js",
+        "build:vite": "vite build",
         "dev": "vite"
     },
     "devDependencies": {
@@ -15,5 +16,8 @@
     },
     "optionalDependencies": {
         "@laravel/multiplex": "^0.4.1"
+    },
+    "dependencies": {
+        "gsap": "^3.15.0"
     }
 }
