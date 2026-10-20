@@ -4,10 +4,10 @@
     if (!img) return;
 
     const photos = [
-        '/images/hero-bus.jpg',
-        '/images/hero-minibus.jpg',
-        '/images/hero-malioboro.jpg',
-        '/images/hero-borobudur.jpg',
+        '/images/hero-bus.webp',
+        '/images/hero-minibus.webp',
+        '/images/hero-malioboro.webp',
+        '/images/hero-borobudur.webp',
     ];
 
     // Preload so swaps never flash blank.

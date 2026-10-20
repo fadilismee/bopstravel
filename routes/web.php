@@ -63,18 +63,18 @@ Route::get('/rute/{slug}', function (string $slug) {
 
 Route::get('/armada', function () {
     $fleet = [
-        ['name' => 'Mitsubishi Xpander', 'meta' => 'MPV • 6–7 kursi', 'img' => 'images/armada/1.jpg'],
-        ['name' => 'Toyota Avanza', 'meta' => 'MPV • 6–7 kursi', 'img' => 'images/armada/2.jpg'],
-        ['name' => 'Suzuki Ertiga', 'meta' => 'MPV • 6–7 kursi', 'img' => 'images/armada/3.jpg'],
-        ['name' => 'Microbus', 'meta' => 'Bus kecil • 15–19 kursi', 'img' => 'images/armada/4.jpg'],
-        ['name' => 'Daihatsu Xenia', 'meta' => 'MPV • 6–7 kursi', 'img' => 'images/armada/5.jpg'],
-        ['name' => 'Toyota Innova', 'meta' => 'MPV • 6–7 kursi', 'img' => 'images/armada/6.jpg'],
-        ['name' => 'Hyundai H-1 Wagon', 'meta' => 'Van • 7–8 kursi', 'img' => 'images/armada/7.jpg'],
-        ['name' => 'Hiace Premio', 'meta' => 'Minibus • 13–14 kursi', 'img' => 'images/armada/8.jpg'],
-        ['name' => 'Hiace Commuter', 'meta' => 'Minibus • 14–15 kursi', 'img' => 'images/armada/9.jpg'],
-        ['name' => 'Toyota Hiace', 'meta' => 'Minibus • 14–15 kursi', 'img' => 'images/armada/10.jpg'],
-        ['name' => 'Hiace Luxury', 'meta' => 'Minibus • 10–12 kursi', 'img' => 'images/armada/11.jpg'],
-        ['name' => 'Alphard Executive', 'meta' => 'Premium • 6–7 kursi', 'img' => 'images/armada/12.jpg'],
+        ['name' => 'Mitsubishi Xpander', 'meta' => 'MPV • 6–7 kursi', 'img' => 'images/armada/1.webp'],
+        ['name' => 'Toyota Avanza', 'meta' => 'MPV • 6–7 kursi', 'img' => 'images/armada/2.webp'],
+        ['name' => 'Suzuki Ertiga', 'meta' => 'MPV • 6–7 kursi', 'img' => 'images/armada/3.webp'],
+        ['name' => 'Microbus', 'meta' => 'Bus kecil • 15–19 kursi', 'img' => 'images/armada/4.webp'],
+        ['name' => 'Daihatsu Xenia', 'meta' => 'MPV • 6–7 kursi', 'img' => 'images/armada/5.webp'],
+        ['name' => 'Toyota Innova', 'meta' => 'MPV • 6–7 kursi', 'img' => 'images/armada/6.webp'],
+        ['name' => 'Hyundai H-1 Wagon', 'meta' => 'Van • 7–8 kursi', 'img' => 'images/armada/7.webp'],
+        ['name' => 'Hiace Premio', 'meta' => 'Minibus • 13–14 kursi', 'img' => 'images/armada/8.webp'],
+        ['name' => 'Hiace Commuter', 'meta' => 'Minibus • 14–15 kursi', 'img' => 'images/armada/9.webp'],
+        ['name' => 'Toyota Hiace', 'meta' => 'Minibus • 14–15 kursi', 'img' => 'images/armada/10.webp'],
+        ['name' => 'Hiace Luxury', 'meta' => 'Minibus • 10–12 kursi', 'img' => 'images/armada/11.webp'],
+        ['name' => 'Alphard Executive', 'meta' => 'Premium • 6–7 kursi', 'img' => 'images/armada/12.webp'],
     ];
 
     return view('fleet', compact('fleet'));
