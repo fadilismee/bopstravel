@@ -187,8 +187,9 @@ div:has(> #hero-rotator) > .margin-desktop {
     display: none !important;
 }
 .promo-carousel .custom-nav--disabled { opacity: .4; cursor: default; }
-.promo-carousel .custom-pagination { order: 4; flex: 1 1 100%; display: flex; justify-content: center; align-items: center; gap: 8px; margin: 8px 0 0; list-style: none; padding: 0; min-height: 20px; }
-.promo-carousel .custom-pagination__btn { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px; background: #d3dde8; cursor: pointer; transition: background-color .18s ease, width .18s ease; }
+.promo-carousel .custom-pagination { order: 4; flex: 1 1 100%; display: flex; justify-content: center; align-items: center; gap: 8px; margin: 8px 0 0; list-style: none; padding: 0; min-height: 28px; }
+.promo-carousel .custom-pagination__btn { position: relative; width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px; background: #9CA3AF; cursor: pointer; transition: background-color .18s ease, width .18s ease; }
+.promo-carousel .custom-pagination__btn::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); min-width: 28px; min-height: 28px; }
 .promo-carousel .custom-pagination__btn--active { background: #2563eb; width: 22px; }
 @media (prefers-reduced-motion: reduce) { .promo-carousel .carousel__track { transition: none; } }
 @media (prefers-reduced-motion: reduce) {
@@ -436,7 +437,8 @@ div:has(> #right-slot) { gap: 0 clamp(32px, 4vw, 64px); padding-top: clamp(16px,
 .fleet-book { display: block; text-align: center; background: #2563EB; color: #fff; font-size: 13px; font-weight: 700; padding: 10px 12px; border-radius: 10px; transition: background .2s ease, transform .2s ease; }
 .fleet-book:hover { background: #1D4ED8; transform: translateY(-1px); color: #fff; }
 .fleet-dots { display: flex; gap: 8px; justify-content: center; margin-top: 18px; }
-.fleet-dots button { width: 8px; height: 8px; border-radius: 999px; border: 0; padding: 0; background: #D1D5DB; cursor: pointer; }
+.fleet-dots button { position: relative; width: 8px; height: 8px; border-radius: 999px; border: 0; padding: 0; background: #9CA3AF; cursor: pointer; }
+.fleet-dots button::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); min-width: 28px; min-height: 28px; }
 .fleet-dots button.is-active { width: 26px; background: #2563EB; }
 @media (max-width: 1023px) {
     .fleet-card { flex-basis: calc((100% - 2 * 16px) / 3); }
