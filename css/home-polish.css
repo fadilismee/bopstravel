@@ -41,16 +41,65 @@
 }
 @media (max-width: 640px) {
     .site-nav { display: none !important; }
-    .mobile-nav { display: block !important; position: relative !important; order: 4 !important; }
-    .mobile-nav summary { display: grid; align-content: center; justify-items: center; gap: 4px; width: 36px; height: 36px; list-style: none; cursor: pointer; border: 1px solid #dce5ee; border-radius: 50%; }
-    .mobile-nav summary::-webkit-details-marker { display: none; }
-    .mobile-nav summary span { display: block; width: 16px; height: 2px; border-radius: 2px; background: #17406d; transition: transform .18s ease, opacity .18s ease; }
-    .mobile-nav[open] summary span:first-child { transform: translateY(6px) rotate(45deg); }
-    .mobile-nav[open] summary span:nth-child(2) { opacity: 0; }
-    .mobile-nav[open] summary span:last-child { transform: translateY(-6px) rotate(-45deg); }
-    .mobile-nav nav { position: absolute; top: calc(100% + 12px); right: -4px; display: grid; min-width: 200px; gap: 4px; padding: 8px; border: 1px solid #e2eaf2; border-radius: 14px; background: #fff; box-shadow: 0 14px 34px rgb(16 42 70 / 14%); z-index: 90; }
-    .mobile-nav nav a { padding: 10px 14px; border-radius: 9px; color: #17406d; font-size: 14px; }
-    .mobile-nav nav a:hover { background: #f2f7fb; }
+    .mobile-nav {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        position: relative !important;
+        order: 4 !important;
+        flex: 0 0 36px !important;
+        width: 36px !important;
+        height: 36px !important;
+        margin: 0 2px 0 0 !important;
+    }
+    .mobile-nav summary {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 4px !important;
+        width: 36px !important;
+        height: 36px !important;
+        box-sizing: border-box !important;
+        list-style: none !important;
+        cursor: pointer !important;
+        border: 1px solid #dce5ee !important;
+        border-radius: 50% !important;
+        background: #ffffff !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        transition: border-color .18s ease, background-color .18s ease;
+    }
+    .mobile-nav summary::-webkit-details-marker { display: none !important; }
+    .mobile-nav summary span {
+        display: block !important;
+        width: 16px !important;
+        height: 2px !important;
+        border-radius: 2px !important;
+        background: #17406d !important;
+        margin: 0 !important;
+        transform-origin: center !important;
+        transition: transform .18s ease, opacity .18s ease;
+    }
+    .mobile-nav[open] summary span:first-child { transform: translateY(6px) rotate(45deg) !important; }
+    .mobile-nav[open] summary span:nth-child(2) { opacity: 0 !important; }
+    .mobile-nav[open] summary span:last-child { transform: translateY(-6px) rotate(-45deg) !important; }
+    .mobile-nav nav {
+        position: absolute !important;
+        top: calc(100% + 12px) !important;
+        right: 0 !important;
+        display: grid !important;
+        min-width: 200px !important;
+        gap: 4px !important;
+        padding: 8px !important;
+        border: 1px solid #e2eaf2 !important;
+        border-radius: 14px !important;
+        background: #fff !important;
+        box-shadow: 0 14px 34px rgb(16 42 70 / 14%) !important;
+        z-index: 90 !important;
+    }
+    .mobile-nav nav a { padding: 10px 14px !important; border-radius: 9px !important; color: #17406d !important; font-size: 14px !important; }
+    .mobile-nav nav a:hover { background: #f2f7fb !important; }
 }
 /* Route list (#slots): reference markup shipped .grid-wrapper with no CSS, so routes
    collapsed into one long column. Lay them out as a tidy responsive card grid. */
@@ -146,7 +195,7 @@ div:has(> #right-slot) { flex-wrap: nowrap !important; align-items: center; gap:
     #right-slot { margin-top: 12px; }
 }
 /* Hero banner rotator: crossfade between local photos every few seconds. */
-.hero-rotator { transition: opacity .8s ease; filter: saturate(.82) contrast(.94) brightness(1.05); }
+.hero-rotator { transition: opacity .8s ease; filter: saturate(.82) contrast(.94) brightness(1.05); pointer-events: none !important; user-select: none !important; -webkit-user-drag: none !important; }
 .hero-rotator.is-fading { opacity: 0; }
 /* Hero softening: white gradient veil over the photo so it doesn't shout
    over the rest of the page. Top melts into the header, bottom melts into
@@ -187,10 +236,10 @@ div:has(> #hero-rotator) > .margin-desktop {
     display: none !important;
 }
 .promo-carousel .custom-nav--disabled { opacity: .4; cursor: default; }
-.promo-carousel .custom-pagination { order: 4; flex: 1 1 100%; display: flex; justify-content: center; align-items: center; gap: 8px; margin: 8px 0 0; list-style: none; padding: 0; min-height: 28px; }
-.promo-carousel .custom-pagination__btn { position: relative; width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px; background: #9CA3AF; cursor: pointer; transition: background-color .18s ease, width .18s ease; }
-.promo-carousel .custom-pagination__btn::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); min-width: 28px; min-height: 28px; }
-.promo-carousel .custom-pagination__btn--active { background: #2563eb; width: 22px; }
+.promo-carousel .custom-pagination { order: 4; flex: 1 1 100%; display: flex; justify-content: center; align-items: center; gap: 4px; margin: 8px 0 0; list-style: none; padding: 0; min-height: 32px; }
+.promo-carousel .custom-pagination__btn { position: relative; width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.promo-carousel .custom-pagination__btn::after { content: ''; display: block; width: 8px; height: 8px; border-radius: 999px; background: #9CA3AF; transition: background-color .18s ease, width .18s ease; }
+.promo-carousel .custom-pagination__btn--active::after { background: #2563eb; width: 22px; }
 @media (prefers-reduced-motion: reduce) { .promo-carousel .carousel__track { transition: none; } }
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
@@ -388,23 +437,51 @@ div:has(> #right-slot) { gap: 0 clamp(32px, 4vw, 64px); padding-top: clamp(16px,
 }
 @media (max-width: 640px) {
     .topbar {
-        width: calc(100% - 20px);
-        height: 54px;
-        min-height: 54px;
-        padding: 0 8px 0 14px;
+        width: calc(100% - 16px);
+        height: 52px;
+        min-height: 52px;
+        padding: 0 8px 0 10px;
         gap: 6px;
         border-radius: 999px;
         top: 8px;
         margin-top: 0;
         flex-wrap: nowrap !important;
         align-items: center !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
     }
-    .topbar .brand { flex-shrink: 0; }
+    .topbar .brand {
+        flex: 0 1 auto !important;
+        min-width: 0 !important;
+        gap: 8px !important;
+    }
+    .topbar .brand small {
+        display: none !important;
+    }
+    .topbar .brand > span:last-child {
+        white-space: nowrap !important;
+        font-size: 13px !important;
+        letter-spacing: 0.5px !important;
+    }
+    .topbar .brand-mark {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 17px !important;
+        flex-shrink: 0 !important;
+    }
+    .topbar .header-actions {
+        order: 2;
+        margin-left: auto !important;
+        display: flex !important;
+        align-items: center !important;
+        flex-shrink: 0 !important;
+    }
     .topbar .nav-cta {
-        min-height: 36px;
-        height: 36px;
-        padding: 0 14px;
-        font-size: 13px;
+        min-height: 34px;
+        height: 34px;
+        padding: 0 12px;
+        font-size: 12px;
+        font-weight: 700;
         flex-shrink: 0;
     }
     .footer { padding: 52px 24px 22px; }
@@ -436,10 +513,10 @@ div:has(> #right-slot) { gap: 0 clamp(32px, 4vw, 64px); padding-top: clamp(16px,
 .fleet-stars svg { width: 16px; height: 16px; display: block; }
 .fleet-book { display: block; text-align: center; background: #2563EB; color: #fff; font-size: 13px; font-weight: 700; padding: 10px 12px; border-radius: 10px; transition: background .2s ease, transform .2s ease; }
 .fleet-book:hover { background: #1D4ED8; transform: translateY(-1px); color: #fff; }
-.fleet-dots { display: flex; gap: 8px; justify-content: center; margin-top: 18px; }
-.fleet-dots button { position: relative; width: 8px; height: 8px; border-radius: 999px; border: 0; padding: 0; background: #9CA3AF; cursor: pointer; }
-.fleet-dots button::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); min-width: 28px; min-height: 28px; }
-.fleet-dots button.is-active { width: 26px; background: #2563EB; }
+.fleet-dots { display: flex; gap: 4px; justify-content: center; align-items: center; margin-top: 18px; min-height: 32px; }
+.fleet-dots button { position: relative; width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.fleet-dots button::after { content: ''; display: block; width: 8px; height: 8px; border-radius: 999px; background: #9CA3AF; transition: background-color .18s ease, width .18s ease; }
+.fleet-dots button.is-active::after { width: 26px; background: #2563EB; }
 @media (max-width: 1023px) {
     .fleet-card { flex-basis: calc((100% - 2 * 16px) / 3); }
 }
@@ -634,7 +711,7 @@ div:has(> #right-slot) { gap: 0 clamp(32px, 4vw, 64px); padding-top: clamp(16px,
 .armada-carousel .carousel__viewport,
 section.carousel-container.no-slide .carousel__viewport,
 .fleet-track-wrap,
-.armada-cards { touch-action: pan-y; }
+.armada-cards { touch-action: pan-y pinch-zoom; }
 .promo-carousel .carousel__track,
 .armada-carousel .carousel__track,
 section.carousel-container.no-slide .carousel__track,
@@ -800,10 +877,12 @@ section.carousel-container.no-slide .carousel__track img,
 @media (max-width: 640px) {
     .topbar form.nav-search {
         order: 3;
-        margin-left: auto !important;
-        width: 38px !important;
-        height: 38px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 36px !important;
+        height: 36px !important;
         padding: 0 !important;
+        flex: 0 0 36px !important;
     }
     .topbar form.nav-search.is-open,
     .topbar form.nav-search:focus-within {
@@ -1057,17 +1136,29 @@ html {
 }
 
 .galeri-dot {
+    position: relative;
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.galeri-dot::after {
+    content: '';
+    display: block;
     width: 8px;
     height: 8px;
     border-radius: 9999px;
     background: #cbd5e1;
-    border: 0;
-    padding: 0;
-    cursor: pointer;
     transition: all 0.25s ease;
 }
 
-.galeri-dot.is-active {
+.galeri-dot.is-active::after {
     width: 24px;
     background: #2563eb;
 }
@@ -1586,6 +1677,7 @@ html {
     backdrop-filter: blur(8px);
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
     transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
     padding: 16px;
     box-sizing: border-box;
@@ -1594,6 +1686,7 @@ html {
 .bob-modal-overlay.is-open {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
 }
 
 .bob-modal-card {
@@ -3164,3 +3257,92 @@ html {
 .text-font-gray { color: #475569 !important; }
 .pool-tab-btn { color: #f1f5f9 !important; }
 .pool-detail-address { color: #f8fafc !important; }
+
+/* ==========================================================================
+   UNIVERSAL RESPONSIVE GUARDIAN & ACCESSIBILITY TAP TARGETS (WCAG 2.5.8)
+   Mencegah segala bentuk overlap/tumpukan elemen, overflow, atau layout patah
+   pada resolusi layar berapa pun (mobile 320px, tablet 768px-1024px, desktop ultrawide)
+   ========================================================================== */
+html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Enforce zero horizontal bleed strictly on content wrappers, NEVER on html/body */
+.site-main,
+main,
+.reference-home {
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+/* Radio button tap targets >= 24px (WCAG 2.5.8 Target Size Minimum) */
+#trip-oneway,
+#trip-roundtrip,
+input[type="radio"],
+input[type="checkbox"] {
+    min-width: 24px !important;
+    min-height: 24px !important;
+    cursor: pointer;
+    accent-color: #2563EB;
+}
+
+.radio-pill,
+label:has(input[type="radio"]),
+label:has(input[type="checkbox"]) {
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Hero banner responsive safeguard: no fixed height overlap */
+#hero-banner {
+    height: auto !important;
+    min-height: 440px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    padding-bottom: 24px !important;
+    position: relative !important;
+}
+
+/* Responsive container containment */
+img, svg, video, canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Grid & Flex wrap fallbacks across all breakpoints */
+.flex, [class*="flex-"] {
+    min-width: 0;
+}
+
+.grid {
+    min-width: 0;
+}
+
+/* Safeguard for cards & widgets */
+.bob-modal-card,
+.bob-order-summary,
+.bob-route-card,
+.booking-widget-wrapper {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+@media (max-width: 1024px) {
+    #hero-banner {
+        min-height: unset !important;
+        padding-top: 16px !important;
+        padding-bottom: 32px !important;
+    }
+}
+
