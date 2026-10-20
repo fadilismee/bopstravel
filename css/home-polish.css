@@ -3350,6 +3350,62 @@ img, svg, video, canvas {
     }
 }
 
+/* ==========================================================================
+   Penawaran Spesial & Berita - Category Filter Pills
+   ========================================================================== */
+#filter-slot-content {
+    width: 100%;
+    margin-top: 6px;
+}
+#filter-slot-content .article-filter-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 6px 2px;
+}
+#filter-slot-content .article-filter-row::-webkit-scrollbar {
+    display: none;
+}
+.article-tab-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    cursor: pointer;
+    border: 1px solid #E2E8F0;
+    background: #FFFFFF;
+    color: #475569;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    user-select: none;
+    outline: none;
+}
+.article-tab-btn:hover {
+    border-color: #93C5FD;
+    color: #1D4ED8;
+    background: #F8FAFC;
+    transform: translateY(-1px);
+}
+.article-tab-btn:active {
+    transform: scale(0.98);
+}
+.article-tab-btn.is-active {
+    background: #2563EB;
+    border-color: #2563EB;
+    color: #FFFFFF;
+    font-weight: 600;
+    box-shadow: 0 3px 10px rgba(37, 99, 235, 0.28);
+}
+
 /* Critical Root Scroll & Touch Gesture Guarantee */
 html {
     overflow-x: clip !important;
