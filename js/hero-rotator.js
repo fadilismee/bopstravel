@@ -1,4 +1,4 @@
-// Hero banner rotator: smooth crossfade through Bob Travel photos
+// Hero banner rotator: smooth crossfade through Bop's Travel photos
 (() => {
     'use strict';
     const img = document.getElementById('hero-rotator');

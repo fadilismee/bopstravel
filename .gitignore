@@ -35,3 +35,7 @@ Thumbs.db
 /reff
 /user_inputs
 /tiketux-reference-assets
+/data/
+images/backup_old/
+tiketux-reference-assets-backup/
+process_assets.py
