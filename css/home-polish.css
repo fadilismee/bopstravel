@@ -559,7 +559,7 @@ div:has(> #right-slot) { gap: 0 clamp(32px, 4vw, 64px); padding-top: clamp(16px,
 }
 @media (prefers-reduced-motion: reduce) { .article-carousel .carousel__track { transition: none; } }
 
-/* 16. CTA closing "Pesan Bob Travel": teks rata tengah. */
+/* 16. CTA closing "Pesan Bop's Travel": teks rata tengah. */
 .cta-copy { text-align: center; align-items: center; }
 .cta-copy h2, .cta-copy p { text-align: center; }
 
@@ -575,7 +575,7 @@ div:has(> #right-slot) { gap: 0 clamp(32px, 4vw, 64px); padding-top: clamp(16px,
 @media (max-width: 1023px) { .fleet-page-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 639px) { .fleet-page-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
 
-/* 18. CTA "Pesan Bob Travel": markup + style sendiri (tidak tergantung
+/* 18. CTA "Pesan Bop's Travel": markup + style sendiri (tidak tergantung
    kelas arbitrary Tailwind yang tidak ada di CSS compiled). Box selalu
    di tengah halaman, isi rapi tengah. */
 .cta-section { display: block !important; width: 100% !important; max-width: none !important; margin: 64px 0 56px !important; padding: 0 !important; float: none !important; clear: both !important; box-sizing: border-box !important; }
@@ -1168,7 +1168,7 @@ html {
 }
 
 /* ==========================================================================
-   Expanded 4-Column Footer (Bob Travel x Armada Trans Java)
+   Expanded 4-Column Footer (Bop's Travel x Armada Trans Java)
    ========================================================================== */
 .footer {
     width: 100%;
@@ -1668,7 +1668,7 @@ html {
 }
 
 /* ==========================================================================
-   Interactive Demo Booking & Payment System (Bob Travel)
+   Interactive Demo Booking & Payment System (Bop's Travel)
    ========================================================================== */
 .bob-modal-overlay {
     position: fixed;
@@ -2746,7 +2746,7 @@ html {
 }
 
 /* ==========================================================================
-   Mobile Responsive Refinements (< 640px) - Bob Booking Modal & Components
+   Mobile Responsive Refinements (< 640px) - Bop's Booking Modal & Components
    Designed for native app feel, zero horizontal overflow, comfortable touch targets (min 44px)
    ========================================================================== */
 @media (max-width: 640px) {
