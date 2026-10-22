@@ -1,0 +1,61 @@
+/* ==========================================================================
+   Route cards — the home carousel showing Bop's Travel fares.
+   Self-contained so the layout never depends on arbitrary-value Tailwind
+   utilities that may be missing from the compiled bundle.
+   ========================================================================== */
+
+/* Origin / arrow / destination. A 3-column grid guarantees both city columns
+   start and end at the same x across every card, which a bare `flex` row of
+   block-level wrappers cannot do (the wrapper takes the full line width, so
+   the destination drifted based on how long its city name was). */
+.route-card-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    column-gap: 12px;
+    width: 100%;
+    margin-top: 0;
+}
+
+.route-card-stop {
+    min-width: 0;
+}
+
+.route-card-stop--to {
+    text-align: right;
+}
+
+.route-card-city {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: #1F2937;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.route-card-pool {
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.45;
+    color: #6B7280;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.route-card-row .pi-arrow-right {
+    font-size: 12px;
+    line-height: 1;
+    color: #9CA3AF;
+}
+
+/* Phones: keep the two columns readable but never let a long pool name
+   push the arrow off-centre. */
+@media (max-width: 400px) {
+    .route-card-row { column-gap: 8px; }
+    .route-card-city { font-size: 11.5px; }
+    .route-card-pool { font-size: 10.5px; }
+}
