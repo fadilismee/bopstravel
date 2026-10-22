@@ -6,9 +6,11 @@
 
     const photos = [
         // Real fleet photos first (the PIONEER OF SAFETY HiAce in daylight,
-        // the airport transfer at Terminal 2, the Premio, the pool);
-        // stock scenery only as a tail so the banner never looks repetitive.
+        // the fleet yard with two HiAce + a sedan, the airport transfer at
+        // Terminal 2, the Premio, the pool); stock scenery only as a tail so
+        // the banner never looks repetitive.
         '/images/hero-bops-safety.webp',
+        '/images/hero-bops-innova-haice.webp',
         '/images/hero-bops-airport.webp',
         '/images/hero-bops-premio.webp',
         '/images/hero-bops-pool.webp',
