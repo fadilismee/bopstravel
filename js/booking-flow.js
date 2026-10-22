@@ -1006,10 +1006,11 @@
     }
 
     // Expose Global API
-    window.BobBooking = {
+    window.BopsBooking = {
         open: openModal,
         close: closeModal
     };
+    window.BobBooking = window.BopsBooking; // Backward-compatibility alias
 
     // Auto-hook elements on page
     document.addEventListener('DOMContentLoaded', () => {

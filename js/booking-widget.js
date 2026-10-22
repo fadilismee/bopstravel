@@ -74,8 +74,9 @@
             const jam = time ? time.value.trim() : '07:30';
 
             // Launch interactive demo booking modal
-            if (window.BobBooking && typeof window.BobBooking.open === 'function') {
-                window.BobBooking.open({
+            const bookingEngine = window.BopsBooking || window.BobBooking;
+            if (bookingEngine && typeof bookingEngine.open === 'function') {
+                bookingEngine.open({
                     origin: orig,
                     destination: dest,
                     date: date,
