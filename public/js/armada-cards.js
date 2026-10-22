@@ -1,6 +1,6 @@
 // Auto-advancing vehicle card slider for the "Beragam Pilihan Armada" section.
 // 2 large cards visible; advances one card at a time, looping, using the minibus
-// photos from the Bob Travel fleet gallery.
+// photos from the Bop's Travel fleet gallery.
 (() => {
     const root = document.querySelector('.armada-cards');
     if (!root) return;

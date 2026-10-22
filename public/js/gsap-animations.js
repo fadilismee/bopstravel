@@ -1,5 +1,5 @@
 /**
- * Bob Travel - High-Performance & Non-Destructive GSAP Animation Suite
+ * Bop's Travel - High-Performance & Non-Destructive GSAP Animation Suite
  * Designed to work harmoniously with existing styles, carousels, and layout controllers.
  */
 (() => {
@@ -94,7 +94,7 @@
 
             // Headline & Subtitle smooth entrance (clears props immediately on completion)
             const h1 = heroBanner.querySelector('h1');
-            const h3 = heroBanner.querySelector('h3');
+            const h3 = heroBanner.querySelector('h3, .hero-subtitle');
             if (h1 && h3) {
                 const tl = gsap.timeline({
                     delay: 0.1,

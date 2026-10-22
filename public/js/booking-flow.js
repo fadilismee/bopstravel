@@ -1,5 +1,5 @@
 /**
- * Bob Travel - Interactive End-to-End Demo Booking & Payment System
+ * Bop's Travel - Interactive End-to-End Demo Booking & Payment System
  * Multi-step booking flow: Jadwal -> Kursi & Data -> Pembayaran Demo -> E-Tiket Digital
  */
 (() => {
@@ -14,13 +14,13 @@
         serviceType: 'Reguler',
         schedule: null,
         selectedSeats: ['2A'],
-        seatPrice: 250000,
+        seatPrice: 350000,
         passenger: {
             name: 'Budi Santoso',
             phone: '081228746964',
             email: 'budi.santoso@gmail.com',
-            pickup: 'Pool Bob Travel Cipinang Melayu (Pusat)',
-            dropoff: 'Pool Bob Travel Kerten Laweyan',
+            pickup: 'Pool Bop\'s Travel Cipinang Melayu (Pusat)',
+            dropoff: 'Pool Bop\'s Travel Kerten Laweyan',
             notes: ''
         },
         payment: {
@@ -29,7 +29,7 @@
             vaBank: 'BCA',
             vaNumber: '8271 0812 2874 6964'
         },
-        bookingCode: 'BOB-782914',
+        bookingCode: 'BOPS-782914',
         countdownSec: 900,
         timerInterval: null
     };
@@ -43,7 +43,7 @@
             vehicle: 'Toyota HiAce Premio Executive',
             class: 'Executive Class',
             availableSeats: 4,
-            price: 250000,
+            price: 350000,
             facilities: ['AC Dingin', 'Reclining Seat', 'USB Charger', 'Snack & Mineral', 'Tol Trans Jawa']
         },
         {
@@ -54,7 +54,7 @@
             vehicle: 'Toyota HiAce Commuter Luxury',
             class: 'Luxury Class',
             availableSeats: 6,
-            price: 230000,
+            price: 350000,
             facilities: ['Full AC', 'Leg Rest', 'Charger HP', 'Air Mineral', 'Tol Express']
         },
         {
@@ -65,7 +65,7 @@
             vehicle: 'Toyota HiAce Premio Luxury',
             class: 'Super Executive',
             availableSeats: 3,
-            price: 260000,
+            price: 380000,
             facilities: ['AC Dingin', 'Bantal & Selimut', 'Reclining Seat', 'Snack Malam', 'Tol Trans Jawa']
         },
         {
@@ -76,19 +76,24 @@
             vehicle: 'Toyota Innova Reborn Captain',
             class: 'Captain Seat (Privat)',
             availableSeats: 2,
-            price: 290000,
+            price: 400000,
             facilities: ['Captain Seat', 'Maks 5 Orang', 'Door-to-Door', 'Bantal & Selimut', 'Tol Penuh']
         }
     ];
 
     const poolLocations = {
-        'Jakarta': ['Pool Bob Travel Cipinang Melayu (Pusat)', 'Terminal Pulo Gebang', 'Cilandak Town Square', 'Alamat Sendiri (Door-to-Door)'],
-        'Solo': ['Pool Bob Travel Kerten Laweyan', 'Terminal Tirtonadi', 'Stasiun Solo Balapan', 'Alamat Sendiri (Door-to-Door)'],
-        'Bandung': ['Pool Bob Travel Pasteur', 'Pool Bob Travel Buah Batu', 'Alamat Sendiri (Door-to-Door)'],
-        'Surabaya': ['Pool Bob Travel Gubeng', 'Terminal Bungurasih (Purabaya)', 'Alamat Sendiri (Door-to-Door)'],
-        'Semarang': ['Pool Bob Travel Simpang Lima', 'Pool Bob Travel Krapyak', 'Alamat Sendiri (Door-to-Door)'],
-        'Yogyakarta': ['Pool Bob Travel Jombor', 'Pool Bob Travel Giwangan', 'Alamat Sendiri (Door-to-Door)'],
-        'default': ['Pool Resmi Keberangkatan', 'Terminal Pusat Kota', 'Alamat Sendiri (Door-to-Door)']
+        'Jakarta': ['Pool Bop\'s Travel Cipinang Melayu (Pusat)', 'Terminal Pulo Gebang', 'Cilandak Town Square', 'Alamat Sendiri (Door-to-Door)'],
+        'Solo': ['Pool Bop\'s Travel Kerten Laweyan', 'Terminal Tirtonadi', 'Stasiun Solo Balapan', 'Alamat Sendiri (Door-to-Door)'],
+        'Bandung': ['Pool Bop\'s Travel Pasteur', 'Pool Bop\'s Travel Buah Batu', 'Alamat Sendiri (Door-to-Door)'],
+        'Surabaya': ['Pool Bop\'s Travel Gubeng', 'Terminal Bungurasih (Purabaya)', 'Alamat Sendiri (Door-to-Door)'],
+        'Semarang': ['Pool Bop\'s Travel Simpang Lima', 'Pool Bop\'s Travel Krapyak', 'Alamat Sendiri (Door-to-Door)'],
+        'Yogyakarta': ['Pool Bop\'s Travel Jombor', 'Pool Bop\'s Travel Giwangan', 'Alamat Sendiri (Door-to-Door)'],
+        'Klaten': ['Pool Bop\'s Travel Klaten Kota', 'Terminal Ir. Soekarno', 'Alamat Sendiri (Door-to-Door)'],
+        'Magelang': ['Pool Bop\'s Travel Magelang Kota', 'Terminal Tidar', 'Alamat Sendiri (Door-to-Door)'],
+        'Purwokerto': ['Pool Bop\'s Travel Purwokerto', 'Terminal Bulupitu', 'Alamat Sendiri (Door-to-Door)'],
+        'Wonosobo': ['Pool Bop\'s Travel Wonosobo', 'Terminal Mendolo', 'Alamat Sendiri (Door-to-Door)'],
+        'Wonosari': ['Pool Bop\'s Travel Wonosari', 'Terminal Dhaksinarga', 'Alamat Sendiri (Door-to-Door)'],
+        'default': ['Pool Resmi Keberangkatan Bop\'s Travel', 'Terminal Pusat Kota', 'Alamat Sendiri (Door-to-Door)']
     };
 
     function formatRupiah(amount) {
@@ -114,9 +119,12 @@
         const overlay = document.createElement('div');
         overlay.id = 'bob-booking-modal';
         overlay.className = 'bob-modal-overlay';
+        overlay.style.display = 'none';
+        overlay.style.pointerEvents = 'none';
+        overlay.style.visibility = 'hidden';
         overlay.setAttribute('role', 'dialog');
         overlay.setAttribute('aria-modal', 'true');
-        overlay.setAttribute('aria-label', 'Pemesanan Tiket Bob Travel');
+        overlay.setAttribute('aria-label', 'Pemesanan Tiket Bop's Travel');
 
         overlay.innerHTML = `
         <div class="bob-modal-card">
@@ -127,7 +135,7 @@
                         <div class="bob-modal-logo-mark">B</div>
                         <div>
                             <h3 class="bob-modal-title">Pemesanan &amp; Pembayaran Tiket</h3>
-                            <p class="bob-modal-subtitle" id="bob-modal-subhead">Bob Travel • Armada Trans Java</p>
+                            <p class="bob-modal-subtitle" id="bob-modal-subhead">Bop's Travel • Door to Door &amp; Shuttle</p>
                         </div>
                     </div>
                     <button type="button" class="bob-modal-close" id="bob-modal-close-btn" aria-label="Tutup popup">✕</button>
@@ -296,7 +304,7 @@
                             <div class="bob-summary-title">Ringkasan Pemesanan</div>
                             <div class="bob-summary-row">
                                 <span>No. Pesanan:</span>
-                                <b id="bob-sum-code" style="color:#2563eb;font-family:monospace">BOB-782914</b>
+                                <b id="bob-sum-code" style="color:#2563eb;font-family:monospace">BOPS-782914</b>
                             </div>
                             <div class="bob-summary-row">
                                 <span>Rute Perjalanan:</span>
@@ -419,7 +427,7 @@
                                         <b>Petunjuk Transfer m-Banking:</b><br>
                                         1. Buka aplikasi m-Banking &amp; pilih menu Transfer &gt; Virtual Account.<br>
                                         2. Masukkan nomor VA di atas.<br>
-                                        3. Pastikan nama tertera <b>BOB TRAVEL - <span id="bob-va-pax-name">Budi Santoso</span></b>.<br>
+                                        3. Pastikan nama tertera <b>BOP'S TRAVEL - <span id="bob-va-pax-name">Budi Santoso</span></b>.<br>
                                         4. Masukkan PIN dan konfirmasi transfer.
                                     </div>
                                     <button type="button" class="bob-btn-pay-demo" id="bob-btn-pay-va">
@@ -461,10 +469,10 @@
                                 <div style="display:flex;flex-direction:column;gap:12px;text-align:left;font-size:13px;color:#475569;line-height:1.6">
                                     <div style="background:#eff6ff;padding:14px;border-radius:12px;border:1px solid #bfdbfe;color:#1e40af">
                                         <b>Bayar Langsung di Loket Pool:</b><br>
-                                        Anda dapat membayar tiket secara tunai (cash) atau debit di loket kasir Pool Bob Travel selambatnya <b>30 menit sebelum jam keberangkatan</b>.
+                                        Anda dapat membayar tiket secara tunai (cash) atau debit di loket kasir Pool Bop's Travel selambatnya <b>30 menit sebelum jam keberangkatan</b>.
                                     </div>
                                     <div>
-                                        📍 <b>Lokasi Pembayaran:</b> <span id="bob-cash-pool-loc">Pool Bob Travel Cipinang Melayu (Pusat)</span><br>
+                                        📍 <b>Lokasi Pembayaran:</b> <span id="bob-cash-pool-loc">Pool Bop's Travel Cipinang Melayu (Pusat)</span><br>
                                         🎫 Tiket akan langsung di-issued dan kursi Anda otomatis di-reserved.
                                     </div>
                                     <button type="button" class="bob-btn-pay-demo" id="bob-btn-pay-cash">
@@ -487,7 +495,7 @@
                             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
                         </div>
                         <h2 class="bob-success-title">Pembayaran Berhasil &amp; Tiket Terkonfirmasi!</h2>
-                        <p class="bob-success-sub">Terima kasih telah memesan di Bob Travel. Berikut adalah E-Tiket resmi Anda.</p>
+                        <p class="bob-success-sub">Terima kasih telah memesan di Bop's Travel. Berikut adalah E-Tiket resmi Anda.</p>
                     </div>
 
                     <!-- Digital E-Ticket Card -->
@@ -495,7 +503,7 @@
                         <div class="bob-ticket-head">
                             <div class="bob-ticket-brand">
                                 <span style="background:#f59e0b;padding:2px 8px;border-radius:4px;color:#fff;margin-right:6px">B</span>
-                                BOB TRAVEL • BOARDING PASS
+                                BOP'S TRAVEL • BOARDING PASS
                             </div>
                             <span class="bob-ticket-badge-paid" id="bob-ticket-status-badge">LUNAS / CONFIRMED</span>
                         </div>
@@ -504,7 +512,7 @@
                             <div class="bob-ticket-grid">
                                 <div class="bob-ticket-col">
                                     <small>KODE BOOKING</small>
-                                    <b id="bob-tkt-code" style="color:#2563eb;font-size:18px;font-family:monospace">BOB-782914</b>
+                                    <b id="bob-tkt-code" style="color:#2563eb;font-size:18px;font-family:monospace">BOPS-782914</b>
                                 </div>
                                 <div class="bob-ticket-col">
                                     <small>NAMA PENUMPANG</small>
@@ -545,7 +553,7 @@
                                 </div>
                                 <div style="text-align:right">
                                     <small style="font-size:10px;color:#94a3b8">TOTAL BAYAR</small>
-                                    <div id="bob-tkt-total" style="font-size:16px;font-weight:800;color:#0f172a">Rp 250.000</div>
+                                    <div id="bob-tkt-total" style="font-size:16px;font-weight:800;color:#0f172a">Rp 350.000</div>
                                 </div>
                             </div>
                         </div>
@@ -757,7 +765,7 @@
 
         if (nameInp && nameInp.value.trim()) state.passenger.name = nameInp.value.trim();
         if (phoneInp && phoneInp.value.trim()) state.passenger.phone = phoneInp.value.trim();
-        if (emailInp) state.passenger.email = emailInp.value.trim() || 'penumpang@bobtravel.id';
+        if (emailInp) state.passenger.email = emailInp.value.trim() || 'penumpang@bopstravel.id';
         if (pickupSel) state.passenger.pickup = pickupSel.value;
         if (dropoffSel) state.passenger.dropoff = dropoffSel.value;
         if (notesInp) state.passenger.notes = notesInp.value.trim();
@@ -768,7 +776,7 @@
         }
 
         // Generate Booking Code
-        state.bookingCode = 'BOB-' + Math.floor(100000 + Math.random() * 900000);
+        state.bookingCode = 'BOPS-' + Math.floor(100000 + Math.random() * 900000);
 
         // Populate Summary
         const total = state.seatPrice * state.selectedSeats.length;
@@ -826,7 +834,7 @@
         loader.innerHTML = `
             <div style="width:48px;height:48px;border:4px solid #e2e8f0;border-top-color:#2563eb;border-radius:50%;animation:bobSpin 0.8s linear infinite"></div>
             <div style="font-weight:800;font-size:16px;color:#0f172a">Memverifikasi Pembayaran...</div>
-            <div style="font-size:12px;color:#64748b">Menghubungi sistem bank &amp; menerbitkan E-Tiket Bob Travel</div>
+            <div style="font-size:12px;color:#64748b">Menghubungi sistem bank &amp; menerbitkan E-Tiket Bop's Travel</div>
             <style>@keyframes bobSpin { to { transform: rotate(360deg); } }</style>
         `;
 
@@ -953,7 +961,7 @@
 
         document.getElementById('bob-btn-finish-modal').addEventListener('click', () => {
             closeModal();
-            showToast('Pemesanan selesai! Selamat menikmati perjalanan bersama Bob Travel.');
+            showToast('Pemesanan selesai! Selamat menikmati perjalanan bersama Bop\'s Travel.');
         });
     }
 
@@ -978,6 +986,9 @@
         updateStepIndicator(1);
 
         const overlay = document.getElementById('bob-booking-modal');
+        overlay.style.display = 'flex';
+        overlay.style.pointerEvents = 'auto';
+        overlay.style.visibility = 'visible';
         overlay.classList.add('is-open');
         document.body.style.overflow = 'hidden';
     }
@@ -985,6 +996,9 @@
     function closeModal() {
         const overlay = document.getElementById('bob-booking-modal');
         if (overlay) {
+            overlay.style.display = 'none';
+            overlay.style.pointerEvents = 'none';
+            overlay.style.visibility = 'hidden';
             overlay.classList.remove('is-open');
             document.body.style.overflow = '';
         }
@@ -992,10 +1006,11 @@
     }
 
     // Expose Global API
-    window.BobBooking = {
+    window.BopsBooking = {
         open: openModal,
         close: closeModal
     };
+    window.BobBooking = window.BopsBooking; // Backward-compatibility alias
 
     // Auto-hook elements on page
     document.addEventListener('DOMContentLoaded', () => {

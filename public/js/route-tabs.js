@@ -42,7 +42,7 @@
         grid.replaceChildren();
         if (!list.length) {
             const note = document.createElement('p');
-            note.className = 'text-base text-[#71747D]';
+            note.className = 'text-base text-[#4B5563]';
             note.textContent = key === 'popular'
                 ? 'Belum ada rute populer. Pilih "Semua Rute" untuk melihat pilihan lengkap.'
                 : 'Belum ada rute aktif saat ini.';
