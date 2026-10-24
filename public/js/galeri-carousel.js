@@ -1,83 +1,57 @@
-// Galeri Kami Carousel Controller
+// Galeri Kami — Infinite marquee (kanan → kiri, loop seamless tanpa jeda)
+// Teknik: clone semua slide lalu geser track selembar setengahnya (50%) secara berulang.
 (() => {
     const initGalleryCarousel = () => {
         const carousel = document.querySelector('.galeri-carousel');
         if (!carousel) return;
 
         const track = carousel.querySelector('.galeri-track');
-        const slides = carousel.querySelectorAll('.galeri-slide');
-        const prevBtn = carousel.querySelector('.galeri-nav-prev');
-        const nextBtn = carousel.querySelector('.galeri-nav-next');
-        const dotsWrap = carousel.querySelector('.galeri-dots');
+        if (!track) return;
 
-        if (!track || slides.length === 0) return;
+        const slides = Array.from(track.querySelectorAll('.galeri-slide'));
+        if (slides.length === 0) return;
 
-        let currentIndex = 0;
-        const total = slides.length;
+        // Clone setiap slide agar akhir menyatu halus dengan awal (seamless loop)
+        slides.forEach((slide) => {
+            track.appendChild(slide.cloneNode(true));
+        });
 
-        // Create dots if not present
-        if (dotsWrap && dotsWrap.children.length === 0) {
-            for (let i = 0; i < total; i++) {
-                const dot = document.createElement('button');
-                dot.type = 'button';
-                dot.className = `galeri-dot ${i === 0 ? 'is-active' : ''}`;
-                dot.setAttribute('aria-label', `Foto ${i + 1}`);
-                dot.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
-                dot.addEventListener('click', () => goTo(i));
-                dotsWrap.appendChild(dot);
-            }
-        }
+        const originalCount = slides.length;
+        let step = 0;
+        let pos = 0;
+        let rafId = null;
+        let paused = false;
 
-        const updateDots = () => {
-            if (!dotsWrap) return;
-            const dots = dotsWrap.querySelectorAll('.galeri-dot');
-            dots.forEach((d, i) => {
-                const active = i === currentIndex;
-                d.classList.toggle('is-active', active);
-                d.setAttribute('aria-pressed', active ? 'true' : 'false');
-            });
-        };
-
-        const getScrollStep = () => {
+        const measure = () => {
             const first = slides[0];
-            return first ? first.offsetWidth + 16 : 280;
+            // gap-4 = 1rem (16px); gabungkan lebar slide + gap agar pergeseran selembar utuh
+            step = first ? first.offsetWidth + 16 : 296;
         };
 
-        const goTo = (index) => {
-            currentIndex = Math.max(0, Math.min(index, total - 1));
-            const step = getScrollStep();
-            track.scrollTo({
-                left: currentIndex * step,
-                behavior: 'smooth'
-            });
-            updateDots();
-        };
-
-        if (prevBtn) {
-            prevBtn.addEventListener('click', () => {
-                goTo(currentIndex - 1);
-            });
-        }
-
-        if (nextBtn) {
-            nextBtn.addEventListener('click', () => {
-                goTo(currentIndex + 1);
-            });
-        }
-
-        // Sync currentIndex on manual scroll
-        let scrollTimer = null;
-        track.addEventListener('scroll', () => {
-            clearTimeout(scrollTimer);
-            scrollTimer = setTimeout(() => {
-                const step = getScrollStep();
-                const newIdx = Math.round(track.scrollLeft / step);
-                if (newIdx !== currentIndex) {
-                    currentIndex = Math.max(0, Math.min(newIdx, total - 1));
-                    updateDots();
+        const loop = () => {
+            if (!paused) {
+                pos -= 0.35; // kecepatan pergeseran (px per frame)
+                if (pos <= -step * originalCount) {
+                    pos = 0; // reset ke awal — terlihat seamless karena slide duplikat identik
                 }
-            }, 80);
-        }, { passive: true });
+                track.style.transform = `translateX(${pos}px)`;
+            }
+            rafId = requestAnimationFrame(loop);
+        };
+
+        measure();
+        window.addEventListener('resize', measure, { passive: true });
+
+        track.style.willChange = 'transform';
+        track.style.display = 'flex';
+
+        loop();
+
+        // Optional: hentikan sementara saat interaksi (klik / kursor di atas) agar nyaman dilihat
+        carousel.addEventListener('mouseenter', () => { paused = true; }, { passive: true });
+        carousel.addEventListener('mouseleave', () => { paused = false; }, { passive: true });
+        track.addEventListener('pointerdown', () => { paused = true; }, { passive: true });
+        track.addEventListener('pointerup', () => { paused = false; }, { passive: true });
     };
 
     if (document.readyState === 'loading') {

@@ -206,7 +206,7 @@
         </div>
     </div>
     <div class="galeri-carousel relative">
-        <div class="galeri-track flex gap-4 overflow-x-auto pb-4 scroll-smooth snap-x snap-mandatory">
+        <div class="galeri-track flex gap-4 pb-4">
             <div class="galeri-slide flex-none w-[260px] md:w-[280px] snap-start rounded-2xl overflow-hidden border border-[#E5E7EB] bg-white shadow-sm hover:shadow-md transition-shadow group">
                 <div class="aspect-square w-full overflow-hidden bg-slate-100">
                     <img src="/images/galeri/1.webp" alt="Hiace Commuter Eksterior Bob Travel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" width="280" height="280">

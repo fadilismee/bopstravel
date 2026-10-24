@@ -63,7 +63,32 @@
       .bob-modal-overlay.is-open {
         display: flex !important;
         pointer-events: auto !important;
-        visibility: visible !important;
+      }
+    </style>
+
+    <style id="galeri-marquee-anim">
+      .marquee-content {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        gap: 16px !important;
+        width: max-content;
+      }
+      .marquee-slide { flex: 0 0 auto !important; }
+      .galeri-marquee { overflow: hidden !important; position: relative !important; }
+      .marquee-track--top .marquee-content {
+        animation: marquee-right 20s linear infinite;
+      }
+      .marquee-track--middle .marquee-content,
+      .marquee-track--bottom .marquee-content {
+        animation: marquee-left 20s linear infinite;
+      }
+      @keyframes marquee-left {
+        from { transform: translateX(0%); }
+        to { transform: translateX(-50%); }
+      }
+      @keyframes marquee-right {
+        from { transform: translateX(-50%); }
+        to { transform: translateX(0%); }
       }
     </style>
 </head>
