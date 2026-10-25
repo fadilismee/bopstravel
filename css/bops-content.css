@@ -168,6 +168,90 @@
     font-weight: 700;
 }
 
+.promo-carousel .promo-poster {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: 220px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 16px;
+    background: #1b2829;
+    color: #fff;
+    isolation: isolate;
+}
+
+.promo-carousel .promo-poster > img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    aspect-ratio: auto !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    z-index: -2;
+}
+
+.promo-carousel .promo-poster::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(90deg, rgba(13,25,28,.93) 0%, rgba(13,25,28,.7) 51%, rgba(13,25,28,.14) 100%);
+}
+
+.promo-poster__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+    padding: 20px 22px;
+    width: 100%;
+}
+
+.promo-poster__eyebrow {
+    color: #f9cf62;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .13em;
+}
+
+.promo-poster__content strong {
+    max-width: 76%;
+    font-size: clamp(23px, 2vw, 32px);
+    line-height: 1.08;
+    letter-spacing: -.035em;
+    text-wrap: balance;
+}
+
+.promo-poster__detail {
+    color: #f3f4f1;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.promo-poster__action {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 30px;
+    margin-top: 5px;
+    padding: 6px 11px;
+    border-radius: 999px;
+    background: #f8c64f;
+    color: #1c2523 !important;
+    font-size: 11px;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.promo-poster__action:hover,
+.promo-poster__action:focus-visible {
+    background: #fff0bd;
+    text-decoration: none;
+}
+
 @media (max-width: 640px) {
     .package-section .package-card-banner { height: 215px !important; }
     .bops-route-poster { min-height: 290px; }
@@ -175,6 +259,8 @@
         background: linear-gradient(0deg, rgba(12,27,29,.96), rgba(12,27,29,.63) 72%, rgba(12,27,29,.2));
     }
     .bops-route-poster__content strong { font-size: 29px; }
+    .promo-carousel .promo-poster { min-height: 215px; }
+    .promo-poster__content strong { max-width: 90%; font-size: 24px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
