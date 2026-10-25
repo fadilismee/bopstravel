@@ -1,25 +1,182 @@
-/* Konten Bop's Travel: poster layanan tetap memakai kartu dan tata letak lama. */
+/* Poster layanan memakai dokumentasi armada Bop's Travel dan teks HTML yang mudah diperbarui. */
 .package-section .package-card-banner {
-    background: #51422f !important;
+    height: 228px !important;
+    padding: 20px !important;
+    background: #262c2a !important;
+    isolation: isolate;
 }
 
 .package-section .package-card-banner > img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 0;
     opacity: 1 !important;
     filter: none !important;
     mix-blend-mode: normal !important;
-    object-position: center !important;
+    object-position: center 43% !important;
+    transform: scale(1.01);
+    transition: transform .5s ease;
+}
+
+.package-section .package-card:hover .package-card-banner > img {
+    transform: scale(1.055);
+}
+
+.package-section .package-card-banner--carter > img {
+    object-position: center 36% !important;
+}
+
+.package-section .package-card-banner--rute > img {
+    object-position: center 48% !important;
 }
 
 .package-section .package-card-banner > img + div {
-    background: linear-gradient(90deg, rgba(19, 27, 26, .76) 0%, rgba(19, 27, 26, .32) 65%, rgba(19, 27, 26, .12) 100%) !important;
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(13, 23, 23, .43) 0%, rgba(13, 23, 23, .06) 36%, rgba(13, 23, 23, .9) 100%) !important;
+}
+
+.package-section .package-card-banner > .relative {
+    position: relative !important;
+    z-index: 2;
+}
+
+.package-section .package-card-banner::after {
+    content: "";
+    position: absolute;
+    left: 20px;
+    bottom: 0;
+    z-index: 11;
+    width: 52px;
+    height: 4px;
+    border-radius: 3px 3px 0 0;
+    background: #f8c64f;
+}
+
+.package-section .package-card-banner h3 {
+    font-size: clamp(24px, 2vw, 29px) !important;
+    line-height: 1.05;
+    letter-spacing: -.025em;
+    margin-bottom: 5px;
 }
 
 .package-section .package-card-banner h3,
 .package-section .package-card-banner p {
     color: #fff !important;
-    text-shadow: 0 1px 5px rgba(0, 0, 0, .65);
+    text-shadow: 0 2px 9px rgba(0, 0, 0, .75);
 }
 
 .package-section .package-card-banner .text-blue-100 {
     color: #fff !important;
+}
+
+.package-section .package-card-banner p {
+    font-size: 12px !important;
+    line-height: 1.4;
+    max-width: 95%;
+}
+
+.package-section .package-card--featured {
+    border-color: #d8a333 !important;
+}
+
+.bops-route-poster {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: 310px;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,.2);
+    background: #1b2625;
+    box-shadow: 0 18px 40px rgba(0,0,0,.22);
+    isolation: isolate;
+}
+
+.bops-route-poster > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 46%;
+    z-index: -2;
+}
+
+.bops-route-poster::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(12,27,29,.94), rgba(12,27,29,.75) 52%, rgba(12,27,29,.18));
+    z-index: -1;
+}
+
+.bops-route-poster__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: clamp(20px, 3vw, 34px);
+    color: #fff;
+}
+
+.bops-route-poster__eyebrow {
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: #f6c94e;
+    color: #162422;
+    font-size: 10px;
+    line-height: 1.2;
+    letter-spacing: .13em;
+    font-weight: 900;
+}
+
+.bops-route-poster__content strong {
+    font-size: clamp(27px, 3vw, 39px);
+    line-height: 1.08;
+    letter-spacing: -.035em;
+    max-width: 480px;
+    text-wrap: balance;
+}
+
+.bops-route-poster__routes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    max-width: 510px;
+}
+
+.bops-route-poster__routes span {
+    border: 1px solid rgba(255,255,255,.48);
+    border-radius: 999px;
+    padding: 4px 9px;
+    background: rgba(14,25,24,.3);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.bops-route-poster__note {
+    color: #f9e5a7;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+@media (max-width: 640px) {
+    .package-section .package-card-banner { height: 215px !important; }
+    .bops-route-poster { min-height: 290px; }
+    .bops-route-poster::before {
+        background: linear-gradient(0deg, rgba(12,27,29,.96), rgba(12,27,29,.63) 72%, rgba(12,27,29,.2));
+    }
+    .bops-route-poster__content strong { font-size: 29px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .package-section .package-card-banner > img { transition: none; }
 }

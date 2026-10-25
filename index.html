@@ -12,7 +12,8 @@
     <!-- Consolidated Production Stylesheet -->
     <link rel="stylesheet" href="css/all.min.css?v=20261022_uifix">
     <link rel="stylesheet" href="css/route-cards.css?v=20261022_route">
-    <link rel="stylesheet" href="css/bops-content.css?v=20261025">
+    <link rel="stylesheet" href="css/bops-content.css?v=20261025_posters">
+    <link rel="stylesheet" href="css/pool-locations.css?v=20261025">
     <link rel="icon" href="images/brand-mark.svg" type="image/svg+xml">
     <!-- Critical Root Scroll & Touch Gesture Guarantee (Zero-latency, un-cached) -->
     <style id="scroll-guarantee">
@@ -113,8 +114,8 @@
         <div class="package-card flex flex-col justify-between rounded-[24px] border border-[#E5E7EB] bg-white overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
             <div>
                 <!-- Banner Visual Header -->
-                <div class="package-card-banner relative h-36 w-full overflow-hidden bg-gradient-to-br from-[#1e3a8a] via-[#2563EB] to-[#38bdf8] p-5 flex flex-col justify-between text-white">
-                    <img src="/images/bops-travel-reguler-poster.png" alt="Ilustrasi perjalanan travel reguler Bop's Travel" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+                <div class="package-card-banner package-card-banner--reguler relative h-36 w-full overflow-hidden bg-gradient-to-br from-[#1e3a8a] via-[#2563EB] to-[#38bdf8] p-5 flex flex-col justify-between text-white">
+                    <img src="/images/hero-bops-pool.webp" alt="Armada Hiace Bop's Travel di pool" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#0f172a]/80 via-transparent to-transparent"></div>
                     <div class="relative z-10 flex items-center justify-between">
                         <span class="inline-flex items-center gap-1 text-[10px] font-extrabold tracking-wider uppercase bg-amber-400 text-slate-900 px-2.5 py-1 rounded-full shadow">
@@ -125,7 +126,7 @@
                     </div>
                     <div class="relative z-10">
                         <h3 class="text-2xl font-extrabold text-white tracking-wide drop-shadow-sm">Travel Reguler</h3>
-                        <p class="text-xs text-blue-100 drop-shadow-sm">Perjalanan Nyaman Antarkota</p>
+                        <p class="text-xs text-blue-100 drop-shadow-sm">Dari dan menuju Jakarta · Jemput fleksibel</p>
                     </div>
                 </div>
 
@@ -172,11 +173,11 @@
         </div>
 
         <!-- Card 2: Carter (PRIVATE) -->
-        <div class="package-card flex flex-col justify-between rounded-[24px] border-2 border-[#2563EB] bg-white overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 relative">
+        <div class="package-card package-card--featured flex flex-col justify-between rounded-[24px] border-2 border-[#2563EB] bg-white overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 relative">
             <span class="absolute top-2 right-3 z-20 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow">Paling Fleksibel</span>
             <div>
                 <!-- Banner Visual Header -->
-                <div class="package-card-banner relative h-36 w-full overflow-hidden bg-gradient-to-br from-[#0b1f3a] via-[#1e3a8a] to-[#2563EB] p-5 flex flex-col justify-between text-white">
+                <div class="package-card-banner package-card-banner--carter relative h-36 w-full overflow-hidden bg-gradient-to-br from-[#0b1f3a] via-[#1e3a8a] to-[#2563EB] p-5 flex flex-col justify-between text-white">
                     <img src="/images/hero-bops-premio.webp" alt="Hiace Bop's Travel untuk carter" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#0b1f3a]/80 via-transparent to-transparent"></div>
                     <div class="relative z-10 flex items-center justify-between">
@@ -237,7 +238,7 @@
         <div class="package-card flex flex-col justify-between rounded-[24px] border border-[#E5E7EB] bg-white overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
             <div>
                 <!-- Banner Visual Header -->
-                <div class="package-card-banner relative h-36 w-full overflow-hidden bg-gradient-to-br from-[#1e3a8a] via-[#1d4ed8] to-[#0284c7] p-5 flex flex-col justify-between text-white">
+                <div class="package-card-banner package-card-banner--rute relative h-36 w-full overflow-hidden bg-gradient-to-br from-[#1e3a8a] via-[#1d4ed8] to-[#0284c7] p-5 flex flex-col justify-between text-white">
                     <img src="/images/hero-bops-safety.webp" alt="Armada Bop's Travel" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#0f172a]/80 via-transparent to-transparent"></div>
                     <div class="relative z-10 flex items-center justify-between">
@@ -249,7 +250,7 @@
                     </div>
                     <div class="relative z-10">
                         <h3 class="text-2xl font-extrabold text-white tracking-wide drop-shadow-sm">Rute &amp; Tarif</h3>
-                        <p class="text-xs text-blue-100 drop-shadow-sm">Informasi Perjalanan Antarkota</p>
+                        <p class="text-xs text-blue-100 drop-shadow-sm">Cek kota asal, tujuan, dan perkiraan tarif</p>
                     </div>
                 </div>
 
@@ -259,25 +260,25 @@
                             <span class="package-feature-icon">
                                 <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                             </span>
-                            <span class="font-medium">10 rute dari dan menuju Jakarta</span>
+                            <span class="font-medium">11 rute dari dan menuju Jakarta</span>
                         </li>
                         <li class="package-feature-item">
                             <span class="package-feature-icon">
                                 <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                             </span>
-                            <span class="font-medium">Surabaya–Jogja Rp250.000</span>
+                            <span class="font-medium">Magelang ↔ Jakarta</span>
                         </li>
                         <li class="package-feature-item">
                             <span class="package-feature-icon">
                                 <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                             </span>
-                            <span class="font-medium">Wonosari–Bandung Rp350.000</span>
+                            <span class="font-medium">Semarang ↔ Jakarta</span>
                         </li>
                         <li class="package-feature-item">
                             <span class="package-feature-icon">
                                 <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                             </span>
-                            <span class="font-medium">Jakarta–Surabaya Rp550.000</span>
+                            <span class="font-medium">Gunungkidul ↔ Jakarta</span>
                         </li>
                     </ul>
                 </div>
@@ -307,13 +308,21 @@
                     <span>⭐ OFFICIAL TRAVEL &amp; TOUR</span>
                 </div>
                 <h3 class="text-2xl md:text-3xl font-extrabold tracking-tight text-white mb-2">
-                    BOP'S TRAVEL &bull; Trans Java Executive
+                    Perjalanan antarkota, lebih mudah ditanyakan
                 </h3>
                 <p class="text-slate-300 text-sm md:text-base leading-relaxed mb-6">
-                    Melayani Travel Antarkota Door to Door, Pariwisata, Carter Drop, dan Titipan Paket Kilat Solo &bull; Semarang &bull; Jogja &bull; Jakarta PP dengan armada HiAce &amp; Innova terbaik.
+                    Pilih travel reguler atau carter Hiace. Admin Bop's Travel membantu memastikan jadwal, tarif, dan titik penjemputan lewat WhatsApp.
                 </p>
-                <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black/40 mb-6">
-                    <img src="/images/bops-official-banner.webp" alt="Spanduk Resmi Bop's Travel" class="w-full h-auto object-cover hover:scale-[1.02] transition-transform duration-300" loading="lazy" width="1120" height="371">
+                <div class="bops-route-poster mb-6">
+                    <img src="/images/hero-bops-pool.webp" alt="Dua armada Hiace Bop's Travel di pool" loading="lazy">
+                    <div class="bops-route-poster__content">
+                        <span class="bops-route-poster__eyebrow">BOP'S TRAVEL · ANTARKOTA JAWA</span>
+                        <strong>Berangkat nyaman,<br>tujuan lebih dekat.</strong>
+                        <div class="bops-route-poster__routes" aria-label="Contoh kota yang dilayani">
+                            <span>Wonosari</span><span>Jogja</span><span>Magelang</span><span>Semarang</span><span>Jakarta</span>
+                        </div>
+                        <span class="bops-route-poster__note">Travel reguler &amp; carter Hiace · konsultasi via WhatsApp</span>
+                    </div>
                 </div>
             </div>
             <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-white/10">
@@ -835,13 +844,13 @@
 
         <!-- Kolom 4: Alamat Pool & Cabang (Interactive Google Maps Embed) -->
         <div class="pool-col">
-            <div class="footer-col-title">Pool &amp; Cabang Resmi</div>
+            <div class="footer-col-title">Kantor &amp; Titik Temu</div>
 
             <!-- Toggle Tabs Pool -->
             <div class="pool-tabs" role="tablist" aria-label="Pilih Lokasi Pool">
-                <button type="button" class="pool-tab-btn is-active" data-pool="jakarta" role="tab" aria-selected="true">Jakarta (Pusat)</button>
-                <button type="button" class="pool-tab-btn" data-pool="jogja" role="tab" aria-selected="false">Yogyakarta</button>
-                <button type="button" class="pool-tab-btn" data-pool="bali" role="tab" aria-selected="false">Bali</button>
+                <button type="button" class="pool-tab-btn is-active" data-pool="jakarta" role="tab" aria-selected="true">Jakarta</button>
+                <button type="button" class="pool-tab-btn" data-pool="jogja" role="tab" aria-selected="false">Jogja</button>
+                <button type="button" class="pool-tab-btn" data-pool="wonosari" role="tab" aria-selected="false">Wonosari</button>
             </div>
 
             <!-- Google Maps Responsive Embed -->
@@ -849,11 +858,11 @@
                 <iframe
                     id="pool-map-iframe"
                     class="pool-map-frame"
-                    src="https://maps.google.com/maps?q=Jl.+Inspeksi+Tarum+Barat+Cipinang+Melayu+Jakarta+Timur&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+                    src="https://maps.google.com/maps?q=Muji+Jaya+Trans+Jl+Alhusaini+Kampung+Prigi+Tangerang+Selatan&amp;z=17&amp;output=embed"
                     loading="lazy"
                     allowfullscreen=""
                     referrerpolicy="no-referrer-when-downgrade"
-                    title="Peta Lokasi Pool Bop's Travel">
+                    title="Peta Muji Jaya Trans · Area Jakarta">
                 </iframe>
             </div>
 
@@ -862,13 +871,13 @@
                 <div class="pool-detail-head">
                     <span class="pool-detail-title">
                         <svg style="width:14px;height:14px;color:#60a5fa;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 21s-6-5.2-6-10a6 6 0 0 1 12 0c0 4.8-6 10-6 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
-                        <span id="pool-detail-title-text">DKI Jakarta (Pusat)</span>
+                        <span id="pool-detail-title-text">Muji Jaya Trans · Area Jakarta</span>
                     </span>
-                    <span class="pool-detail-tag" id="pool-detail-badge">PUSAT</span>
+                    <span class="pool-detail-tag" id="pool-detail-badge">TITIK TEMU</span>
                 </div>
-                <p class="pool-detail-address" id="pool-detail-address">Jl. Inspeksi Tarum Barat Cipinang Melayu, Kec. Makasar, Kota Jakarta Timur</p>
-                <a href="https://maps.google.com/?q=Jl.+Inspeksi+Tarum+Barat+Cipinang+Melayu+Jakarta+Timur" target="_blank" rel="noopener" class="pool-direct-link" id="pool-direct-link">
-                    Buka Petunjuk Arah Google Maps ↗
+                <p class="pool-detail-address" id="pool-detail-address">Jl. Alhusaini, Kampung Prigi, RT.003/RW.010, Tangerang Selatan, Banten 15228</p>
+                <a href="https://maps.google.com/maps/search/Muji%20Jaya%20Trans/@-6.28642453,106.68335078,17z?hl=en" target="_blank" rel="noopener" class="pool-direct-link" id="pool-direct-link">
+                    Buka Lokasi di Google Maps ↗
                 </a>
             </div>
         </div>
@@ -906,7 +915,7 @@
 <script src="js/nav-search-popup.js?v=20261020_pillfix" defer></script>
 <script src="js/mobile-nav.js?v=20261022_uifix" defer></script>
 <script src="js/faq-accordion.js?v=20261020_pillfix" defer></script>
-<script src="js/pool-map-toggle.js?v=20261020_pillfix" defer></script>
+<script src="js/pool-map-toggle.js?v=20261025_locations" defer></script>
 <script src="js/promo-carousel.js?v=20261020_pillfix" defer></script>
 <script src="js/diskon-carousel.js?v=20261020_pillfix" defer></script>
 <script src="js/galeri-carousel.js?v=20261020_pillfix" defer></script>

@@ -11,6 +11,7 @@
     <!-- Consolidated Production Stylesheet -->
     <link rel="stylesheet" href="css/all.min.css?v=20261022_uifix">
     <link rel="stylesheet" href="css/route-cards.css?v=20261022_route">
+    <link rel="stylesheet" href="css/pool-locations.css?v=20261025">
     <link rel="icon" href="images/brand-mark.svg" type="image/svg+xml">
     <!-- Critical Root Scroll & Touch Gesture Guarantee (Zero-latency, un-cached) -->
     <style id="scroll-guarantee">
@@ -464,13 +465,13 @@
 
         <!-- Kolom 4: Alamat Pool & Cabang (Interactive Google Maps Embed) -->
         <div class="pool-col">
-            <div class="footer-col-title">Pool &amp; Cabang Resmi</div>
+            <div class="footer-col-title">Kantor &amp; Titik Temu</div>
 
             <!-- Toggle Tabs Pool -->
             <div class="pool-tabs" role="tablist" aria-label="Pilih Lokasi Pool">
-                <button type="button" class="pool-tab-btn is-active" data-pool="jakarta" role="tab" aria-selected="true">Jakarta (Pusat)</button>
-                <button type="button" class="pool-tab-btn" data-pool="jogja" role="tab" aria-selected="false">Yogyakarta</button>
-                <button type="button" class="pool-tab-btn" data-pool="bali" role="tab" aria-selected="false">Bali</button>
+                <button type="button" class="pool-tab-btn is-active" data-pool="jakarta" role="tab" aria-selected="true">Jakarta</button>
+                <button type="button" class="pool-tab-btn" data-pool="jogja" role="tab" aria-selected="false">Jogja</button>
+                <button type="button" class="pool-tab-btn" data-pool="wonosari" role="tab" aria-selected="false">Wonosari</button>
             </div>
 
             <!-- Google Maps Responsive Embed -->
@@ -478,11 +479,11 @@
                 <iframe
                     id="pool-map-iframe"
                     class="pool-map-frame"
-                    src="https://maps.google.com/maps?q=Jl.+Inspeksi+Tarum+Barat+Cipinang+Melayu+Jakarta+Timur&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+                    src="https://maps.google.com/maps?q=Muji+Jaya+Trans+Jl+Alhusaini+Kampung+Prigi+Tangerang+Selatan&amp;z=17&amp;output=embed"
                     loading="lazy"
                     allowfullscreen=""
                     referrerpolicy="no-referrer-when-downgrade"
-                    title="Peta Lokasi Pool Bop's Travel">
+                    title="Peta Muji Jaya Trans · Area Jakarta">
                 </iframe>
             </div>
 
@@ -491,13 +492,13 @@
                 <div class="pool-detail-head">
                     <span class="pool-detail-title">
                         <svg style="width:14px;height:14px;color:#60a5fa;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 21s-6-5.2-6-10a6 6 0 0 1 12 0c0 4.8-6 10-6 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
-                        <span id="pool-detail-title-text">DKI Jakarta (Pusat)</span>
+                        <span id="pool-detail-title-text">Muji Jaya Trans · Area Jakarta</span>
                     </span>
-                    <span class="pool-detail-tag" id="pool-detail-badge">PUSAT</span>
+                    <span class="pool-detail-tag" id="pool-detail-badge">TITIK TEMU</span>
                 </div>
-                <p class="pool-detail-address" id="pool-detail-address">Jl. Inspeksi Tarum Barat Cipinang Melayu, Kec. Makasar, Kota Jakarta Timur</p>
-                <a href="https://maps.google.com/?q=Jl.+Inspeksi+Tarum+Barat+Cipinang+Melayu+Jakarta+Timur" target="_blank" rel="noopener" class="pool-direct-link" id="pool-direct-link">
-                    Buka Petunjuk Arah Google Maps ↗
+                <p class="pool-detail-address" id="pool-detail-address">Jl. Alhusaini, Kampung Prigi, RT.003/RW.010, Tangerang Selatan, Banten 15228</p>
+                <a href="https://maps.google.com/maps/search/Muji%20Jaya%20Trans/@-6.28642453,106.68335078,17z?hl=en" target="_blank" rel="noopener" class="pool-direct-link" id="pool-direct-link">
+                    Buka Lokasi di Google Maps ↗
                 </a>
             </div>
         </div>
@@ -534,7 +535,7 @@
 <script src="js/nav-search-popup.js?v=20261020_pillfix" defer></script>
 <script src="js/mobile-nav.js?v=20261022_uifix" defer></script>
 <script src="js/faq-accordion.js?v=20261020_pillfix" defer></script>
-<script src="js/pool-map-toggle.js?v=20261020_pillfix" defer></script>
+<script src="js/pool-map-toggle.js?v=20261025_locations" defer></script>
 <script src="js/scroll-reveal.js?v=20261020_pillfix" defer></script>
 <script>
   (() => {

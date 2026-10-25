@@ -1,0 +1,15 @@
+/* Shared location tabs on the three static pages. */
+.pool-tab-btn {
+    min-height: 34px;
+    font-size: 11px;
+}
+
+.pool-tab-btn.is-active,
+.pool-tab-btn.is-active:hover {
+    color: #1e3a8a !important;
+    background: #fff !important;
+}
+
+.pool-detail-title {
+    line-height: 1.35;
+}

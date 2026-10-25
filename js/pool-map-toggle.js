@@ -2,25 +2,25 @@
 (() => {
     const poolData = {
         jakarta: {
-            title: 'DKI Jakarta (Pusat)',
-            badge: 'PUSAT',
-            address: 'Jl. Inspeksi Tarum Barat Cipinang Melayu, Kec. Makasar, Kota Jakarta Timur',
-            mapUrl: 'https://maps.google.com/maps?q=Jl.+Inspeksi+Tarum+Barat+Cipinang+Melayu+Jakarta+Timur&t=&z=14&ie=UTF8&iwloc=&output=embed',
-            directUrl: 'https://maps.google.com/?q=Jl.+Inspeksi+Tarum+Barat+Cipinang+Melayu+Jakarta+Timur'
+            title: 'Muji Jaya Trans · Area Jakarta',
+            badge: 'TITIK TEMU',
+            address: 'Jl. Alhusaini, Kampung Prigi, RT.003/RW.010, Tangerang Selatan, Banten 15228',
+            mapUrl: 'https://maps.google.com/maps?q=Muji+Jaya+Trans+Jl+Alhusaini+Kampung+Prigi+Tangerang+Selatan&z=17&output=embed',
+            directUrl: 'https://maps.google.com/maps/search/Muji%20Jaya%20Trans/@-6.28642453,106.68335078,17z?hl=en'
         },
         jogja: {
-            title: 'DI Yogyakarta (Cabang)',
-            badge: 'CABANG',
-            address: 'Jl. Jombor Lor, Sinduadi, Kec. Mlati, Kabupaten Sleman, D.I. Yogyakarta',
-            mapUrl: 'https://maps.google.com/maps?q=Jl.+Jombor+Lor+Sinduadi+Sleman+Yogyakarta&t=&z=14&ie=UTF8&iwloc=&output=embed',
-            directUrl: 'https://maps.google.com/?q=Jl.+Jombor+Lor+Sinduadi+Sleman+Yogyakarta'
+            title: 'Cahaya Tour & Travel · Jogja',
+            badge: 'TITIK TEMU',
+            address: 'Pintu masuk Terminal Jombor, Jombor Lor, Sinduadi, Kec. Mlati, Sleman, D.I. Yogyakarta',
+            mapUrl: 'https://maps.google.com/maps?q=Cahaya+Tour+%26+Travel+Terminal+Jombor+Sinduadi+Sleman&z=17&output=embed',
+            directUrl: 'https://maps.google.com/maps/search/Cahaya%20Tour%20%26%20Travel%20Terminal%20Jombor/'
         },
-        bali: {
-            title: 'Bali Denpasar (Cabang)',
-            badge: 'CABANG',
-            address: 'Jl. Gn. Kalimutu X, Pemecutan Klod, Kec. Denpasar Barat, Kota Denpasar, Bali',
-            mapUrl: 'https://maps.google.com/maps?q=Jl.+Gunung+Kalimutu+X+Denpasar+Bali&t=&z=14&ie=UTF8&iwloc=&output=embed',
-            directUrl: 'https://maps.google.com/?q=Jl.+Gunung+Kalimutu+X+Denpasar+Bali'
+        wonosari: {
+            title: "Kantor Bop's Travel · Wonosari",
+            badge: 'KANTOR',
+            address: 'Jl. Dr. Wahidin Sudiro Husodo, Gunungkidul, D.I. Yogyakarta 55811',
+            mapUrl: 'https://maps.google.com/maps?q=Bop%27s+Travel+Jl+Dr+Wahidin+Sudiro+Husodo+Gunungkidul&z=17&output=embed',
+            directUrl: 'https://maps.google.com/maps/search/Bop%27s%20Travel/@-7.97880499,110.60830071,17z?hl=en'
         }
     };
 
@@ -41,11 +41,16 @@
                 if (!data) return;
 
                 // Update active tab styles
-                tabs.forEach(t => t.classList.remove('is-active'));
+                tabs.forEach(t => {
+                    t.classList.remove('is-active');
+                    t.setAttribute('aria-selected', 'false');
+                });
                 tab.classList.add('is-active');
+                tab.setAttribute('aria-selected', 'true');
 
                 // Update map iframe src
                 iframe.src = data.mapUrl;
+                iframe.title = `Peta ${data.title}`;
 
                 // Update text details
                 if (titleEl) titleEl.textContent = data.title;
