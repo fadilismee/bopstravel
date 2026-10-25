@@ -181,6 +181,33 @@
     isolation: isolate;
 }
 
+.promo-carousel:not(.fare-carousel) .promo-poster { min-height: 220px; }
+
+.fare-section {
+    margin-top: 36px;
+    margin-bottom: 40px;
+    padding: clamp(18px, 3vw, 32px);
+    border: 1px solid #e7e8e3;
+    border-radius: 24px;
+    background: #f9faf7;
+}
+
+.fare-section__intro { margin-bottom: 20px; }
+.fare-section__intro > span {
+    color: #9a6618;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: .12em;
+}
+.fare-section__intro h2 {
+    margin: 5px 0 7px;
+    color: #1f2937;
+    font-size: clamp(25px, 3vw, 36px);
+    font-weight: 800;
+    line-height: 1.1;
+}
+.fare-section__intro p { margin: 0; color: #58636c; line-height: 1.5; }
+.fare-section .fare-carousel { max-width: 900px; margin-inline: auto; }
 
 .promo-carousel .promo-poster > img {
     position: absolute !important;
@@ -281,8 +308,10 @@
     }
     .bops-route-poster__content strong { font-size: 29px; }
     .promo-carousel .promo-poster { min-height: 260px; }
+    .promo-carousel:not(.fare-carousel) .promo-poster { min-height: 215px; }
     .promo-poster__content strong { max-width: 100%; font-size: 26px; }
     .promo-poster__price { font-size: 31px; }
+    .fare-section { padding: 16px; border-radius: 20px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,8 +1,6 @@
-// Auto-advancing carousel for the "Promo & Info Perjalanan" section.
-// 3 slides, ordered, with prev/next arrows and dots — matching the reference UI.
+// Auto-advancing carousels for the service posters and fare examples.
 (() => {
-    const root = document.querySelector('.promo-carousel');
-    if (!root) return;
+    document.querySelectorAll('.promo-carousel').forEach((root) => {
     const track = root.querySelector('.carousel__track');
     const slides = root.querySelectorAll('.carousel__slide');
     if (!track || slides.length < 2) return;
@@ -73,4 +71,5 @@
 
     paint();
     start();
+    });
 })();
