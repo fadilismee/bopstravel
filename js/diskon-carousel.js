@@ -1,5 +1,5 @@
-// Swipeable + auto-advancing "Sedang Diskon" voucher carousel.
-// Desktop: 3-up; HP: 1 voucher per layar. Bisa digeser manual (drag mouse +
+// Swipeable + auto-advancing route highlight carousel.
+// Desktop: 3-up; HP: 1 card per layar. Bisa digeser manual (drag mouse +
 // sapuan jari) DAN bergeser otomatis tiap 4,5 detik (jeda saat disentuh,
 // di-hover, atau difokus; hormati prefers-reduced-motion).
 (() => {
@@ -7,6 +7,25 @@
     if (!section) return;
     const track = section.querySelector('.carousel__track');
     if (!track) return;
+    const routes = [
+        { city: 'Wonosari', detail: 'Gunungkidul', photo: '/images/armada/9.webp' },
+        { city: 'Magelang', detail: 'Jawa Tengah', photo: '/images/armada/8.webp' },
+        { city: 'Semarang', detail: 'Jawa Tengah', photo: '/images/armada/11.webp' },
+    ];
+    section.querySelectorAll('.carousel__slide').forEach((slide, i) => {
+        const route = routes[i];
+        if (!route) return;
+        const message = encodeURIComponent(`Halo Bop's Travel, saya ingin tanya perjalanan ${route.city} - Jakarta.`);
+        slide.innerHTML = `<article class="route-highlight">
+            <img class="route-highlight__photo" src="${route.photo}" alt="Armada Bop's Travel" loading="lazy">
+            <div class="route-highlight__body">
+                <span class="route-highlight__eyebrow">BOP'S TRAVEL · RUTE DUA ARAH</span>
+                <strong>${route.city} ↔ Jakarta</strong>
+                <span>${route.detail} · Jadwal dan tarif via WhatsApp</span>
+                <a href="https://wa.me/6281904221015?text=${message}" target="_blank" rel="noopener">Tanya rute <span aria-hidden="true">↗</span></a>
+            </div>
+        </article>`;
+    });
     // Clone-loop: section hanya punya 3 slide sementara desktop tampil 3-up
     // (maxIndex 0 -> auto tidak bisa gerak, T1 selalu ""). Gandakan isi track
     // agar slides.length > visible, lalu bungkus 0..max seperti biasa.
