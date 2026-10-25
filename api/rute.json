@@ -57,6 +57,14 @@
       "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Semarang%20-%20Jakarta."
     },
     {
+      "origin": "Magelang",
+      "destination": "Jakarta",
+      "slug": "magelang-jakarta",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Magelang%20-%20Jakarta."
+    },
+    {
       "origin": "Kudus",
       "destination": "Jakarta",
       "slug": "kudus-jakarta",
@@ -193,6 +201,22 @@
       "service_type": "Travel reguler",
       "price_from": null,
       "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Jakarta%20-%20Semarang."
+    },
+    {
+      "origin": "Magelang",
+      "destination": "Jakarta",
+      "slug": "magelang-jakarta",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Magelang%20-%20Jakarta."
+    },
+    {
+      "origin": "Jakarta",
+      "destination": "Magelang",
+      "slug": "jakarta-magelang",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Jakarta%20-%20Magelang."
     },
     {
       "origin": "Kudus",

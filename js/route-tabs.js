@@ -10,7 +10,7 @@
 
     const ACTIVE = ['bg-[#2563EB]', 'font-bold', 'text-[#FAFAFA]'];
     const IDLE = ['bg-[#FAFAFA]', 'font-medium', 'text-[#1F2937]'];
-    const cities = ['Purworejo', 'Kebumen', 'Jogja', 'Klaten', 'Solo', 'Boyolali', 'Semarang', 'Kudus', 'Kendal', 'Gunungkidul'];
+    const cities = ['Purworejo', 'Kebumen', 'Jogja', 'Klaten', 'Solo', 'Boyolali', 'Semarang', 'Magelang', 'Kudus', 'Kendal', 'Gunungkidul'];
     const makeRoute = (origin, destination) => ({
         origin,
         destination,
