@@ -1,6 +1,5 @@
-// Real "Rute Populer / Semua Rute" tabs on the home page.
-// "Rute Populer" shows only routes flagged is_featured; "Semua Rute" shows every active route.
-// Data comes from /api/rute. If the request fails, the static list stays untouched.
+// Rute aktif Bop's Travel untuk tab "Rute Populer / Semua Rute" di beranda.
+// Data ditanam di halaman agar tetap tampil pada hosting statis tanpa server.
 (() => {
     const slot = document.getElementById('list-slot');
     const grid = slot ? slot.querySelector('#slots') : null;
@@ -11,6 +10,16 @@
 
     const ACTIVE = ['bg-[#2563EB]', 'font-bold', 'text-[#FAFAFA]'];
     const IDLE = ['bg-[#FAFAFA]', 'font-medium', 'text-[#1F2937]'];
+    const cities = ['Purworejo', 'Kebumen', 'Jogja', 'Klaten', 'Solo', 'Boyolali', 'Semarang', 'Kudus', 'Kendal', 'Gunungkidul'];
+    const makeRoute = (origin, destination) => ({
+        origin,
+        destination,
+        url: `https://wa.me/6281904221015?text=${encodeURIComponent(`Halo Bop's Travel, saya ingin menanyakan rute ${origin} - ${destination}.`)}`,
+    });
+    const routes = {
+        popular: cities.map((city) => makeRoute(city, 'Jakarta')),
+        all: cities.flatMap((city) => [makeRoute(city, 'Jakarta'), makeRoute('Jakarta', city)]),
+    };
 
     const paint = (active) => {
         tabs.forEach((btn) => {
@@ -25,6 +34,8 @@
         const wrap = document.createElement('div');
         const link = document.createElement('a');
         link.href = route.url;
+        link.target = '_blank';
+        link.rel = 'noopener';
         link.className = 'flex items-center gap-2 text-base leading-[100%] text-[#1F2937] hover:underline hover:text-primary';
         const icon = document.createElement('img');
         icon.src = PIN;
@@ -52,26 +63,11 @@
         list.forEach((route) => grid.append(item(route)));
     };
 
-    let cache = null;
     const show = (key) => {
         paint(key);
-        if (cache) {
-            render(cache[key] || [], key);
-            return;
-        }
-        fetch('/api/rute', { headers: { Accept: 'application/json' } })
-            .then((res) => {
-                if (!res.ok) throw new Error(`status ${res.status}`);
-                return res.json();
-            })
-            .then((data) => {
-                cache = data;
-                render(data[key] || [], key);
-            })
-            .catch(() => { /* keep the static list on failure */ });
+        render(routes[key] || [], key);
     };
 
-    // Load the real popular routes immediately so "Rute Populer" never shows the full list.
     show('popular');
     tabs.forEach((btn) => btn.addEventListener('click', () => show(btn.getAttribute('data-route-tab'))));
 })();

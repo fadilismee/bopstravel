@@ -1,35 +1,246 @@
 {
   "popular": [
-    {"origin": "Jakarta", "destination": "Solo", "slug": "jakarta-solo", "service_type": "Travel antarkota", "price_from": 350000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Solo"},
-    {"origin": "Jakarta", "destination": "Yogyakarta", "slug": "jakarta-yogyakarta", "service_type": "Travel antarkota", "price_from": 350000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Yogyakarta"},
-    {"origin": "Jakarta", "destination": "Semarang", "slug": "jakarta-semarang", "service_type": "Travel antarkota", "price_from": 350000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Semarang"},
-    {"origin": "Jakarta", "destination": "Klaten", "slug": "jakarta-klaten", "service_type": "Travel antarkota", "price_from": 350000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Klaten"},
-    {"origin": "Jakarta", "destination": "Magelang", "slug": "jakarta-magelang", "service_type": "Travel antarkota", "price_from": 350000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Magelang"},
-    {"origin": "Bandung", "destination": "Yogyakarta", "slug": "bandung-yogyakarta", "service_type": "Travel antarkota", "price_from": 350000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Bandung%20-%20Yogyakarta"},
-    {"origin": "Jakarta", "destination": "Purwokerto", "slug": "jakarta-purwokerto", "service_type": "Travel antarkota", "price_from": 350000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Purwokerto"}
+    {
+      "origin": "Purworejo",
+      "destination": "Jakarta",
+      "slug": "purworejo-jakarta",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Purworejo%20-%20Jakarta."
+    },
+    {
+      "origin": "Kebumen",
+      "destination": "Jakarta",
+      "slug": "kebumen-jakarta",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Kebumen%20-%20Jakarta."
+    },
+    {
+      "origin": "Jogja",
+      "destination": "Jakarta",
+      "slug": "jogja-jakarta",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Jogja%20-%20Jakarta."
+    },
+    {
+      "origin": "Klaten",
+      "destination": "Jakarta",
+      "slug": "klaten-jakarta",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Klaten%20-%20Jakarta."
+    },
+    {
+      "origin": "Solo",
+      "destination": "Jakarta",
+      "slug": "solo-jakarta",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Solo%20-%20Jakarta."
+    },
+    {
+      "origin": "Boyolali",
+      "destination": "Jakarta",
+      "slug": "boyolali-jakarta",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Boyolali%20-%20Jakarta."
+    },
+    {
+      "origin": "Semarang",
+      "destination": "Jakarta",
+      "slug": "semarang-jakarta",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Semarang%20-%20Jakarta."
+    },
+    {
+      "origin": "Kudus",
+      "destination": "Jakarta",
+      "slug": "kudus-jakarta",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Kudus%20-%20Jakarta."
+    },
+    {
+      "origin": "Kendal",
+      "destination": "Jakarta",
+      "slug": "kendal-jakarta",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Kendal%20-%20Jakarta."
+    },
+    {
+      "origin": "Gunungkidul",
+      "destination": "Jakarta",
+      "slug": "gunungkidul-jakarta",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Gunungkidul%20-%20Jakarta."
+    }
   ],
   "all": [
-    {"origin": "Jakarta", "destination": "Solo", "slug": "jakarta-solo", "service_type": "Travel antarkota", "price_from": 350000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Solo"},
-    {"origin": "Solo", "destination": "Jakarta", "slug": "solo-jakarta", "service_type": "Travel antarkota", "price_from": 350000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Solo%20-%20Jakarta"},
-    {"origin": "Jakarta", "destination": "Semarang", "slug": "jakarta-semarang", "service_type": "Travel antarkota", "price_from": 350000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Semarang"},
-    {"origin": "Semarang", "destination": "Jakarta", "slug": "semarang-jakarta", "service_type": "Travel antarkota", "price_from": 350000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Semarang%20-%20Jakarta"},
-    {"origin": "Jakarta", "destination": "Yogyakarta", "slug": "jakarta-yogyakarta", "service_type": "Travel antarkota", "price_from": 350000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Yogyakarta"},
-    {"origin": "Yogyakarta", "destination": "Jakarta", "slug": "yogyakarta-jakarta", "service_type": "Travel antarkota", "price_from": 350000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Yogyakarta%20-%20Jakarta"},
-    {"origin": "Jakarta", "destination": "Klaten", "slug": "jakarta-klaten", "service_type": "Travel antarkota", "price_from": 350000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Klaten"},
-    {"origin": "Klaten", "destination": "Jakarta", "slug": "klaten-jakarta", "service_type": "Travel antarkota", "price_from": 350000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Klaten%20-%20Jakarta"},
-    {"origin": "Jakarta", "destination": "Wonosari", "slug": "jakarta-wonosari", "service_type": "Travel antarkota", "price_from": 350000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Wonosari"},
-    {"origin": "Wonosari", "destination": "Jakarta", "slug": "wonosari-jakarta", "service_type": "Travel antarkota", "price_from": 350000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Wonosari%20-%20Jakarta"},
-    {"origin": "Jakarta", "destination": "Magelang", "slug": "jakarta-magelang", "service_type": "Travel antarkota", "price_from": 350000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Magelang"},
-    {"origin": "Magelang", "destination": "Jakarta", "slug": "magelang-jakarta", "service_type": "Travel antarkota", "price_from": 350000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Magelang%20-%20Jakarta"},
-    {"origin": "Jakarta", "destination": "Purwokerto", "slug": "jakarta-purwokerto", "service_type": "Travel antarkota", "price_from": 350000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Purwokerto"},
-    {"origin": "Purwokerto", "destination": "Jakarta", "slug": "purwokerto-jakarta", "service_type": "Travel antarkota", "price_from": 350000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Purwokerto%20-%20Jakarta"},
-    {"origin": "Jakarta", "destination": "Wonosobo", "slug": "jakarta-wonosobo", "service_type": "Travel antarkota", "price_from": 350000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Wonosobo"},
-    {"origin": "Wonosobo", "destination": "Jakarta", "slug": "wonosobo-jakarta", "service_type": "Travel antarkota", "price_from": 350000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Wonosobo%20-%20Jakarta"},
-    {"origin": "Bandung", "destination": "Yogyakarta", "slug": "bandung-yogyakarta", "service_type": "Travel antarkota", "price_from": 350000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Bandung%20-%20Yogyakarta"},
-    {"origin": "Yogyakarta", "destination": "Bandung", "slug": "yogyakarta-bandung", "service_type": "Travel antarkota", "price_from": 350000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Yogyakarta%20-%20Bandung"},
-    {"origin": "Bandung", "destination": "Wonosari", "slug": "bandung-wonosari", "service_type": "Travel antarkota", "price_from": 350000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Bandung%20-%20Wonosari"},
-    {"origin": "Wonosari", "destination": "Bandung", "slug": "wonosari-bandung", "service_type": "Travel antarkota", "price_from": 350000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Wonosari%20-%20Bandung"},
-    {"origin": "Jakarta", "destination": "Bandung", "slug": "jakarta-bandung", "service_type": "Travel antarkota", "price_from": 150000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Bandung"},
-    {"origin": "Jakarta", "destination": "Surabaya", "slug": "jakarta-surabaya", "service_type": "Travel antarkota", "price_from": 450000, "url": "https://wa.me/6281228746964?text=Halo%20Bop's%20Travel,%20saya%20ingin%20tanya%20rute%20Jakarta%20-%20Surabaya"}
+    {
+      "origin": "Purworejo",
+      "destination": "Jakarta",
+      "slug": "purworejo-jakarta",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Purworejo%20-%20Jakarta."
+    },
+    {
+      "origin": "Jakarta",
+      "destination": "Purworejo",
+      "slug": "jakarta-purworejo",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Jakarta%20-%20Purworejo."
+    },
+    {
+      "origin": "Kebumen",
+      "destination": "Jakarta",
+      "slug": "kebumen-jakarta",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Kebumen%20-%20Jakarta."
+    },
+    {
+      "origin": "Jakarta",
+      "destination": "Kebumen",
+      "slug": "jakarta-kebumen",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Jakarta%20-%20Kebumen."
+    },
+    {
+      "origin": "Jogja",
+      "destination": "Jakarta",
+      "slug": "jogja-jakarta",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Jogja%20-%20Jakarta."
+    },
+    {
+      "origin": "Jakarta",
+      "destination": "Jogja",
+      "slug": "jakarta-jogja",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Jakarta%20-%20Jogja."
+    },
+    {
+      "origin": "Klaten",
+      "destination": "Jakarta",
+      "slug": "klaten-jakarta",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Klaten%20-%20Jakarta."
+    },
+    {
+      "origin": "Jakarta",
+      "destination": "Klaten",
+      "slug": "jakarta-klaten",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Jakarta%20-%20Klaten."
+    },
+    {
+      "origin": "Solo",
+      "destination": "Jakarta",
+      "slug": "solo-jakarta",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Solo%20-%20Jakarta."
+    },
+    {
+      "origin": "Jakarta",
+      "destination": "Solo",
+      "slug": "jakarta-solo",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Jakarta%20-%20Solo."
+    },
+    {
+      "origin": "Boyolali",
+      "destination": "Jakarta",
+      "slug": "boyolali-jakarta",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Boyolali%20-%20Jakarta."
+    },
+    {
+      "origin": "Jakarta",
+      "destination": "Boyolali",
+      "slug": "jakarta-boyolali",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Jakarta%20-%20Boyolali."
+    },
+    {
+      "origin": "Semarang",
+      "destination": "Jakarta",
+      "slug": "semarang-jakarta",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Semarang%20-%20Jakarta."
+    },
+    {
+      "origin": "Jakarta",
+      "destination": "Semarang",
+      "slug": "jakarta-semarang",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Jakarta%20-%20Semarang."
+    },
+    {
+      "origin": "Kudus",
+      "destination": "Jakarta",
+      "slug": "kudus-jakarta",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Kudus%20-%20Jakarta."
+    },
+    {
+      "origin": "Jakarta",
+      "destination": "Kudus",
+      "slug": "jakarta-kudus",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Jakarta%20-%20Kudus."
+    },
+    {
+      "origin": "Kendal",
+      "destination": "Jakarta",
+      "slug": "kendal-jakarta",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Kendal%20-%20Jakarta."
+    },
+    {
+      "origin": "Jakarta",
+      "destination": "Kendal",
+      "slug": "jakarta-kendal",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Jakarta%20-%20Kendal."
+    },
+    {
+      "origin": "Gunungkidul",
+      "destination": "Jakarta",
+      "slug": "gunungkidul-jakarta",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Gunungkidul%20-%20Jakarta."
+    },
+    {
+      "origin": "Jakarta",
+      "destination": "Gunungkidul",
+      "slug": "jakarta-gunungkidul",
+      "service_type": "Travel reguler",
+      "price_from": null,
+      "url": "https://wa.me/6281904221015?text=Halo%20Bop's%20Travel%2C%20saya%20ingin%20menanyakan%20rute%20Jakarta%20-%20Gunungkidul."
+    }
   ]
 }

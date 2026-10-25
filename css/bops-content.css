@@ -1,0 +1,25 @@
+/* Konten Bop's Travel: poster layanan tetap memakai kartu dan tata letak lama. */
+.package-section .package-card-banner {
+    background: #51422f !important;
+}
+
+.package-section .package-card-banner > img {
+    opacity: 1 !important;
+    filter: none !important;
+    mix-blend-mode: normal !important;
+    object-position: center !important;
+}
+
+.package-section .package-card-banner > img + div {
+    background: linear-gradient(90deg, rgba(19, 27, 26, .76) 0%, rgba(19, 27, 26, .32) 65%, rgba(19, 27, 26, .12) 100%) !important;
+}
+
+.package-section .package-card-banner h3,
+.package-section .package-card-banner p {
+    color: #fff !important;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, .65);
+}
+
+.package-section .package-card-banner .text-blue-100 {
+    color: #fff !important;
+}
