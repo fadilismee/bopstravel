@@ -1,0 +1,286 @@
+/* Beranda mengikuti alur poster referensi: banner, sambutan, layanan, armada. */
+.home-page { background: #f7f9fc; }
+.home-travel-strip {
+  min-height: 34px;
+  padding: 7px 14px;
+  background: #0862ae;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .025em;
+}
+.home-page .topbar {
+  position: relative !important;
+  inset: auto !important;
+  transform: none !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100% !important;
+  min-height: 70px !important;
+  margin: 0 !important;
+  padding: 9px clamp(16px, 4vw, 50px) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+  box-shadow: 0 3px 12px #12233a12 !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  box-sizing: border-box !important;
+  z-index: 60;
+}
+.home-page .topbar.is-hidden { visibility: visible !important; opacity: 1 !important; transform: none !important; }
+
+.bops-intro { overflow: hidden; background: #f7f9fc; }
+.bops-intro__poster {
+  position: relative;
+  min-height: 330px;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+  padding: clamp(28px, 5vw, 56px) clamp(22px, 6vw, 78px);
+  isolation: isolate;
+  color: #fff;
+  background: linear-gradient(118deg, #00aeea 0%, #0784d1 55%, #0753a1 100%);
+}
+.bops-intro__poster::before,
+.bops-intro__poster::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+.bops-intro__poster::before {
+  width: 57%;
+  height: 150%;
+  top: -26%;
+  right: -11%;
+  transform: rotate(26deg);
+  background: linear-gradient(150deg, #20c5f0, #0561bc 72%);
+  opacity: .72;
+}
+.bops-intro__poster::after {
+  inset: auto 0 0;
+  height: 42%;
+  background: linear-gradient(0deg, #052e62b8, transparent);
+}
+.bops-intro__poster-copy { width: min(56%, 640px); position: relative; z-index: 2; }
+.bops-intro__brand {
+  display: inline-block;
+  margin-bottom: 11px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 950;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.bops-intro__poster h1 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(32px, 4vw, 58px);
+  font-weight: 950;
+  line-height: 1.02;
+  letter-spacing: -.045em;
+  text-wrap: balance;
+  text-shadow: 0 2px 12px #00336645;
+}
+.bops-intro__poster-copy p {
+  margin: 12px 0 0;
+  color: #f4fbff;
+  font-size: clamp(15px, 1.6vw, 20px);
+  font-weight: 750;
+}
+.bops-intro__route {
+  position: absolute;
+  left: clamp(22px, 6vw, 78px);
+  bottom: 17px;
+  z-index: 3;
+  max-width: 55%;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+.bops-intro__photos {
+  position: absolute;
+  z-index: 1;
+  right: clamp(18px, 7vw, 100px);
+  bottom: 40px;
+  display: flex;
+  align-items: center;
+  padding-left: 22px;
+}
+.bops-intro__photos img {
+  width: clamp(78px, 13vw, 160px);
+  aspect-ratio: 1;
+  margin-left: -20px;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 8px 22px #002f5945;
+}
+.bops-intro__photos img:nth-child(2) { transform: translateY(-30px); }
+.bops-intro__photos img:nth-child(3) { transform: translateY(7px); }
+
+.bops-intro__welcome {
+  margin: 22px 16px 15px;
+  color: #073d79;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 750;
+}
+.bops-intro__brand-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: min(620px, calc(100% - 44px));
+  min-height: 48px;
+  margin: 0 auto 16px;
+  padding: 10px 18px;
+  border-radius: 3px;
+  background: #00a9df;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 850;
+  text-decoration: none;
+}
+.bops-intro__brand-link:hover { background: #008fca; }
+.bops-service-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: min(620px, calc(100% - 44px));
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #e7ebf1;
+  background: #ededed;
+}
+.bops-service-tabs a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  min-height: 94px;
+  color: #59677a;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: .025em;
+}
+.bops-service-tabs a:first-child { border-right: 1px solid #fff; }
+.bops-service-tabs a:last-child { background: #09265d; color: #fff; }
+.bops-service-tabs a:focus-visible,
+.bops-intro__brand-link:focus-visible { outline: 3px solid #ffbb36; outline-offset: 3px; }
+.bops-service-tabs__icon {
+  display: grid;
+  width: 31px;
+  height: 31px;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  color: #00a6dd;
+}
+.bops-service-tabs svg { width: 16px; height: 16px; }
+
+.bops-intro__showcase {
+  position: relative;
+  min-height: 360px;
+  width: min(1100px, calc(100% - 44px));
+  margin: clamp(56px, 9vw, 108px) auto 46px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #08265e;
+  color: #fff;
+  isolation: isolate;
+}
+.bops-intro__showcase::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, #071e45f2 0%, #092759dd 45%, #09275928 100%);
+}
+.bops-intro__showcase-photo {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #e6f2f8;
+}
+.bops-intro__showcase-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 58% center;
+}
+.bops-intro__showcase-copy {
+  position: relative;
+  z-index: 2;
+  width: min(58%, 600px);
+  padding: clamp(28px, 5vw, 60px);
+}
+.bops-intro__showcase-copy > span {
+  color: #ffca50;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .16em;
+}
+.bops-intro__showcase-copy h2 {
+  margin: 9px 0 10px;
+  color: #fff;
+  font-size: clamp(28px, 3.6vw, 46px);
+  font-weight: 950;
+  line-height: 1.06;
+  letter-spacing: -.04em;
+  text-wrap: balance;
+}
+.bops-intro__showcase-copy p {
+  max-width: 360px;
+  margin: 0;
+  color: #f3f8ff;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.bops-intro__showcase-copy a {
+  display: inline-flex;
+  margin-top: 20px;
+  padding: 11px 17px;
+  border-radius: 999px;
+  background: #ffca50;
+  color: #14253a;
+  font-size: 14px;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+@media (max-width: 700px) {
+  .home-travel-strip { min-height: 33px; padding-block: 7px; font-size: 11px; }
+  .home-page .topbar { min-height: 66px !important; padding: 7px 10px 7px 14px !important; gap: 7px !important; }
+  .bops-intro__poster { min-height: 245px; padding: 25px 19px; }
+  .bops-intro__poster-copy { width: 75%; }
+  .bops-intro__brand { margin-bottom: 8px; font-size: 11px; }
+  .bops-intro__poster h1 { max-width: 270px; font-size: clamp(29px, 8vw, 37px); }
+  .bops-intro__poster-copy p { margin-top: 8px; font-size: 14px; }
+  .bops-intro__route { left: 19px; bottom: 11px; max-width: 43%; font-size: 10px; }
+  .bops-intro__photos { right: 12px; bottom: 39px; padding-left: 14px; }
+  .bops-intro__photos img { width: clamp(64px, 19vw, 82px); margin-left: -14px; border-width: 3px; }
+  .bops-intro__photos img:nth-child(2) { transform: translateY(-22px); }
+  .bops-intro__photos img:nth-child(3) { transform: translateY(5px); }
+  .bops-intro__welcome { margin: 18px 12px 13px; font-size: 15px; }
+  .bops-intro__brand-link { width: calc(100% - 36px); min-height: 45px; margin-bottom: 14px; font-size: 15px; }
+  .bops-service-tabs { width: calc(100% - 36px); }
+  .bops-service-tabs a { min-height: 82px; font-size: 12px; }
+  .bops-intro__showcase { width: calc(100% - 32px); min-height: 350px; margin: 48px auto 34px; border-radius: 16px; }
+  .bops-intro__showcase::before { background: linear-gradient(90deg, #071e45f2 0%, #092759c9 57%, #0927593d 100%); }
+  .bops-intro__showcase-copy { width: 80%; padding: 24px 18px; }
+  .bops-intro__showcase-copy > span { font-size: 9px; }
+  .bops-intro__showcase-copy h2 { max-width: 265px; font-size: 30px; }
+  .bops-intro__showcase-copy p { max-width: 235px; font-size: 14px; }
+  .bops-intro__showcase-copy a { margin-top: 13px; padding: 9px 14px; font-size: 13px; }
+}

@@ -1,0 +1,4 @@
+/* Latar CTA bersama memakai varian foto yang lebih ringan. */
+.cta-banner::before {
+  background-image: url('/images/hero-bops-safety-lite.webp');
+}
